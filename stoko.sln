@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stoko", "stoko\stoko.csproj", "{D23608BD-686B-4666-B7EA-82D1B037B462}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stoko_db_BLL", "stoko_db_BLL\stoko_db_BLL.csproj", "{BD307F33-264A-46C3-B67D-0BBE03312308}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D23608BD-686B-4666-B7EA-82D1B037B462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D23608BD-686B-4666-B7EA-82D1B037B462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D23608BD-686B-4666-B7EA-82D1B037B462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D23608BD-686B-4666-B7EA-82D1B037B462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD307F33-264A-46C3-B67D-0BBE03312308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD307F33-264A-46C3-B67D-0BBE03312308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD307F33-264A-46C3-B67D-0BBE03312308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD307F33-264A-46C3-B67D-0BBE03312308}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FAFFFFCD-AD6B-48AE-BCB7-DBECD2BCF420}
+	EndGlobalSection
+EndGlobal
