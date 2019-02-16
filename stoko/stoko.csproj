@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -93,6 +94,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-Thin.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-ThinItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-Black.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-BlackItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-Bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-BoldItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-Italic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-Light.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-LightItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-Medium.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Roboto-MediumItalic.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon %281%29.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
