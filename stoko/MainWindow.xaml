@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:stoko"
         mc:Ignorable="d"
         Title="Stoko" Height="450" Width="800" FontFamily="/stoko;component/Resources/#Roboto">
-    <Grid>
-        
+    <Grid Cursor="None">
+        <StatusBar Height="20" Margin="0,0,0,0" VerticalAlignment="Bottom">
+            <ListBoxItem x:Name="msgStatut" Content="Status: Ok" Width="auto" Padding="0,0,0,0" FontSize="10"/>
+        </StatusBar>
     </Grid>
 </Window>
