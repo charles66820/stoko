@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,7 +21,25 @@ namespace stoko {
     /// </summary>
     public partial class MainWindow : Window {
         public MainWindow() {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+            setLanguageDictionary();
             InitializeComponent();
+        }
+
+        private void setLanguageDictionary() {
+            ResourceDictionary resDict = new ResourceDictionary();
+            switch (Thread.CurrentThread.CurrentCulture.ToString()) {
+                case "en-US":
+                    resDict.Source = new Uri("..\\Resources\\StringResources.en-US.xaml", UriKind.Relative);
+                    break;
+                case "fr-FR":
+                    resDict.Source = new Uri("..\\Resources\\StringResources.fr-FR.xaml", UriKind.Relative);
+                    break;
+                default:
+                    resDict.Source = new Uri("..\\Resources\\StringResources.en-US.xaml", UriKind.Relative);
+                    break;
+            }
+            this.Resources.MergedDictionaries.Add(resDict);
         }
     }
 }
