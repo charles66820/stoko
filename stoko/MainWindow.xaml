@@ -58,7 +58,7 @@
             </TabControl>
         </Grid>
         <StatusBar Height="20" Margin="0,0,-0.4,0" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}">
-            <ListBoxItem x:Name="msgStatut" Content="Status: Ok" Width="auto" Padding="0,0,0,0" FontSize="10" Foreground="{DynamicResource MaterialDesignBody}"/>
+            <Label x:Name="msgStatut" Content="Status: Ok" Width="auto" Padding="0,0,0,0" FontSize="10" Foreground="{DynamicResource MaterialDesignBody}"/>
         </StatusBar>
     </Grid>
 </Window>
