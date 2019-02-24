@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:stoko.Assets.Styles">
+                    xmlns:local="clr-namespace:stoko">
 
     <Style x:Key="MaterialDesignSeparator" TargetType="{x:Type Separator}">
         <Setter Property="Background" Value="{DynamicResource MaterialDesignSelection}"/>
