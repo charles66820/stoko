@@ -30,13 +30,13 @@ namespace stoko {
             ResourceDictionary resDict = new ResourceDictionary();
             switch (Thread.CurrentThread.CurrentCulture.ToString()) {
                 case "en-US":
-                    resDict.Source = new Uri("..\\Resources\\StringResources.en-US.xaml", UriKind.Relative);
+                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
                     break;
                 case "fr-FR":
-                    resDict.Source = new Uri("..\\Resources\\StringResources.fr-FR.xaml", UriKind.Relative);
+                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.fr-FR.xaml", UriKind.Relative);
                     break;
                 default:
-                    resDict.Source = new Uri("..\\Resources\\StringResources.en-US.xaml", UriKind.Relative);
+                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
                     break;
             }
             this.Resources.MergedDictionaries.Add(resDict);

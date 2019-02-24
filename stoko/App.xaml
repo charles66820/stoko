@@ -6,9 +6,25 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/StringResources.en-US.xaml" />
-                <ResourceDictionary Source="Resources/StringResources.fr-FR.xaml" />
+                <!-- lang resources -->
+                <ResourceDictionary Source="Assets/langs/StringResources.fr-FR.xaml" />
+                <ResourceDictionary Source="Assets/langs/StringResources.en-US.xaml" />
+
+                <!-- lang resources -->
+                <ResourceDictionary Source="Assets/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Assets/Styles/Shadows.xaml" />
+                <ResourceDictionary Source="Assets/Styles/Buttons.xaml" />
+                <ResourceDictionary Source="Assets/Styles/Texts.xaml" />
+                <ResourceDictionary Source="Assets/Styles/Menu.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
+            <SolidColorBrush x:Key="MaterialDesignLightForeground" Color="#DD000000"/>
+            <SolidColorBrush x:Key="MaterialDesignDarkBackground" Color="#FF303030"/>
+            <SolidColorBrush x:Key="MaterialDesignDarkForeground" Color="#FFFAFAFA"/>
+            <SolidColorBrush x:Key="MaterialDesignDarkSeparatorBackground" Color="#1F000000" />
+            <SolidColorBrush x:Key="MaterialDesignLightSeparatorBackground" Color="#1FFFFFFF" />
+       
         </ResourceDictionary>
     </Application.Resources>
 </Application>

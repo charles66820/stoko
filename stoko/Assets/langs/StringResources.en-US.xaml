@@ -1,5 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!-- menu home -->
+    <system:String x:Key="mHome">Home</system:String>
+    <system:String x:Key="setting">Settings</system:String>
     <system:String x:Key="close">Close</system:String>
+
+    <!-- menu help -->
+    <system:String x:Key="mHelp">Help</system:String>
+    <system:String x:Key="about">About stoko</system:String>
 </ResourceDictionary>

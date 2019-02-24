@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:stoko"
         xmlns:RuntimeBinder="clr-namespace:Microsoft.CSharp.RuntimeBinder;assembly=Microsoft.CSharp" x:Class="stoko.MainWindow"
         mc:Ignorable="d"
-        Title="Stoko" Height="450" Width="800" FontFamily="/stoko;component/Resources/#Roboto">
+        Title="Stoko" Height="450" Width="800" FontFamily="/stoko;component/Resources/#Roboto" MinWidth="760" MinHeight="400" Background="{DynamicResource MaterialDesignPaper}">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu Height="15" VerticalAlignment="Top" Margin="0,0,-0.4,0" RenderTransformOrigin="0.5,0.5" FontFamily="/stoko;component/Resources/#Roboto">
+        <Menu Height="20" VerticalAlignment="Top" Margin="0,0,-0.4,0" RenderTransformOrigin="0.5,0.5" FontFamily="/stoko;component/Resources/#Roboto" Style="{DynamicResource MaterialDesignMenu}" Background="{DynamicResource MaterialDesignBackground}">
             <Menu.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -20,12 +21,32 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Menu.RenderTransform>
-            <MenuItem Header="Files">
-                <ComboBoxItem Content="{DynamicResource close}"/>
+            <MenuItem Header="{DynamicResource mHome}" Template="{DynamicResource SubMenuItemControlTemplate}">
+                <MenuItem Header="{DynamicResource setting}"/>
+                <Separator Style="{DynamicResource MaterialDesignSeparator}"/>
+                <MenuItem Header="{DynamicResource close}"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource mHelp}" Template="{DynamicResource SubMenuItemControlTemplate}" >
+                <MenuItem Header="{DynamicResource about}"/>
             </MenuItem>
         </Menu>
-        <StatusBar Height="20" Margin="0,0,-0.4,0" VerticalAlignment="Bottom" Background="#FFF0F0F0">
-            <ListBoxItem x:Name="msgStatut" Content="Status: Ok" Width="auto" Padding="0,0,0,0" FontSize="10"/>
+        <Grid Margin="0,20,-0.4,0">
+            <Button Style="{StaticResource ButtonStyle}"  Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,3.5,3.5,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="Black" ToolTip="{DynamicResource setting}" Cursor="Hand">
+                <Button.Background>
+                    <ImageBrush ImageSource="Assets/icons/baseline_more_vert_black_18dp.png"/>
+                </Button.Background>
+            </Button>
+            <TabControl Margin="0,3,0,0" MinWidth="722" MinHeight="342">
+                <TabItem Header="TabItem">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+                <TabItem Header="TabItem">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <StatusBar Height="20" Margin="0,0,-0.4,0" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}">
+            <ListBoxItem x:Name="msgStatut" Content="Status: Ok" Width="auto" Padding="0,0,0,0" FontSize="10" Foreground="{DynamicResource MaterialDesignBody}"/>
         </StatusBar>
     </Grid>
 </Window>
