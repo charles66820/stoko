@@ -20,6 +20,7 @@ namespace stoko {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+
         public MainWindow() {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
             setLanguageDictionary();
@@ -40,6 +41,14 @@ namespace stoko {
                     break;
             }
             this.Resources.MergedDictionaries.Add(resDict);
+        }
+
+        private void Button_GotFocus(object sender, RoutedEventArgs e) {
+            popMenu.Visibility = Visibility.Visible;
+        }
+
+        private void Button_LostFocus(object sender, RoutedEventArgs e) {
+            popMenu.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -34,25 +34,63 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource MaterialDesignFlatToggleButton}"  Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,4,3.6,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="Black" ToolTip="{DynamicResource setting}" Cursor="Hand">
+            <Button Style="{StaticResource MaterialDesignFlatToggleButton}" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,4,3.6,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="Black" ToolTip="{DynamicResource setting}" Cursor="Hand" Focusable="True" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/icons/baseline_more_vert_black_18dp.png"/>
                 </Button.Background>
             </Button>
-            <TabControl Margin="0,3,-0.4,0" MinWidth="722" MinHeight="342" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
+            <StackPanel 
+                Margin="0,22,4,0" 
+                VerticalAlignment="Top" 
+                Panel.ZIndex="1" 
+                Background="Transparent" 
+                HorizontalAlignment="Right" 
+                ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                Visibility="Hidden"
+                x:Name="popMenu">
+                <Border x:Name="SubMenuBorder"
+                        Background="{DynamicResource MaterialDesignPaper}"
+                        Effect="{DynamicResource MaterialDesignShadowDepth1}"
+                        CornerRadius="2">
+                    <Border Background="Transparent">
+                        <StackPanel>
+                            <Button 
+                                Content="add"
+                                VerticalAlignment="Top"
+                                Style="{DynamicResource MaterialDesignFlatButton}" 
+                                Foreground="{DynamicResource MaterialDesignBody}"
+                                FontFamily="/stoko;component/Resources/#Roboto"/>
+                            <Button 
+                                Content="{StaticResource setting}"
+                                VerticalAlignment="Top"
+                                Style="{DynamicResource MaterialDesignFlatButton}" 
+                                Foreground="{DynamicResource MaterialDesignBody}"
+                                FontFamily="/stoko;component/Resources/#Roboto"/>
+
+                        </StackPanel>
+                    </Border>
+                </Border>
+            </StackPanel>
+            <TabControl Margin="0,3,-0.4,20" MinWidth="722" MinHeight="320" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
                 <TabItem Header="TabItem" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <Label Content="Label" HorizontalAlignment="Left" Margin="339,37,0,0" VerticalAlignment="Top" Height="25" Width="79"/>
                         <Button Content="Button" HorizontalAlignment="Left" Margin="168,132,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatAccentButton}"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="178,181,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatButton}"/>
+                        <Button Content="Button" HorizontalAlignment="Left" Margin="178,181,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="{DynamicResource MaterialDesignBody}"/>
                         <Button Content="Button" HorizontalAlignment="Left" Margin="178,224,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedLightButton}"/>
                         <Button Content="Button" HorizontalAlignment="Left" Margin="343,224,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedDarkButton}"/>
                         <Button Content="Button" HorizontalAlignment="Left" Margin="466,175,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedButton}"/>
                         <Button Content="Button" HorizontalAlignment="Left" Margin="583,175,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedAccentButton}"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="557,264,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatButton}"/>
+                        <Button Content="Button" HorizontalAlignment="Left" Margin="557,264,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="{DynamicResource MaterialDesignBody}"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="TabItem" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
+                <TabItem Header="{DynamicResource tMaterial}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
+                    <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
+                </TabItem>
+                <TabItem Header="{DynamicResource tClient}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
+                    <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
+                </TabItem>
+                <TabItem Header="{DynamicResource tMaterial}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
                 </TabItem>
             </TabControl>

@@ -9,4 +9,9 @@
     <!-- menu help -->
     <system:String x:Key="mHelp">Help</system:String>
     <system:String x:Key="about">About stoko</system:String>
+
+    <!-- tabs -->
+    <system:String x:Key="tClient">Clients</system:String>
+    <system:String x:Key="tOrder">Orders</system:String>
+    <system:String x:Key="tMaterial">Materials</system:String>
 </ResourceDictionary>
