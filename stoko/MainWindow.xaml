@@ -31,17 +31,20 @@
             </MenuItem>
         </Menu>
         <Grid Margin="0,20,-0.4,0">
-            <Button Style="{StaticResource ButtonStyle}"  Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,3.5,3.5,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="Black" ToolTip="{DynamicResource setting}" Cursor="Hand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource ButtonStyle}"  Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,4,3.6,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="Black" ToolTip="{DynamicResource setting}" Cursor="Hand">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/icons/baseline_more_vert_black_18dp.png"/>
                 </Button.Background>
             </Button>
-            <TabControl Margin="0,3,0,0" MinWidth="722" MinHeight="342">
-                <TabItem Header="TabItem">
-                    <Grid Background="#FFE5E5E5"/>
+            <TabControl Margin="0,3,-0.4,0" MinWidth="722" MinHeight="342" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
+                <TabItem Header="TabItem" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
+                    <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
                 </TabItem>
-                <TabItem Header="TabItem">
-                    <Grid Background="#FFE5E5E5"/>
+                <TabItem Header="TabItem" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
+                    <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
                 </TabItem>
             </TabControl>
         </Grid>

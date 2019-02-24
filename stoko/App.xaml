@@ -11,11 +11,12 @@
                 <ResourceDictionary Source="Assets/langs/StringResources.en-US.xaml" />
 
                 <!-- lang resources -->
-                <ResourceDictionary Source="Assets/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Assets/Styles/ColorsDark.xaml" />
                 <ResourceDictionary Source="Assets/Styles/Shadows.xaml" />
                 <ResourceDictionary Source="Assets/Styles/Buttons.xaml" />
                 <ResourceDictionary Source="Assets/Styles/Texts.xaml" />
                 <ResourceDictionary Source="Assets/Styles/Menu.xaml" />
+                <ResourceDictionary Source="Assets/Styles/TabControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
             
             <SolidColorBrush x:Key="MaterialDesignLightBackground" Color="#FFFAFAFA"/>
