@@ -58,5 +58,18 @@ namespace stoko {
         private void Button_SettingsClose_Click(object sender, RoutedEventArgs e) {
             SettingPanel.Visibility = Visibility.Hidden;
         }
+
+        private void Close_Click(object sender, RoutedEventArgs e) {
+            this.Close();
+        }
+
+        private void CheckBoxAllowMenu_Checked(object sender, RoutedEventArgs e) {
+            MainMenu.Visibility = Visibility.Visible;
+            MainGrid.Margin = new Thickness(0,20,0,20);
+        }
+        private void CheckBoxUnAllowMenu_Checked(object sender, RoutedEventArgs e) {
+            MainMenu.Visibility = Visibility.Hidden;
+            MainGrid.Margin = new Thickness(0, 0, 0, 20);
+        }
     }
 }

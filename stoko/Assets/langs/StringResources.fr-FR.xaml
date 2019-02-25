@@ -21,4 +21,5 @@
     <system:String x:Key="sLang">Langue</system:String>
     <system:String x:Key="sDarkMode">Mode sombre</system:String>
     <system:String x:Key="sAdvanced">Avancée</system:String>
+    <system:String x:Key="sAllowMenu">Afficher le menu</system:String>
 </ResourceDictionary>
