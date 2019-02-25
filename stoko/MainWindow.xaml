@@ -12,7 +12,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Menu Height="20" VerticalAlignment="Top" Margin="0,0,-0.4,0" RenderTransformOrigin="0.5,0.5" FontFamily="/stoko;component/Resources/#Roboto" Style="{DynamicResource MaterialDesignMenu}" Background="{DynamicResource MaterialDesignBackground}">
+        <Menu Height="20" VerticalAlignment="Top" Margin="0,0,-0.4,0" RenderTransformOrigin="0.5,0.5" FontFamily="/stoko;component/Resources/#Roboto" Background="{DynamicResource MaterialDesignBackground}">
             <Menu.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -21,12 +21,12 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Menu.RenderTransform>
-            <MenuItem Header="{DynamicResource mHome}" Template="{DynamicResource SubMenuItemControlTemplate}">
+            <MenuItem Header="{DynamicResource mHome}" Height="18">
                 <MenuItem Header="{DynamicResource setting}"/>
                 <Separator Style="{DynamicResource MaterialDesignSeparator}"/>
                 <MenuItem Header="{DynamicResource close}"/>
             </MenuItem>
-            <MenuItem Header="{DynamicResource mHelp}" Template="{DynamicResource SubMenuItemControlTemplate}" >
+            <MenuItem Header="{DynamicResource mHelp}" Height="20">
                 <MenuItem Header="{DynamicResource about}"/>
             </MenuItem>
         </Menu>
@@ -40,7 +40,7 @@
                 </Button.Background>
             </Button>
             <StackPanel 
-                Margin="0,22,4,0" 
+                Margin="0,22,3.6,0" 
                 VerticalAlignment="Top" 
                 Panel.ZIndex="1" 
                 Background="Transparent" 
@@ -74,9 +74,12 @@
                     </Border>
                 </Border>
             </StackPanel>
-            <TabControl Margin="0,3,-0.4,20" MinWidth="722" MinHeight="320" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
+            <TabControl Margin="0,0,0,20" MinWidth="722" MinHeight="320" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
                 <TabItem Header="TabItem" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
                         <Label Content="Label" HorizontalAlignment="Left" Margin="339,37,0,0" VerticalAlignment="Top" Height="25" Width="79"/>
                         <Button Content="Button" HorizontalAlignment="Left" Margin="168,132,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatAccentButton}"/>
                         <Button Content="Button" HorizontalAlignment="Left" Margin="178,181,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="{DynamicResource MaterialDesignBody}"/>
@@ -103,7 +106,7 @@
         <StatusBar Height="20" Margin="0,0,-0.4,0" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}">
             <Label x:Name="msgStatut" Content="Status: Ok" Width="auto" Padding="0,0,0,0" FontSize="10" Foreground="{DynamicResource MaterialDesignBody}"/>
         </StatusBar>
-        
+
         <!-- Settings panel -->
         <Grid x:Name="SettingPanel" Background="{DynamicResource MaterialDesignPaper}" Visibility="Hidden">
             <Button Style="{StaticResource MaterialDesignFlatToggleButton}" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,30,45,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource sSettingClose}" Cursor="Hand" Focusable="True" Click="Button_SettingsClose_Click"/>
