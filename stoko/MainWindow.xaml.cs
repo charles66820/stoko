@@ -27,9 +27,12 @@ namespace stoko {
             InitializeComponent();
         }
 
-        private void setLanguageDictionary() {
+        private void setLanguageDictionary(String pLang = null) {
             ResourceDictionary resDict = new ResourceDictionary();
-            switch (Thread.CurrentThread.CurrentCulture.ToString()) {
+
+            pLang = pLang == null? Thread.CurrentThread.CurrentCulture.ToString() : pLang;
+
+            switch (pLang) {
                 case "en-US":
                     resDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
                     break;
@@ -70,6 +73,26 @@ namespace stoko {
         private void CheckBoxUnAllowMenu_Checked(object sender, RoutedEventArgs e) {
             MainMenu.Visibility = Visibility.Hidden;
             MainGrid.Margin = new Thickness(0, 0, 0, 20);
+        }
+        private void CheckBoxDarkTheme_Checked(object sender, RoutedEventArgs e) {
+            ResourceDictionary resDict = new ResourceDictionary();
+            resDict.Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml", UriKind.Absolute);
+            this.Resources.MergedDictionaries.Add(resDict);
+        }
+        private void CheckBoxLightTheme_Checked(object sender, RoutedEventArgs e) {
+            ResourceDictionary resDict = new ResourceDictionary();
+            resDict.Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml", UriKind.Absolute);
+            this.Resources.MergedDictionaries.Add(resDict);
+        }
+
+        private void ComboBoxLang_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (cbLang.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Français") {
+                setLanguageDictionary("fr-FR");
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+            } else {
+                setLanguageDictionary("en-US");
+                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            }
         }
     }
 }

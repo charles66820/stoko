@@ -34,7 +34,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource MaterialDesignFlatToggleButton}" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,4,3.6,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource setting}" Cursor="Hand" Focusable="True" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus">
+            <Button Style="{DynamicResource MaterialDesignFlatToggleButton}" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,4,3.6,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" ToolTip="{DynamicResource setting}" Cursor="Hand" Focusable="True" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/icons/baseline_more_vert_black_18dp.png"/>
                 </Button.Background>
@@ -88,7 +88,7 @@
                                 FontFamily="/stoko;component/Resources/#Roboto"
                                 Focusable="False"/>
                             <Button 
-                                Content="{StaticResource setting}"
+                                Content="{DynamicResource setting}"
                                 VerticalAlignment="Top"
                                 Style="{DynamicResource MaterialDesignFlatButton}" 
                                 Foreground="{DynamicResource MaterialDesignBody}"
@@ -106,8 +106,8 @@
         </StatusBar>
 
         <!-- Settings panel -->
-        <Grid x:Name="SettingPanel" Background="{DynamicResource MaterialDesignPaper}" Visibility="Hidden">
-            <Button Style="{StaticResource MaterialDesignFlatToggleButton}" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,30,45,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource sSettingClose}" Cursor="Hand" Focusable="True" Click="Button_SettingsClose_Click"/>
+        <Grid x:Name="SettingPanel" Background="{DynamicResource MaterialDesignPaper}">
+            <Button Style="{DynamicResource MaterialDesignFlatToggleButton}" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,30,45,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource sSettingClose}" Cursor="Hand" Focusable="True" Click="Button_SettingsClose_Click"/>
             <TabControl TabStripPlacement="Left" Margin="75,50" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}">
                 <TabItem Header="{DynamicResource sGeneral}" Background="{DynamicResource MaterialDesignBackground}" Style="{DynamicResource TabItemStyleLeft}">
                     <Grid>
@@ -119,10 +119,13 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="{DynamicResource sLang}" Grid.Column="0" Foreground="{DynamicResource MaterialDesignBody}"/>
-                                    <ComboBox Grid.Column="1" BorderBrush="{x:Null}" Background="{DynamicResource MaterialDesignBackground}" Foreground="{DynamicResource MaterialDesignBody}"/>
+                                    <ComboBox Grid.Column="1" BorderBrush="{x:Null}" Background="{DynamicResource MaterialDesignBackground}" Foreground="{DynamicResource MaterialDesignBody}" x:Name="cbLang" SelectionChanged="ComboBoxLang_SelectionChanged">
+                                        <ComboBoxItem Content="Français"/>
+                                        <ComboBoxItem Content="English"/>
+                                    </ComboBox>
                                 </Grid>
                                 <Separator/>
-                                <CheckBox Content="{DynamicResource sDarkMode}" Margin="40,16,40,16" VerticalAlignment="top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}"/>
+                                <CheckBox Content="{DynamicResource sDarkMode}" Margin="40,16,40,16" VerticalAlignment="top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxDarkTheme_Checked" Unchecked="CheckBoxLightTheme_Checked"/>
                             </StackPanel>
                         </Border>
                     </Grid>

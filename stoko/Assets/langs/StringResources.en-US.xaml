@@ -19,7 +19,7 @@
     <system:String x:Key="sSettingClose">Close settings</system:String>
     <system:String x:Key="sGeneral">General</system:String>
     <system:String x:Key="sLang">Language</system:String>
-    <system:String x:Key="sDarkMode">Mode sombre</system:String>
+    <system:String x:Key="sDarkMode">Dark mode</system:String>
     <system:String x:Key="sAdvanced">Advanced</system:String>
     <system:String x:Key="sAllowMenu">Show menu</system:String>
 </ResourceDictionary>
