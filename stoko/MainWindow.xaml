@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:stoko"
         xmlns:RuntimeBinder="clr-namespace:Microsoft.CSharp.RuntimeBinder;assembly=Microsoft.CSharp" x:Class="stoko.MainWindow"
         mc:Ignorable="d"
-        Title="Stoko" Height="450" Width="800" FontFamily="/stoko;component/Resources/#Roboto" MinWidth="760" MinHeight="400" Background="{DynamicResource MaterialDesignPaper}">
+        Title="Stoko" Height="450" Width="800" FontFamily="/stoko;component/Resources/#Roboto" MinWidth="760" MinHeight="428" Background="{DynamicResource MaterialDesignPaper}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -34,7 +34,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource MaterialDesignFlatToggleButton}" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,4,3.6,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="Black" ToolTip="{DynamicResource setting}" Cursor="Hand" Focusable="True" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus">
+            <Button Style="{StaticResource MaterialDesignFlatToggleButton}" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,4,3.6,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource setting}" Cursor="Hand" Focusable="True" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus">
                 <Button.Background>
                     <ImageBrush ImageSource="Assets/icons/baseline_more_vert_black_18dp.png"/>
                 </Button.Background>
@@ -59,13 +59,16 @@
                                 VerticalAlignment="Top"
                                 Style="{DynamicResource MaterialDesignFlatButton}" 
                                 Foreground="{DynamicResource MaterialDesignBody}"
-                                FontFamily="/stoko;component/Resources/#Roboto"/>
+                                FontFamily="/stoko;component/Resources/#Roboto"
+                                Focusable="False"/>
                             <Button 
                                 Content="{StaticResource setting}"
                                 VerticalAlignment="Top"
                                 Style="{DynamicResource MaterialDesignFlatButton}" 
                                 Foreground="{DynamicResource MaterialDesignBody}"
-                                FontFamily="/stoko;component/Resources/#Roboto"/>
+                                FontFamily="/stoko;component/Resources/#Roboto"
+                                Focusable="False"
+                                Click="Button_Settings_Click"/>
 
                         </StackPanel>
                     </Border>
@@ -84,13 +87,15 @@
                         <Button Content="Button" HorizontalAlignment="Left" Margin="557,264,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="{DynamicResource MaterialDesignBody}"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="{DynamicResource tMaterial}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
+                <TabItem Header="{DynamicResource tMaterial}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
+                    <Grid Background="{DynamicResource MaterialDesignCardBackground}">
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{DynamicResource tClient}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
                 </TabItem>
-                <TabItem Header="{DynamicResource tClient}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
-                    <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
-                </TabItem>
-                <TabItem Header="{DynamicResource tMaterial}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
+                <TabItem Header="{DynamicResource tMaterial}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
                 </TabItem>
             </TabControl>
@@ -98,5 +103,37 @@
         <StatusBar Height="20" Margin="0,0,-0.4,0" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}">
             <Label x:Name="msgStatut" Content="Status: Ok" Width="auto" Padding="0,0,0,0" FontSize="10" Foreground="{DynamicResource MaterialDesignBody}"/>
         </StatusBar>
+        
+        <!-- Settings panel -->
+        <Grid x:Name="SettingPanel" Background="{DynamicResource MaterialDesignPaper}" Visibility="Hidden">
+            <Button Style="{StaticResource MaterialDesignFlatToggleButton}" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,30,45,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource sSettingClose}" Cursor="Hand" Focusable="True" Click="Button_SettingsClose_Click"/>
+            <TabControl TabStripPlacement="Left" Margin="75,50" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}">
+                <TabItem Header="{DynamicResource sGeneral}" Background="{DynamicResource MaterialDesignBackground}" Style="{DynamicResource TabItemStyleLeft}">
+                    <Grid>
+                        <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}">
+                            <StackPanel>
+                                <Grid VerticalAlignment="Center" Margin="40,16,40,16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Content="{DynamicResource sLang}" Grid.Column="0" Foreground="{DynamicResource MaterialDesignBody}"/>
+                                    <ComboBox Grid.Column="1" BorderBrush="{x:Null}" Background="{DynamicResource MaterialDesignBackground}" Foreground="{DynamicResource MaterialDesignBody}"/>
+                                </Grid>
+                                <Separator></Separator>
+                                <CheckBox Content="{DynamicResource sDarkMode}" Margin="40,16,40,16" VerticalAlignment="Center" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="{DynamicResource sAdvanced}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyleLeft}">
+                    <Grid>
+                        <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                        </Border>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </Grid>
 </Window>

@@ -50,5 +50,13 @@ namespace stoko {
         private void Button_LostFocus(object sender, RoutedEventArgs e) {
             popMenu.Visibility = Visibility.Hidden;
         }
+
+        private void Button_Settings_Click(object sender, RoutedEventArgs e) {
+            SettingPanel.Visibility = Visibility.Visible;
+        }
+
+        private void Button_SettingsClose_Click(object sender, RoutedEventArgs e) {
+            SettingPanel.Visibility = Visibility.Hidden;
+        }
     }
 }

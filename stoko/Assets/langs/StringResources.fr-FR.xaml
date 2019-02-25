@@ -14,4 +14,11 @@
     <system:String x:Key="tClient">Clients</system:String>
     <system:String x:Key="tOrder">Commandes</system:String>
     <system:String x:Key="tMaterial">Matériels</system:String>
+
+    <!-- settings -->
+    <system:String x:Key="sSettingClose">Fermer les paramètres</system:String>
+    <system:String x:Key="sGeneral">Général</system:String>
+    <system:String x:Key="sLang">Langue</system:String>
+    <system:String x:Key="sDarkMode">Mode sombre</system:String>
+    <system:String x:Key="sAdvanced">Avancée</system:String>
 </ResourceDictionary>
