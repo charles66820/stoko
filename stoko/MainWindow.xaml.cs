@@ -1,19 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace stoko {
     /// <summary>
@@ -22,28 +10,55 @@ namespace stoko {
     public partial class MainWindow : Window {
 
         public MainWindow() {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
-            setLanguageDictionary();
+
+            //initialise la configuration
+            Configs.Init();
+            Configs.SetLanguageDictionary(Configs.Data.Global["lang"]);
+
             InitializeComponent();
+             
+            //initialise les langues
+            foreach(Lang l in Configs.Langs) {
+                cbLang.Items.Add(l);
+            }
+            cbLang.DisplayMemberPath = "Name";
+
+            //affiche la langue dans le combo box
+            Lang curentLang = new Lang("en-US", "English");
+            foreach (Lang l in Configs.Langs) {
+                if (l.Code == Configs.Data.Global["lang"]) {
+                    curentLang = l;
+                }
+            }
+            cbLang.SelectedItem = curentLang;
+
+            //coche la checkbox mainMenu
+            bool c = false;
+            if (Configs.Data.Global["mainMenu"] == "1") c = true;
+            setMenu(c);
+            allowMenu.IsChecked = c;
+
+            //coche la checkbox darkMode
+            c = false;
+            if (Configs.Data.Global["darkMode"] == "1") c = true;
+            Configs.SetDarkMode(c);
+            allowDarkMode.IsChecked = c;
         }
 
-        private void setLanguageDictionary(String pLang = null) {
-            ResourceDictionary resDict = new ResourceDictionary();
-
-            pLang = pLang == null? Thread.CurrentThread.CurrentCulture.ToString() : pLang;
-
-            switch (pLang) {
-                case "en-US":
-                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
-                    break;
-                case "fr-FR":
-                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.fr-FR.xaml", UriKind.Relative);
-                    break;
-                default:
-                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
-                    break;
+        /// <summary>
+        /// show/hide main menu
+        /// </summary>
+        /// <param name="p"></param>
+        private void setMenu(bool p = true) {
+            if (p) {
+                MainMenu.Visibility = Visibility.Visible;
+                MainGrid.Margin = new Thickness(0, 20, 0, 20);
+                Configs.EditConfigData("mainMenu", "1");
+            } else {
+                MainMenu.Visibility = Visibility.Hidden;
+                MainGrid.Margin = new Thickness(0, 0, 0, 20);
+                Configs.EditConfigData("mainMenu", "0");
             }
-            this.Resources.MergedDictionaries.Add(resDict);
         }
 
         private void Button_GotFocus(object sender, RoutedEventArgs e) {
@@ -67,31 +82,27 @@ namespace stoko {
         }
 
         private void CheckBoxAllowMenu_Checked(object sender, RoutedEventArgs e) {
-            MainMenu.Visibility = Visibility.Visible;
-            MainGrid.Margin = new Thickness(0,20,0,20);
+            setMenu();
         }
         private void CheckBoxUnAllowMenu_Checked(object sender, RoutedEventArgs e) {
-            MainMenu.Visibility = Visibility.Hidden;
-            MainGrid.Margin = new Thickness(0, 0, 0, 20);
+            setMenu(false);
         }
         private void CheckBoxDarkTheme_Checked(object sender, RoutedEventArgs e) {
-            ResourceDictionary resDict = new ResourceDictionary();
-            resDict.Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml", UriKind.Absolute);
-            this.Resources.MergedDictionaries.Add(resDict);
+            Configs.SetDarkMode();
         }
         private void CheckBoxLightTheme_Checked(object sender, RoutedEventArgs e) {
-            ResourceDictionary resDict = new ResourceDictionary();
-            resDict.Source = new Uri("pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml", UriKind.Absolute);
-            this.Resources.MergedDictionaries.Add(resDict);
+            Configs.SetDarkMode(false);
         }
 
         private void ComboBoxLang_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (cbLang.SelectedValue.ToString() == "System.Windows.Controls.ComboBoxItem: Français") {
-                setLanguageDictionary("fr-FR");
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+
+            if (((Lang)cbLang.SelectedItem).Code == "fr-FR") {
+                Configs.SetLanguageDictionary("fr-FR");
+                Configs.EditConfigData("lang", "fr-FR");
             } else {
-                setLanguageDictionary("en-US");
-                Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+                Configs.SetLanguageDictionary("en-US");
+                Configs.EditConfigData("lang", "en-US");
+
             }
         }
     }

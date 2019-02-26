@@ -119,13 +119,10 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <Label Content="{DynamicResource sLang}" Grid.Column="0" Foreground="{DynamicResource MaterialDesignBody}"/>
-                                    <ComboBox Grid.Column="1" BorderBrush="{x:Null}" Background="{DynamicResource MaterialDesignBackground}" Foreground="{DynamicResource MaterialDesignBody}" x:Name="cbLang" SelectionChanged="ComboBoxLang_SelectionChanged">
-                                        <ComboBoxItem Content="Français"/>
-                                        <ComboBoxItem Content="English"/>
-                                    </ComboBox>
+                                    <ComboBox Grid.Column="1" BorderBrush="{x:Null}" Background="{DynamicResource MaterialDesignBackground}" Foreground="{DynamicResource MaterialDesignBody}" x:Name="cbLang" SelectionChanged="ComboBoxLang_SelectionChanged"/>
                                 </Grid>
                                 <Separator/>
-                                <CheckBox Content="{DynamicResource sDarkMode}" Margin="40,16,40,16" VerticalAlignment="top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxDarkTheme_Checked" Unchecked="CheckBoxLightTheme_Checked"/>
+                                <CheckBox x:Name="allowDarkMode" Content="{DynamicResource sDarkMode}" Margin="40,16,40,16" VerticalAlignment="top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxDarkTheme_Checked" Unchecked="CheckBoxLightTheme_Checked"/>
                             </StackPanel>
                         </Border>
                     </Grid>
@@ -133,7 +130,7 @@
                 <TabItem Header="{DynamicResource sAdvanced}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyleLeft}">
                     <Grid>
                         <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <CheckBox Content="{DynamicResource sAllowMenu}" Margin="40,16,40,16" VerticalAlignment="Top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxAllowMenu_Checked" Unchecked="CheckBoxUnAllowMenu_Checked"/>
+                            <CheckBox x:Name="allowMenu" Content="{DynamicResource sAllowMenu}" Margin="40,16,40,16" VerticalAlignment="Top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxAllowMenu_Checked" Unchecked="CheckBoxUnAllowMenu_Checked"/>
                         </Border>
                     </Grid>
                 </TabItem>
