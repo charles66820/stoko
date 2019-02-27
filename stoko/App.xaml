@@ -9,8 +9,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!-- lang resources -->
-                <ResourceDictionary Source="Assets/langs/StringResources.fr-FR.xaml" />
                 <ResourceDictionary Source="Assets/langs/StringResources.en-US.xaml" />
+                <ResourceDictionary Source="Assets/langs/StringResources.fr-FR.xaml" />
 
                 <!-- lang resources -->
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />

@@ -13,7 +13,7 @@
     <!-- tabs -->
     <system:String x:Key="tClient">Clients</system:String>
     <system:String x:Key="tOrder">Commandes</system:String>
-    <system:String x:Key="tMaterial">Matériels</system:String>
+    <system:String x:Key="tProduct">Produits</system:String>
 
     <!-- settings -->
     <system:String x:Key="sSettingClose">Fermer les paramètres</system:String>

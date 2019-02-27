@@ -95,7 +95,6 @@ namespace stoko {
         }
 
         private void ComboBoxLang_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
             if (((Lang)cbLang.SelectedItem).Code == "fr-FR") {
                 Configs.SetLanguageDictionary("fr-FR");
                 Configs.EditConfigData("lang", "fr-FR");
