@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:stoko"
         xmlns:RuntimeBinder="clr-namespace:Microsoft.CSharp.RuntimeBinder;assembly=Microsoft.CSharp" x:Class="stoko.MainWindow"
         mc:Ignorable="d"
-        Title="Stoko" Height="450" Width="800" FontFamily="/stoko;component/Resources/#Roboto" MinWidth="760" MinHeight="428" Background="{DynamicResource MaterialDesignPaper}">
+        Title="Stoko" Height="550" Width="800" FontFamily="/stoko;component/Resources/#Roboto" MinWidth="800" MinHeight="550" Background="{DynamicResource MaterialDesignPaper}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -40,29 +41,111 @@
                 </Button.Background>
             </Button>
             <TabControl Margin="0,0,0,0" MinWidth="722" MinHeight="320" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
-                <TabItem Header="TabItem" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyle}">
+                <TabItem Header="{DynamicResource tProduct}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Label" HorizontalAlignment="Left" Margin="339,37,0,0" VerticalAlignment="Top" Height="25" Width="79"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="168,132,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatAccentButton}"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="178,181,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="{DynamicResource MaterialDesignBody}"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="178,224,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedLightButton}"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="343,224,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedDarkButton}"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="466,175,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedButton}"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="583,175,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedAccentButton}"/>
-                        <Button Content="Button" HorizontalAlignment="Left" Margin="557,264,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignFlatButton}" Foreground="{DynamicResource MaterialDesignBody}"/>
+                        <GroupBox Header="{DynamicResource cProductInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="260">
+                            <Grid Margin="0,0,0,0">
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cProductTitle}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cPriceHT}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="155,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cQuantityNotOrdered}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="210,4,-7.2,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cProductReference}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cDescription}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
+                                <ComboBox materialDesign:HintAssist.Hint="{DynamicResource cCategory}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="110,69,-0.8,0" Height="60" VerticalAlignment="Top" Width="150">
+
+                                </ComboBox>
+                                <Button Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125"/>
+                                <Button Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource cProducts}" Padding="8, 2, 8, 2" Margin="290,10,10,153.2">
+                            <Grid Margin="0,0,0,0">
+                                <DataGrid Margin="0,4,0,6"/>
+                            </Grid>
+                        </GroupBox>
+                        <Grid HorizontalAlignment="Left" Margin="10,275,0,10.2" Background="{DynamicResource MaterialDesignPaper}" Width="275" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+                            <Image Margin="0"/>
+                        </Grid>
+                        <ListBox Height="138" Margin="290,0,226,10.2" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}" materialDesign:ShadowAssist.ShadowDepth="Depth4"/>
+                        <GroupBox Header="{DynamicResource cActions}" Padding="8, 2, 8, 2" Margin="0,0,10,10.2" Height="135" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="211">
+                            <Grid Margin="0,0,0,1.2">
+                                <Button Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32"/>
+                                <Button Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32"/>
+                                <Button Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32"/>
+                            </Grid>
+                        </GroupBox>
                     </Grid>
                 </TabItem>
-                <TabItem Header="{DynamicResource tProduct}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
-                    <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
-                </TabItem>
                 <TabItem Header="{DynamicResource tClient}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
-                    <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
+                    <Grid Background="{DynamicResource MaterialDesignCardBackground}">
+                        <GroupBox Header="{DynamicResource cClientInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="257">
+                            <Grid Margin="0,0,0,0">
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cClientLogin}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cClientEmail}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="88" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cClientLastName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cClientFirstName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cClientPhoneNumber}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <Button Content="{DynamicResource bResetPassword}" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.215,2.439"/>
+                                <Button Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125"/>
+                                <Button Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource cClients}" Padding="8, 2, 8, 2" Margin="290,10,10,207.4">
+                            <Grid Margin="0,0,0,0">
+                                <DataGrid Margin="0,4,0,6"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource cAddressInfos}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="275" Padding="8, 2, 8, 2" Margin="10,0,0,4.4" Height="195">
+                            <Grid Margin="0,0,0,0">
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cAddressWay}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cAddressComplement}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cAddressCity}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cAddressZipCode}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <Button Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,134,0,0" VerticalAlignment="Top" Width="125"/>
+                                <Button Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,134,0.2,0" VerticalAlignment="Top" Width="125"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource cClientAddress}" Padding="8,2,8,2" Margin="290,0,189,4.4" VerticalAlignment="Bottom" Height="198">
+                            <Grid Margin="0,0,0,0">
+                                <DataGrid Margin="0,4,0,6"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource cActions}" Padding="8,2,8,2" Margin="0,0,10,4.4" Height="198" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="174">
+                            <Grid Margin="0,0,0,1.2">
+                                <Button Content="{DynamicResource bAddClient}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32"/>
+                                <Button Content="{DynamicResource bAddAddress}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32"/>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
                 </TabItem>
                 <TabItem Header="{DynamicResource tOrder}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
-                    <Grid Background="{DynamicResource MaterialDesignCardBackground}"/>
+                    <Grid Background="{DynamicResource MaterialDesignCardBackground}">
+                        <GroupBox Header="{DynamicResource cOrders}" Padding="8, 2, 8, 2" Margin="10,10,10,210.4">
+                            <Grid Margin="0,0,0,0">
+                                <DataGrid Margin="0,4,0,6"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource cOrderProducts}" Padding="8, 2, 8, 2" Margin="10,0,290,5.4" VerticalAlignment="Bottom" Height="200">
+                            <Grid Margin="0,0,0,0">
+                                <DataGrid Margin="0,4,0,6"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource cChangeDeliveryAddress}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="275" Padding="8,2,8,2" Margin="0,0,10,70.4" Height="135">
+                            <Grid Margin="0,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="207*"/>
+                                    <ColumnDefinition Width="52*"/>
+                                </Grid.ColumnDefinitions>
+                                <ComboBox materialDesign:HintAssist.Hint="{DynamicResource cAddress}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="9,6,0,0" Height="60" VerticalAlignment="Top" Width="239" Grid.ColumnSpan="2"/>
+                                <Button Content="{DynamicResource bDone}" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="125"/>
+                                <Button Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,71,0.4,0" VerticalAlignment="Top" Width="125" Grid.ColumnSpan="2"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Header="{DynamicResource cActions}" Padding="8,2,8,2" Margin="0,0,10,5.4" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="275">
+                            <Grid Margin="0,0,0,1.2">
+                                <Button Content="{DynamicResource bShipTheOrder}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32"/>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
                 </TabItem>
             </TabControl>
             <StackPanel 
@@ -130,7 +213,11 @@
                 <TabItem Header="{DynamicResource sAdvanced}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyleLeft}">
                     <Grid>
                         <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <CheckBox x:Name="allowMenu" Content="{DynamicResource sAllowMenu}" Margin="40,16,40,16" VerticalAlignment="Top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxAllowMenu_Checked" Unchecked="CheckBoxUnAllowMenu_Checked"/>
+                            <StackPanel>
+                                <CheckBox x:Name="allowMenu" Content="{DynamicResource sAllowMenu}" Margin="40,16,40,16" VerticalAlignment="Top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxAllowMenu_Checked" Unchecked="CheckBoxUnAllowMenu_Checked"/>
+                                <Button Content="Button" HorizontalAlignment="Left" Margin="116,64,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedAccentButton}"/>
+                                <TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                            </StackPanel>
                         </Border>
                     </Grid>
                 </TabItem>

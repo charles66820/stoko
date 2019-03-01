@@ -62,7 +62,7 @@
     <system:String x:Key="cAddressCity">Ville</system:String>
 
     <!-- contents Orders tab -->
-    <system:String x:Key="cOrders">Commandes</system:String>
+    <system:String x:Key="cOrders">Les commandes</system:String>
     <system:String x:Key="cOrdersClientName">Nom du client</system:String>
     <system:String x:Key="cOrdersClientNum">N° client</system:String>
     <system:String x:Key="cOrdersShipping">Livraison</system:String>
@@ -72,7 +72,9 @@
     <system:String x:Key="cOrdersDate">Date de commande</system:String>
     <system:String x:Key="cOrdersShipped">Livrer</system:String>
     <system:String x:Key="cQuantityOrdered">Quantité commandée</system:String>
+    <system:String x:Key="cOrderProducts">Products de la commande</system:String>
     <system:String x:Key="cChangeDeliveryAddress">Changer l'adresse de livraison</system:String>
+    <system:String x:Key="cAddress">Adresses</system:String>
 
     <!-- settings -->
     <system:String x:Key="sSettingClose">Fermer les paramètres</system:String>

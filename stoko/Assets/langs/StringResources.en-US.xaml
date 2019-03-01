@@ -72,7 +72,9 @@
     <system:String x:Key="cOrdersDate">Order date</system:String>
     <system:String x:Key="cOrdersShipped">Shipped</system:String>
     <system:String x:Key="cQuantityOrdered">Quantity ordered</system:String>
+    <system:String x:Key="cOrderProducts">Order products</system:String>
     <system:String x:Key="cChangeDeliveryAddress">Change delivery address</system:String>
+    <system:String x:Key="cAddress">Address</system:String>
     
     <!-- settings -->
     <system:String x:Key="sSettingClose">Close settings</system:String>
