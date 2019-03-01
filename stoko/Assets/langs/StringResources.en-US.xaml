@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
     <!-- menu home -->
     <system:String x:Key="mHome">Home</system:String>
     <system:String x:Key="setting">Settings</system:String>
@@ -10,11 +11,69 @@
     <system:String x:Key="mHelp">Help</system:String>
     <system:String x:Key="about">About stoko</system:String>
 
+    <!-- buttons -->
+    <system:String x:Key="bDone">Done</system:String>
+    <system:String x:Key="bAdd">Add</system:String>
+    <system:String x:Key="bCancel">Cancel</system:String>
+    <system:String x:Key="bDelete">Delete</system:String>
+    <system:String x:Key="bAddProduct">Add product</system:String>
+    <system:String x:Key="bAddImage">Add images</system:String>
+    <system:String x:Key="bDeleteImages">Delete image</system:String>
+    <system:String x:Key="bResetPassword">Reset password</system:String>
+    <system:String x:Key="bAddClient">Add client</system:String>
+    <system:String x:Key="bAddAddress">Add address</system:String>
+    <system:String x:Key="bShipTheOrder">Ship the order</system:String>
+
     <!-- tabs -->
+    <system:String x:Key="tProduct">Products</system:String>
     <system:String x:Key="tClient">Clients</system:String>
     <system:String x:Key="tOrder">Orders</system:String>
-    <system:String x:Key="tProduct">Products</system:String>
 
+    <!-- contents tabs -->
+    <system:String x:Key="cActions">Actions</system:String>
+    <system:String x:Key="cNum">N°</system:String>
+
+    <!-- contents products tab -->
+    <system:String x:Key="cProductInfos">Product infos</system:String>
+    <system:String x:Key="cProducts">Products</system:String>
+    <system:String x:Key="cProductTitle">Product name</system:String>
+    <system:String x:Key="cPriceHT">Price without tax</system:String>
+    <system:String x:Key="cProductReference">Reference</system:String>
+    <system:String x:Key="cQuantityNotOrdered">Quantity not ordered</system:String>
+    <system:String x:Key="cQuantityInStock">Quantity in stock</system:String>
+    <system:String x:Key="cDescription">Description</system:String>
+    <system:String x:Key="cCategory">Category</system:String>
+
+    <!-- contents Clients tab -->
+    <system:String x:Key="cClientInfos">Client infos</system:String>
+    <system:String x:Key="cClients">Clients</system:String>
+    <system:String x:Key="cClientLogin">Login</system:String>
+    <system:String x:Key="cClientLastName">Last name</system:String>
+    <system:String x:Key="cClientFirstName">First name</system:String>
+    <system:String x:Key="cClientEmail">Email</system:String>
+    <system:String x:Key="cClientPhoneNumber">Phone number</system:String>
+    <system:String x:Key="cClientAvatar">Avatar</system:String>
+    <system:String x:Key="cClientCreationDate">Creation date</system:String>
+    <system:String x:Key="cAddressInfos">Address infos</system:String>
+    <system:String x:Key="cClientAddress">Client address</system:String>
+    <system:String x:Key="cAddressWay">Way</system:String>
+    <system:String x:Key="cAddressComplement">Complement</system:String>
+    <system:String x:Key="cAddressZipCode">Zip code</system:String>
+    <system:String x:Key="cAddressCity">City</system:String>
+
+    <!-- contents Orders tab -->
+    <system:String x:Key="cOrders">Orders</system:String>
+    <system:String x:Key="cOrdersClientName">Client name</system:String>
+    <system:String x:Key="cOrdersClientNum">N° client</system:String>
+    <system:String x:Key="cOrdersShipping">Shipping</system:String>
+    <system:String x:Key="cOrdersPriceHT">Price without tax</system:String>
+    <system:String x:Key="cOrdersPriceTTC">Price with tax</system:String>
+    <system:String x:Key="cOrdersShippingAddress">Shipping address</system:String>
+    <system:String x:Key="cOrdersDate">Order date</system:String>
+    <system:String x:Key="cOrdersShipped">Shipped</system:String>
+    <system:String x:Key="cQuantityOrdered">Quantity ordered</system:String>
+    <system:String x:Key="cChangeDeliveryAddress">Change delivery address</system:String>
+    
     <!-- settings -->
     <system:String x:Key="sSettingClose">Close settings</system:String>
     <system:String x:Key="sGeneral">General</system:String>
@@ -22,4 +81,5 @@
     <system:String x:Key="sDarkMode">Dark mode</system:String>
     <system:String x:Key="sAdvanced">Advanced</system:String>
     <system:String x:Key="sAllowMenu">Show menu</system:String>
+
 </ResourceDictionary>
