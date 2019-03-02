@@ -109,6 +109,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainWindowFunctional.cs" />
     <Compile Include="Class\Lang.cs" />
     <Compile Include="Class\Configs.cs" />
     <Compile Include="MainWindow.xaml.cs">
