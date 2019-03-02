@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:stoko"
         xmlns:RuntimeBinder="clr-namespace:Microsoft.CSharp.RuntimeBinder;assembly=Microsoft.CSharp" x:Class="stoko.MainWindow"
         mc:Ignorable="d"
+        Loaded="MainWindow_Loaded"
         Title="Stoko" Height="550" Width="800" FontFamily="/stoko;component/Resources/#Roboto" MinWidth="800" MinHeight="550" Background="{DynamicResource MaterialDesignPaper}">
 
     <Grid>
@@ -40,11 +41,11 @@
                     <ImageBrush ImageSource="Assets/icons/baseline_more_vert_black_18dp.png"/>
                 </Button.Background>
             </Button>
-            <TabControl Margin="0,0,0,0" MinWidth="722" MinHeight="320" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
-                <TabItem Header="{DynamicResource tProduct}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
+            <TabControl x:Name="mainTC" Margin="0,0,0,0" MinWidth="722" MinHeight="320" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
+                <TabItem x:Name="tiProduct" Header="{DynamicResource tProduct}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <GroupBox Header="{DynamicResource cProductInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="260">
-                            <Grid Margin="0,0,0,0" x:Name="ProductForm">
+                            <Grid Margin="0,0,0,0" x:Name="ProductForm" Visibility="Collapsed">
                                 <TextBox x:Name="PFTitle" materialDesign:HintAssist.Hint="{DynamicResource cProductTitle}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
                                 <TextBox x:Name="PFPriceHT" materialDesign:HintAssist.Hint="{DynamicResource cPriceHT}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="155,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
                                 <TextBox x:Name="PFQentity" materialDesign:HintAssist.Hint="{DynamicResource cQuantityNotOrdered}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="210,4,-7.2,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
@@ -68,14 +69,14 @@
                         <ListBox Height="138" Margin="290,0,226,10.2" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}" materialDesign:ShadowAssist.ShadowDepth="Depth4"/>
                         <GroupBox Header="{DynamicResource cActions}" Padding="8, 2, 8, 2" Margin="0,0,10,10.2" Height="135" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="211">
                             <Grid Margin="0,0,0,1.2">
-                                <Button Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="bAddProduct_Click"/>
-                                <Button Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32"/>
-                                <Button Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32"/>
+                                <Button IsEnabled="False" Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="bAddProduct_Click"/>
+                                <Button IsEnabled="False" Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32"/>
+                                <Button IsEnabled="False" Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
                 </TabItem>
-                <TabItem Header="{DynamicResource tClient}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
+                <TabItem x:Name="tiClient" Header="{DynamicResource tClient}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <GroupBox Header="{DynamicResource cClientInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="257">
                             <Grid Margin="0,0,0,0">
@@ -117,7 +118,7 @@
                         </GroupBox>
                     </Grid>
                 </TabItem>
-                <TabItem Header="{DynamicResource tOrder}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
+                <TabItem x:Name="tiOrder" Header="{DynamicResource tOrder}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <GroupBox Header="{DynamicResource cOrders}" Padding="8, 2, 8, 2" Margin="10,10,10,210.4">
                             <Grid Margin="0,0,0,0">
@@ -189,7 +190,7 @@
         </StatusBar>
 
         <!-- Settings panel -->
-        <Grid x:Name="SettingPanel" Background="{DynamicResource MaterialDesignPaper}" Visibility="Hidden">
+        <Grid x:Name="SettingPanel" Background="{DynamicResource MaterialDesignPaper}" Visibility="Hidden" Margin="0,0,0,20">
             <Button Style="{DynamicResource MaterialDesignFlatToggleButton}" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,30,45,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource sSettingClose}" Cursor="Hand" Focusable="True" Click="Button_SettingsClose_Click"/>
             <TabControl TabStripPlacement="Left" Margin="75,50" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}">
                 <TabItem Header="{DynamicResource sGeneral}" Background="{DynamicResource MaterialDesignBackground}" Style="{DynamicResource TabItemStyleLeft}">
@@ -215,8 +216,8 @@
                         <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <StackPanel>
                                 <CheckBox x:Name="allowMenu" Content="{DynamicResource sAllowMenu}" Margin="40,16,40,16" VerticalAlignment="Top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxAllowMenu_Checked" Unchecked="CheckBoxUnAllowMenu_Checked"/>
-                                <Button Content="Button" HorizontalAlignment="Left" Margin="116,64,0,0" VerticalAlignment="Top" Width="75" Style="{DynamicResource MaterialDesignRaisedAccentButton}"/>
-                                <TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                                
+                                <!--<TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
                             </StackPanel>
                         </Border>
                     </Grid>

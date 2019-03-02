@@ -47,10 +47,12 @@ namespace stoko {
             if (p) {
                 MainMenu.Visibility = Visibility.Visible;
                 MainGrid.Margin = new Thickness(0, 20, 0, 20);
+                SettingPanel.Margin = new Thickness(0, 20, 0, 20);
                 Configs.EditConfigData("mainMenu", "1");
             } else {
                 MainMenu.Visibility = Visibility.Hidden;
                 MainGrid.Margin = new Thickness(0, 0, 0, 20);
+                SettingPanel.Margin = new Thickness(0, 0, 0, 20);
                 Configs.EditConfigData("mainMenu", "0");
             }
         }

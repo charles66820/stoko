@@ -68,5 +68,12 @@ namespace stoko {
         private void bAddProduct_Click(object sender, RoutedEventArgs e) {
             addProductForm();
         }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
+
+            SettingPanel.Visibility = Visibility.Visible;
+
+            MessageBox.Show((mainTC.SelectedItem as TabItem).Name);
+        }
     }
 }
