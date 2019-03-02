@@ -44,17 +44,17 @@
                 <TabItem Header="{DynamicResource tProduct}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <GroupBox Header="{DynamicResource cProductInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="260">
-                            <Grid Margin="0,0,0,0">
-                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cProductTitle}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cPriceHT}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="155,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cQuantityNotOrdered}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="210,4,-7.2,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cProductReference}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
-                                <TextBox materialDesign:HintAssist.Hint="{DynamicResource cDescription}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
-                                <ComboBox materialDesign:HintAssist.Hint="{DynamicResource cCategory}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="110,69,-0.8,0" Height="60" VerticalAlignment="Top" Width="150">
+                            <Grid Margin="0,0,0,0" x:Name="ProductForm">
+                                <TextBox x:Name="PFTitle" materialDesign:HintAssist.Hint="{DynamicResource cProductTitle}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                                <TextBox x:Name="PFPriceHT" materialDesign:HintAssist.Hint="{DynamicResource cPriceHT}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="155,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+                                <TextBox x:Name="PFQentity" materialDesign:HintAssist.Hint="{DynamicResource cQuantityNotOrdered}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="210,4,-7.2,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+                                <TextBox x:Name="PFRef" materialDesign:HintAssist.Hint="{DynamicResource cProductReference}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+                                <TextBox x:Name="PFDes" materialDesign:HintAssist.Hint="{DynamicResource cDescription}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
+                                <ComboBox x:Name="PFCat" materialDesign:HintAssist.Hint="{DynamicResource cCategory}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="110,69,-0.8,0" Height="60" VerticalAlignment="Top" Width="150">
 
                                 </ComboBox>
-                                <Button Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125"/>
-                                <Button Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125"/>
+                                <Button x:Name="PFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125"/>
+                                <Button x:Name="PFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cProducts}" Padding="8, 2, 8, 2" Margin="290,10,10,153.2">
@@ -68,7 +68,7 @@
                         <ListBox Height="138" Margin="290,0,226,10.2" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}" materialDesign:ShadowAssist.ShadowDepth="Depth4"/>
                         <GroupBox Header="{DynamicResource cActions}" Padding="8, 2, 8, 2" Margin="0,0,10,10.2" Height="135" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="211">
                             <Grid Margin="0,0,0,1.2">
-                                <Button Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32"/>
+                                <Button Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="bAddProduct_Click"/>
                                 <Button Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32"/>
                                 <Button Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32"/>
                             </Grid>

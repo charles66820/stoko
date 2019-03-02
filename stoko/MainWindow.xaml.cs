@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using stoko_class_BLL;
 
 namespace stoko {
     /// <summary>
@@ -62,6 +63,10 @@ namespace stoko {
                 Configs.EditConfigData("lang", "en-US");
 
             }
+        }
+
+        private void bAddProduct_Click(object sender, RoutedEventArgs e) {
+            addProductForm();
         }
     }
 }

@@ -250,5 +250,15 @@
       <Version>2.5.0.1205</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\stoko_class_BLL\stoko_class_BLL.csproj">
+      <Project>{57bb7dd8-19ce-4bc8-9fe7-efc467f904e6}</Project>
+      <Name>stoko_class_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\stoko_db_BLL\stoko_db_BLL.csproj">
+      <Project>{bd307f33-264a-46c3-b67d-0bbe03312308}</Project>
+      <Name>stoko_db_BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using stoko_class_BLL;
 
 namespace stoko {
     /// <summary>
@@ -52,6 +53,58 @@ namespace stoko {
                 MainGrid.Margin = new Thickness(0, 0, 0, 20);
                 Configs.EditConfigData("mainMenu", "0");
             }
+        }
+
+        /// <summary>
+        /// Show or hide product form
+        /// </summary>
+        /// <param name="p"></param>
+        public void setProductForm(bool p = true) {
+            if (p) {
+                ProductForm.Visibility = Visibility.Visible;
+            } else {
+                ProductForm.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        /// <summary>
+        /// Reset product form
+        /// </summary>
+        /// <param name="p">hide form after reset. true by default</param>
+        public void resetProductForm(bool p = false) {
+            PFTitle.Text = String.Empty;
+            PFPriceHT.Text = String.Empty;
+            PFQentity.Text = String.Empty;
+            PFRef.Text = String.Empty;
+            PFDes.Text = String.Empty;
+
+            setProductForm(p);
+        }
+
+        /// <summary>
+        /// Fill product info beafor edit
+        /// </summary>
+        /// <param name="product"></param>
+        public void editProductForm(Product product) {
+            PFTitle.Text = product.Title;
+            PFPriceHT.Text = product.PriceHT.ToString();
+            PFQentity.Text = product.Quantity.ToString();
+            PFRef.Text = product.Reference;
+            PFCat.SelectedItem = product.Category;
+            PFDes.Text = product.Description;
+
+            PFDone.SetResourceReference(ContentControl.ContentProperty, "bAdd");
+            PFDelete.SetResourceReference(ContentControl.ContentProperty, "bCancel");
+            PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedButton");
+
+            setProductForm();
+        }
+
+        public void addProductForm() {
+            resetProductForm(true);
+            PFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
+            PFDelete.SetResourceReference(ContentControl.ContentProperty, "bDelete");
+            PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
         }
     }
 }
