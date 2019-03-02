@@ -74,7 +74,7 @@
     <system:String x:Key="cQuantityOrdered">Quantité commandée</system:String>
     <system:String x:Key="cOrderProducts">Products de la commande</system:String>
     <system:String x:Key="cChangeDeliveryAddress">Changer l'adresse de livraison</system:String>
-    <system:String x:Key="cAddress">Adresses</system:String>
+    <system:String x:Key="cAddresses">Adresses</system:String>
 
     <!-- settings -->
     <system:String x:Key="sSettingClose">Fermer les paramètres</system:String>

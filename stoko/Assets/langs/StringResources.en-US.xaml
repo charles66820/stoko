@@ -55,7 +55,7 @@
     <system:String x:Key="cClientAvatar">Avatar</system:String>
     <system:String x:Key="cClientCreationDate">Creation date</system:String>
     <system:String x:Key="cAddressInfos">Address infos</system:String>
-    <system:String x:Key="cClientAddress">Client address</system:String>
+    <system:String x:Key="cClientAddress">Client addresses</system:String>
     <system:String x:Key="cAddressWay">Way</system:String>
     <system:String x:Key="cAddressComplement">Complement</system:String>
     <system:String x:Key="cAddressZipCode">Zip code</system:String>
@@ -74,7 +74,7 @@
     <system:String x:Key="cQuantityOrdered">Quantity ordered</system:String>
     <system:String x:Key="cOrderProducts">Order products</system:String>
     <system:String x:Key="cChangeDeliveryAddress">Change delivery address</system:String>
-    <system:String x:Key="cAddress">Address</system:String>
+    <system:String x:Key="cAddresses">Addresses</system:String>
     
     <!-- settings -->
     <system:String x:Key="sSettingClose">Close settings</system:String>
