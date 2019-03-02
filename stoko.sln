@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stoko", "stoko\stoko.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stoko_db_BLL", "stoko_db_BLL\stoko_db_BLL.csproj", "{BD307F33-264A-46C3-B67D-0BBE03312308}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stoko_class_BLL", "stoko_class_BLL\stoko_class_BLL.csproj", "{57BB7DD8-19CE-4BC8-9FE7-EFC467F904E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BD307F33-264A-46C3-B67D-0BBE03312308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD307F33-264A-46C3-B67D-0BBE03312308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD307F33-264A-46C3-B67D-0BBE03312308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57BB7DD8-19CE-4BC8-9FE7-EFC467F904E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BB7DD8-19CE-4BC8-9FE7-EFC467F904E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57BB7DD8-19CE-4BC8-9FE7-EFC467F904E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57BB7DD8-19CE-4BC8-9FE7-EFC467F904E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
