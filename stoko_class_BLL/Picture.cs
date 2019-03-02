@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace stoko_class_BLL {
-    class Picture {
+    public class Picture {
         public int Id { get; set; }
         public String PictureName { get; set; }
         public DateTime UpdateAt { get; set; }

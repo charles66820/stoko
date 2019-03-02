@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace stoko_class_BLL {
-    class Address {
+    public class Address {
         public int Id { get; set; }
         public String Way { get; set; }
         public String Complement { get; set; }

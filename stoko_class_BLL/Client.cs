@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace stoko_class_BLL {
-    class Client {
+    public class Client {
         public int Id { get; set; }
         public String Login { get; set; }
         public String Email { get; set; }

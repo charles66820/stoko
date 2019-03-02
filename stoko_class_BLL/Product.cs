@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace stoko_class_BLL {
-    class Product {
+    public class Product {
         public int Id { get; set; }
         public String Title { get; set; }
         public int PriceHT { get; set; }
         public String Reference { get; set; }
-        public String Quantity { get; set; }
+        public int Quantity { get; set; }
         public String Description { get; set; }
         public Category Category { get; set; }
         public List<Picture> Pictures { get; set; }
@@ -26,7 +26,7 @@ namespace stoko_class_BLL {
         /// <param name="pQuantity"></param>
         /// <param name="pDescription"></param>
         /// <param name="pCategory"></param>
-        public Product(String pTitle, int pPriceHT, String pReference, String pQuantity, String pDescription, Category pCategory) {
+        public Product(String pTitle, int pPriceHT, String pReference, int pQuantity, String pDescription, Category pCategory) {
             Title = pTitle;
             PriceHT = pPriceHT;
             Reference = pReference;
@@ -45,7 +45,7 @@ namespace stoko_class_BLL {
         /// <param name="pQuantity"></param>
         /// <param name="pDescription"></param>
         /// <param name="pCategory"></param>
-        public Product(int pId, String pTitle, int pPriceHT, String pReference, String pQuantity, String pDescription, Category pCategory) {
+        public Product(int pId, String pTitle, int pPriceHT, String pReference, int pQuantity, String pDescription, Category pCategory) {
             Id = pId;
             Title = pTitle;
             PriceHT = pPriceHT;

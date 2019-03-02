@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace stoko_class_BLL {
-    class OrderContent {
+    public class OrderContent {
         public int ProductId { get; }
         public String ProductReference { get; }
         public String ProductName { get; }

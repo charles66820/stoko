@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace stoko_class_BLL {
-    class Order {
+    public class Order {
         public int Id { get; }
         public int ClientId { get; }
         public int Shipping { get; }
@@ -21,13 +21,13 @@ namespace stoko_class_BLL {
             get {
                 if (orderContents == null) {
                     /* TODO: BDD GET */
+                    //orderContents = new OrderContent();
                     return orderContents;
                 } else {
                     return orderContents;
                 }
             }
         }
-
 
         /// <summary>
         /// Constructor
