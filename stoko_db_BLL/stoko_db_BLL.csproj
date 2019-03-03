@@ -57,10 +57,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data.cs" />
+    <Compile Include="DbClient.cs" />
+    <Compile Include="DbOrder.cs" />
+    <Compile Include="DbProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\stoko_class_BLL\stoko_class_BLL.csproj">
+      <Project>{57bb7dd8-19ce-4bc8-9fe7-efc467f904e6}</Project>
+      <Name>stoko_class_BLL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
