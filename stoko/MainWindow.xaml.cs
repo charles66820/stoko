@@ -30,11 +30,11 @@ namespace stoko {
         }
 
         private void Button_Settings_Click(object sender, RoutedEventArgs e) {
-            SettingPanel.Visibility = Visibility.Visible;
+            setSettingsPanel();
         }
 
         private void Button_SettingsClose_Click(object sender, RoutedEventArgs e) {
-            SettingPanel.Visibility = Visibility.Hidden;
+            setSettingsPanel(false);
         }
 
         private void Close_Click(object sender, RoutedEventArgs e) {
@@ -55,13 +55,14 @@ namespace stoko {
         }
 
         private void ComboBoxLang_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (((Lang)cbLang.SelectedItem).Code == "fr-FR") {
-                Configs.SetLanguageDictionary("fr-FR");
-                Configs.EditConfigData("lang", "fr-FR");
-            } else {
-                Configs.SetLanguageDictionary("en-US");
-                Configs.EditConfigData("lang", "en-US");
-
+            if (cbLang.SelectedItem != null) {
+                if (((Lang)cbLang.SelectedItem).Code == "fr-FR") {
+                    Configs.SetLanguageDictionary("fr-FR");
+                    Configs.EditConfigData("lang", "fr-FR");
+                } else {
+                    Configs.SetLanguageDictionary("en-US");
+                    Configs.EditConfigData("lang", "en-US");
+                }
             }
         }
 
@@ -74,7 +75,21 @@ namespace stoko {
             if (connectDb()) {
                 MessageBox.Show((mainTC.SelectedItem as TabItem).Name);
             } else {
-                SettingPanel.Visibility = Visibility.Visible;
+                setSettingsPanel();
+                bSettingsClose.IsEnabled = false;
+            }
+        }
+
+        private void bDbConnect_Click(object sender, RoutedEventArgs e) {
+            Configs.EditConfigData("dbHost", DFhost.Text);
+            Configs.EditConfigData("dbName", DFname.Text);
+            Configs.EditConfigData("dbUser", DFuser.Text);
+            Configs.EditConfigData("dbPassword", DFpass.Text);
+
+            if (connectDb()) {
+                MessageBox.Show((mainTC.SelectedItem as TabItem).Name);
+                bSettingsClose.IsEnabled = true;
+            } else {
                 bSettingsClose.IsEnabled = false;
             }
         }

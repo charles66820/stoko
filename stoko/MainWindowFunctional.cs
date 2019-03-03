@@ -13,6 +13,7 @@ namespace stoko {
         private void initSettings() {
 
             //initialise les langues
+            cbLang.Items.Clear();
             foreach (Lang l in Configs.Langs) {
                 cbLang.Items.Add(l);
             }
@@ -38,6 +39,11 @@ namespace stoko {
             if (Configs.Data.Global["darkMode"] == "1") c = true;
             Configs.SetDarkMode(c);
             allowDarkMode.IsChecked = c;
+
+            DFhost.Text = Configs.Data.Global["dbHost"];
+            DFname.Text = Configs.Data.Global["dbName"];
+            DFuser.Text = Configs.Data.Global["dbUser"];
+            DFpass.Text = Configs.Data.Global["dbPassword"];
         }
 
         /// <summary>
@@ -110,6 +116,10 @@ namespace stoko {
             PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
         }
 
+        /// <summary>
+        /// Connect to db
+        /// </summary>
+        /// <returns></returns>
         private bool connectDb() {
             Data.DbURL = "SERVER=" + Configs.Data.Global["dbHost"] + "; DATABASE=" + Configs.Data.Global["dbName"] + "; UID=" + Configs.Data.Global["dbUser"] + "; PASSWORD=" + Configs.Data.Global["dbPassword"];
 
@@ -122,6 +132,15 @@ namespace stoko {
                 msgStatut.SetResourceReference(ContentControl.ContentProperty, Data.DbConnStatus);
                 msgStatut.SetResourceReference(ContentControl.ForegroundProperty, "ValidationErrorBrush");
                 return false;
+            }
+        }
+
+        private void setSettingsPanel(bool p = true) {
+            if (p) {
+                initSettings();
+                SettingPanel.Visibility = Visibility.Visible;
+            } else {
+                SettingPanel.Visibility = Visibility.Hidden;
             }
         }
     }

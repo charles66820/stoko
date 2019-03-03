@@ -23,6 +23,7 @@
     <system:String x:Key="bAddClient">Add client</system:String>
     <system:String x:Key="bAddAddress">Add address</system:String>
     <system:String x:Key="bShipTheOrder">Ship the order</system:String>
+    <system:String x:Key="bDbConnect">Connect to db</system:String>
 
     <!-- tabs -->
     <system:String x:Key="tProduct">Products</system:String>
@@ -83,6 +84,10 @@
     <system:String x:Key="sDarkMode">Dark mode</system:String>
     <system:String x:Key="sAdvanced">Advanced</system:String>
     <system:String x:Key="sAllowMenu">Show menu</system:String>
+    <system:String x:Key="sDbHost">db host</system:String>
+    <system:String x:Key="sDbName">db name</system:String>
+    <system:String x:Key="sDbUser">db user</system:String>
+    <system:String x:Key="sDbPassword">db password</system:String>
 
     <!-- message -->
     <system:String x:Key="sErrorConfigsFile">Error on load configs file</system:String>

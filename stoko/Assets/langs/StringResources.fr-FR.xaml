@@ -23,6 +23,7 @@
     <system:String x:Key="bAddClient">Ajouter un client</system:String>
     <system:String x:Key="bAddAddress">Ajouter une adresse</system:String>
     <system:String x:Key="bShipTheOrder">Expédier la commande</system:String>
+    <system:String x:Key="bDbConnect">Connection à la bdd</system:String>
     
     <!-- tabs -->
     <system:String x:Key="tProduct">Produits</system:String>
@@ -83,6 +84,10 @@
     <system:String x:Key="sDarkMode">Mode sombre</system:String>
     <system:String x:Key="sAdvanced">Avancée</system:String>
     <system:String x:Key="sAllowMenu">Afficher le menu</system:String>
+    <system:String x:Key="sDbHost">host de la bdd</system:String>
+    <system:String x:Key="sDbName">nom de la bdd</system:String>
+    <system:String x:Key="sDbUser">identifiant de la bdd</system:String>
+    <system:String x:Key="sDbPassword">mots de passe de la bdd</system:String>
 
     <!-- message -->
     <system:String x:Key="sErrorConfigsFile">Erreur lors du chargement du fichier de configuration</system:String>

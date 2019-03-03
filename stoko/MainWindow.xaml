@@ -217,7 +217,24 @@
                         <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto">
                             <StackPanel>
                                 <CheckBox x:Name="allowMenu" Content="{DynamicResource sAllowMenu}" Margin="40,16,40,16" VerticalAlignment="Top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxAllowMenu_Checked" Unchecked="CheckBoxUnAllowMenu_Checked"/>
-                                
+                                <Separator/>
+                                <Grid VerticalAlignment="Center" Margin="40,16,40,16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBox x:Name="DFhost" Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="{DynamicResource sDbHost}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                    <TextBox x:Name="DFname" Grid.Column="1" Grid.Row="0" materialDesign:HintAssist.Hint="{DynamicResource sDbName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                    <TextBox x:Name="DFuser" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="{DynamicResource sDbUser}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                    <TextBox x:Name="DFpass" Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="{DynamicResource sDbPassword}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                    <Button Grid.Column="1" Grid.Row="2" Content="{DynamicResource bDbConnect}" Margin="8" Click="bDbConnect_Click"/>
+                                </Grid>
+                                <Separator/>
                                 <!--<TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
                             </StackPanel>
                         </Border>
