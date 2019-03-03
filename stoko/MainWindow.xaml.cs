@@ -41,6 +41,10 @@ namespace stoko {
             this.Close();
         }
 
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e) {
+            Data.CloseConn();
+        }
+
         private void CheckBoxAllowMenu_Checked(object sender, RoutedEventArgs e) {
             setMenu();
         }
@@ -95,9 +99,37 @@ namespace stoko {
         }
 
         private void MainTC_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (mainTC.IsLoaded && (e.Source as TabControl) != null) {
+            if (mainTC.IsLoaded && e.Source as TabControl != null) {
                 loadTab((mainTC.SelectedItem as TabItem).Name);
             }
+        }
+
+        private void DgProducts_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (dgProducts.SelectedItem as Product != null) editProductForm(dgProducts.SelectedItem as Product);
+        }
+
+        private void PFDone_Click(object sender, RoutedEventArgs e) {
+            //TODO: unit test
+
+            Product product = dgProducts.SelectedIndex == -1? new Product() : dgProducts.SelectedItem as Product;
+            product.Title = PFTitle.Text;
+            product.PriceHT = int.Parse(PFPriceHT.Text);
+            product.Quantity = int.Parse(PFQentity.Text);
+            product.Reference = PFRef.Text;
+            product.Category = PFCat.SelectedItem as Category;
+            product.Description = PFDes.Text;
+
+            if (dgProducts.SelectedIndex == -1) Data.Products.Add(product);
+
+            dgProducts.Items.Refresh();
+        }
+
+        private void PFDelete_Click(object sender, RoutedEventArgs e) {
+            if (dgProducts.SelectedIndex != -1) {
+                Data.Products.Remove(dgProducts.SelectedItem as Product);
+                dgProducts.Items.Refresh();
+            }
+            resetProductForm();
         }
     }
 }

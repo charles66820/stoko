@@ -29,7 +29,6 @@ namespace stoko {
         /// </summary>
         public static void Init() {
 
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
             Configs.SetLanguageDictionary();
 
             fileIniParser = new FileIniDataParser();
@@ -41,7 +40,7 @@ namespace stoko {
                 Data = fileIniParser.ReadFile(configFileUri);
                 SetLanguageDictionary(Data.Global["lang"]);
             } catch (Exception e) {
-                MessageBox.Show((String)Application.Current.Resources["sErrorReadConfigsFile"] + e.Message, (String)Application.Current.Resources["sErrorConfigsFile"], MessageBoxButton.OK, MessageBoxImage.Stop);
+                MessageBox.Show(Application.Current.Resources["sErrorReadConfigsFile"] as String + e.Message, Application.Current.Resources["sErrorConfigsFile"] as String, MessageBoxButton.OK, MessageBoxImage.Stop);
                 Environment.Exit(0);
             }
             

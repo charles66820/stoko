@@ -8,6 +8,7 @@
         xmlns:RuntimeBinder="clr-namespace:Microsoft.CSharp.RuntimeBinder;assembly=Microsoft.CSharp" x:Class="stoko.MainWindow"
         mc:Ignorable="d"
         Loaded="MainWindow_Loaded"
+        Closing="Window_Closing"
         Title="Stoko" Height="550" Width="800" FontFamily="/stoko;component/Resources/#Roboto" MinWidth="800" MinHeight="550" Background="{DynamicResource MaterialDesignPaper}">
 
     <Grid>
@@ -51,16 +52,14 @@
                                 <TextBox x:Name="PFQentity" materialDesign:HintAssist.Hint="{DynamicResource cQuantityNotOrdered}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="210,4,-7.2,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
                                 <TextBox x:Name="PFRef" materialDesign:HintAssist.Hint="{DynamicResource cProductReference}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
                                 <TextBox x:Name="PFDes" materialDesign:HintAssist.Hint="{DynamicResource cDescription}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
-                                <ComboBox x:Name="PFCat" materialDesign:HintAssist.Hint="{DynamicResource cCategory}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="110,69,-0.8,0" Height="60" VerticalAlignment="Top" Width="150">
-
-                                </ComboBox>
-                                <Button x:Name="PFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125"/>
-                                <Button x:Name="PFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125"/>
+                                <ComboBox x:Name="PFCat" materialDesign:HintAssist.Hint="{DynamicResource cCategory}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="110,69,-0.8,0" Height="60" VerticalAlignment="Top" Width="150" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="12,0"/>
+                                <Button x:Name="PFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125" Click="PFDone_Click"/>
+                                <Button x:Name="PFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125" Click="PFDelete_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cProducts}" Padding="8, 2, 8, 2" Margin="290,10,10,153.2">
                             <Grid Margin="0,0,0,0">
-                                <DataGrid x:Name="dgProducts" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" >
+                                <DataGrid x:Name="dgProducts" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" SelectionChanged="DgProducts_SelectionChanged">
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="{DynamicResource cNum}"  Binding="{Binding Id}"/>
                                         <DataGridTextColumn Header="{DynamicResource cProductTitle}" Binding="{Binding Title}"/>

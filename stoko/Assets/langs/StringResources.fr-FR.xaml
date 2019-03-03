@@ -24,7 +24,8 @@
     <system:String x:Key="bAddAddress">Ajouter une adresse</system:String>
     <system:String x:Key="bShipTheOrder">Expédier la commande</system:String>
     <system:String x:Key="bDbConnect">Connection à la bdd</system:String>
-    
+    <system:String x:Key="cNone">Aucune</system:String>
+
     <!-- tabs -->
     <system:String x:Key="tProduct">Produits</system:String>
     <system:String x:Key="tClient">Clients</system:String>

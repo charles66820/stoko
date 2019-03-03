@@ -26,7 +26,6 @@ namespace stoko_db_BLL
             try {
                 DbConn.Open();
 
-                MessageBox.Show(DbConn.State.ToString());
                 DbConnStatus = "sGoodDbConnexion";
                 DbConnMsg = "";
                 return true;
@@ -38,6 +37,10 @@ namespace stoko_db_BLL
                 DbConnStatus = "sErrorUnknownDbConnexion";
             }
             return false;
+        }
+
+        public static void CloseConn() {
+            DbConn.Close();
         }
     }
 }

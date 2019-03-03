@@ -79,9 +79,14 @@ namespace stoko {
         #region product
         #region actions
         private void loadProducts() {
-            MessageBox.Show("Products");
             Data.Products = DbProduct.GetProducts();
             dgProducts.ItemsSource = Data.Products;
+            List<Category> categories =  DbProduct.GetCategories();
+            categories.Add(new Category(-1, Application.Current.Resources["cNone"] as String));
+
+            PFCat.ItemsSource = categories;
+            PFCat.DisplayMemberPath = "Title";
+
             bAddProduct.IsEnabled = true;
         }
         #endregion
@@ -107,6 +112,7 @@ namespace stoko {
             PFPriceHT.Text = String.Empty;
             PFQentity.Text = String.Empty;
             PFRef.Text = String.Empty;
+            PFCat.SelectedIndex = -1;
             PFDes.Text = String.Empty;
 
             setProductForm(p);
@@ -121,7 +127,11 @@ namespace stoko {
             PFPriceHT.Text = product.PriceHT.ToString();
             PFQentity.Text = product.Quantity.ToString();
             PFRef.Text = product.Reference;
-            PFCat.SelectedItem = product.Category;
+            if (product.Category == null) {
+                PFCat.SelectedIndex = -1;
+            } else {
+                PFCat.Text = product.Category.Title;
+            }
             PFDes.Text = product.Description;
 
             PFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
@@ -132,6 +142,7 @@ namespace stoko {
         }
 
         private void addProductForm() {
+            dgProducts.SelectedIndex = -1;
             resetProductForm(true);
             PFDone.SetResourceReference(ContentControl.ContentProperty, "bAdd");
             PFDelete.SetResourceReference(ContentControl.ContentProperty, "bCancel");
@@ -190,7 +201,7 @@ namespace stoko {
                 msgStatut.SetResourceReference(ContentControl.ForegroundProperty, "MaterialDesignBody");
                 return true;
             } else {
-                MessageBox.Show(Data.DbConnMsg, (String)Application.Current.Resources[Data.DbConnStatus], MessageBoxButton.OK, MessageBoxImage.Stop);
+                MessageBox.Show(Data.DbConnMsg, Application.Current.Resources[Data.DbConnStatus] as String, MessageBoxButton.OK, MessageBoxImage.Stop);
                 msgStatut.SetResourceReference(ContentControl.ContentProperty, Data.DbConnStatus);
                 msgStatut.SetResourceReference(ContentControl.ForegroundProperty, "ValidationErrorBrush");
                 return false;

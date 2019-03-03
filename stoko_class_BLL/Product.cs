@@ -10,7 +10,14 @@ namespace stoko_class_BLL {
         public String Title { get; set; }
         public int PriceHT { get; set; }
         public String Reference { get; set; }
-        public int Quantity { get; set; }
+        private int quantity;
+        public int Quantity {
+            get { return quantity; }
+            set {
+                QuantityStock = (QuantityStock - quantity) + value;
+                quantity = value;
+            }
+        }
         public int QuantityStock { get; set; }
         public String Description { get; set; }
         public Category Category { get; set; }
@@ -28,7 +35,7 @@ namespace stoko_class_BLL {
         /// <param name="pQuantityStock"></param>
         /// <param name="pDescription"></param>
         /// <param name="pCategory"></param>
-        public Product(String pTitle, int pPriceHT, String pReference, int pQuantity, int pQuantityStock, String pDescription, Category pCategory) {
+        public Product(String pTitle, int pPriceHT, String pReference, int pQuantity, int pQuantityStock, String pDescription, Category pCategory = null) {
             Title = pTitle;
             PriceHT = pPriceHT;
             Reference = pReference;
@@ -49,7 +56,7 @@ namespace stoko_class_BLL {
         /// <param name="pQuantityStock"></param>
         /// <param name="pDescription"></param>
         /// <param name="pCategory"></param>
-        public Product(int pId, String pTitle, int pPriceHT, String pReference, int pQuantity, int pQuantityStock, String pDescription, Category pCategory) {
+        public Product(int pId, String pTitle, int pPriceHT, String pReference, int pQuantity, int pQuantityStock, String pDescription, Category pCategory = null) {
             Id = pId;
             Title = pTitle;
             PriceHT = pPriceHT;

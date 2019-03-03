@@ -24,6 +24,7 @@
     <system:String x:Key="bAddAddress">Add address</system:String>
     <system:String x:Key="bShipTheOrder">Ship the order</system:String>
     <system:String x:Key="bDbConnect">Connect to db</system:String>
+    <system:String x:Key="cNone">None</system:String>
 
     <!-- tabs -->
     <system:String x:Key="tProduct">Products</system:String>
