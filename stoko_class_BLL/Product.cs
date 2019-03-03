@@ -11,6 +11,7 @@ namespace stoko_class_BLL {
         public int PriceHT { get; set; }
         public String Reference { get; set; }
         public int Quantity { get; set; }
+        public int QuantityStock { get; set; }
         public String Description { get; set; }
         public Category Category { get; set; }
         public List<Picture> Pictures { get; set; }
@@ -24,13 +25,15 @@ namespace stoko_class_BLL {
         /// <param name="pPriceHT"></param>
         /// <param name="pReference"></param>
         /// <param name="pQuantity"></param>
+        /// <param name="pQuantityStock"></param>
         /// <param name="pDescription"></param>
         /// <param name="pCategory"></param>
-        public Product(String pTitle, int pPriceHT, String pReference, int pQuantity, String pDescription, Category pCategory) {
+        public Product(String pTitle, int pPriceHT, String pReference, int pQuantity, int pQuantityStock, String pDescription, Category pCategory) {
             Title = pTitle;
             PriceHT = pPriceHT;
             Reference = pReference;
             Quantity = pQuantity;
+            QuantityStock = pQuantityStock;
             Description = pDescription;
             Category = pCategory;
         }
@@ -43,14 +46,16 @@ namespace stoko_class_BLL {
         /// <param name="pPriceHT"></param>
         /// <param name="pReference"></param>
         /// <param name="pQuantity"></param>
+        /// <param name="pQuantityStock"></param>
         /// <param name="pDescription"></param>
         /// <param name="pCategory"></param>
-        public Product(int pId, String pTitle, int pPriceHT, String pReference, int pQuantity, String pDescription, Category pCategory) {
+        public Product(int pId, String pTitle, int pPriceHT, String pReference, int pQuantity, int pQuantityStock, String pDescription, Category pCategory) {
             Id = pId;
             Title = pTitle;
             PriceHT = pPriceHT;
             Reference = pReference;
             Quantity = pQuantity;
+            QuantityStock = pQuantityStock;
             Description = pDescription;
             Category = pCategory;
         }

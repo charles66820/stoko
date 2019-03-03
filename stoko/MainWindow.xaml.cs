@@ -95,7 +95,7 @@ namespace stoko {
         }
 
         private void MainTC_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (mainTC.IsLoaded) {
+            if (mainTC.IsLoaded && (e.Source as TabControl) != null) {
                 loadTab((mainTC.SelectedItem as TabItem).Name);
             }
         }

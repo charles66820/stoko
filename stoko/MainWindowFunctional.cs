@@ -80,6 +80,9 @@ namespace stoko {
         #region actions
         private void loadProducts() {
             MessageBox.Show("Products");
+            Data.Products = DbProduct.GetProducts();
+            dgProducts.ItemsSource = Data.Products;
+            bAddProduct.IsEnabled = true;
         }
         #endregion
         #region form
@@ -121,18 +124,18 @@ namespace stoko {
             PFCat.SelectedItem = product.Category;
             PFDes.Text = product.Description;
 
-            PFDone.SetResourceReference(ContentControl.ContentProperty, "bAdd");
-            PFDelete.SetResourceReference(ContentControl.ContentProperty, "bCancel");
-            PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedButton");
+            PFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
+            PFDelete.SetResourceReference(ContentControl.ContentProperty, "bDelete");
+            PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
 
             setProductForm();
         }
 
         private void addProductForm() {
             resetProductForm(true);
-            PFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
-            PFDelete.SetResourceReference(ContentControl.ContentProperty, "bDelete");
-            PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
+            PFDone.SetResourceReference(ContentControl.ContentProperty, "bAdd");
+            PFDelete.SetResourceReference(ContentControl.ContentProperty, "bCancel");
+            PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedButton");
         }
         #endregion
         #endregion

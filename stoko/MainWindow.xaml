@@ -60,7 +60,18 @@
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cProducts}" Padding="8, 2, 8, 2" Margin="290,10,10,153.2">
                             <Grid Margin="0,0,0,0">
-                                <DataGrid Margin="0,4,0,6"/>
+                                <DataGrid x:Name="dgProducts" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="{DynamicResource cNum}"  Binding="{Binding Id}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cProductTitle}" Binding="{Binding Title}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cPriceHT}" Binding="{Binding PriceHT}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cProductReference}" Binding="{Binding Reference}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cQuantityNotOrdered}" Binding="{Binding Quantity}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cQuantityInStock}" Binding="{Binding QuantityStock}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cQuantityInStock}" Binding="{Binding Description}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cCategory}" Binding="{Binding Category.Title }"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
                             </Grid>
                         </GroupBox>
                         <Grid HorizontalAlignment="Left" Margin="10,275,0,10.2" Background="{DynamicResource MaterialDesignPaper}" Width="275" materialDesign:ShadowAssist.ShadowDepth="Depth4">
@@ -69,9 +80,9 @@
                         <ListBox Height="138" Margin="290,0,226,10.2" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}" materialDesign:ShadowAssist.ShadowDepth="Depth4"/>
                         <GroupBox Header="{DynamicResource cActions}" Padding="8, 2, 8, 2" Margin="0,0,10,10.2" Height="135" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="211">
                             <Grid Margin="0,0,0,1.2">
-                                <Button IsEnabled="False" Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="bAddProduct_Click"/>
-                                <Button IsEnabled="False" Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32"/>
-                                <Button IsEnabled="False" Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32"/>
+                                <Button x:Name="bAddProduct" IsEnabled="False" Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="bAddProduct_Click"/>
+                                <Button x:Name="bAddImage" IsEnabled="False" Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32"/>
+                                <Button x:Name="bDeleteImages" IsEnabled="False" Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
