@@ -83,5 +83,14 @@
     <system:String x:Key="sDarkMode">Mode sombre</system:String>
     <system:String x:Key="sAdvanced">Avancée</system:String>
     <system:String x:Key="sAllowMenu">Afficher le menu</system:String>
-    
+
+    <!-- message -->
+    <system:String x:Key="sErrorConfigsFile">Erreur lors du chargement du fichier de configuration</system:String>
+    <system:String x:Key="sErrorReadConfigsFile">Une erreur ces produits a la lecture du ficher de configuration. Message d'erreur :</system:String>
+    <system:String x:Key="sGoodDbConnexion">Connecté à la base de données</system:String>
+    <system:String x:Key="sErrorAuthDbConnexion">Erreur d'authentification a la base de données</system:String>
+    <system:String x:Key="sErrorUnknownDbConnexion">Erreur inconnue lors de la connexion à la base de données</system:String>
+    <system:String x:Key="sStatus">Statut : </system:String>
+    <system:String x:Key="sLoading">Chargement...</system:String>
+
 </ResourceDictionary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using stoko_class_BLL;
+using stoko_db_BLL;
 
 namespace stoko {
     /// <summary>
@@ -61,7 +62,7 @@ namespace stoko {
         /// Show or hide product form
         /// </summary>
         /// <param name="p"></param>
-        public void setProductForm(bool p = true) {
+        private void setProductForm(bool p = true) {
             if (p) {
                 ProductForm.Visibility = Visibility.Visible;
             } else {
@@ -73,7 +74,7 @@ namespace stoko {
         /// Reset product form
         /// </summary>
         /// <param name="p">hide form after reset. true by default</param>
-        public void resetProductForm(bool p = false) {
+        private void resetProductForm(bool p = false) {
             PFTitle.Text = String.Empty;
             PFPriceHT.Text = String.Empty;
             PFQentity.Text = String.Empty;
@@ -87,7 +88,7 @@ namespace stoko {
         /// Fill product info beafor edit
         /// </summary>
         /// <param name="product"></param>
-        public void editProductForm(Product product) {
+        private void editProductForm(Product product) {
             PFTitle.Text = product.Title;
             PFPriceHT.Text = product.PriceHT.ToString();
             PFQentity.Text = product.Quantity.ToString();
@@ -102,11 +103,26 @@ namespace stoko {
             setProductForm();
         }
 
-        public void addProductForm() {
+        private void addProductForm() {
             resetProductForm(true);
             PFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
             PFDelete.SetResourceReference(ContentControl.ContentProperty, "bDelete");
             PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
+        }
+
+        private bool connectDb() {
+            Data.DbURL = "SERVER=" + Configs.Data.Global["dbHost"] + "; DATABASE=" + Configs.Data.Global["dbName"] + "; UID=" + Configs.Data.Global["dbUser"] + "; PASSWORD=" + Configs.Data.Global["dbPassword"];
+
+            if (Data.DbConnect()) {
+                msgStatut.SetResourceReference(ContentControl.ContentProperty, Data.DbConnStatus);
+                msgStatut.SetResourceReference(ContentControl.ForegroundProperty, "MaterialDesignBody");
+                return true;
+            } else {
+                MessageBox.Show(Data.DbConnMsg, (String)Application.Current.Resources[Data.DbConnStatus], MessageBoxButton.OK, MessageBoxImage.Stop);
+                msgStatut.SetResourceReference(ContentControl.ContentProperty, Data.DbConnStatus);
+                msgStatut.SetResourceReference(ContentControl.ForegroundProperty, "ValidationErrorBrush");
+                return false;
+            }
         }
     }
 }

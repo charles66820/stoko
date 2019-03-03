@@ -186,12 +186,13 @@
             </StackPanel>
         </Grid>
         <StatusBar Height="20" Margin="0,0,-0.4,0" VerticalAlignment="Bottom" Background="{DynamicResource MaterialDesignPaper}">
-            <Label x:Name="msgStatut" Content="Status: Ok" Width="auto" Padding="0,0,0,0" FontSize="10" Foreground="{DynamicResource MaterialDesignBody}"/>
+            <Label Content="{DynamicResource sStatus}" Width="auto" Padding="0,0,0,0" FontSize="10" Foreground="{DynamicResource MaterialDesignBody}"/>
+            <Label x:Name="msgStatut" Content="{DynamicResource sLoading}" Width="auto" Padding="0,0,0,0" FontSize="10" Foreground="{DynamicResource MaterialDesignBody}"/>
         </StatusBar>
 
         <!-- Settings panel -->
         <Grid x:Name="SettingPanel" Background="{DynamicResource MaterialDesignPaper}" Visibility="Hidden" Margin="0,0,0,20">
-            <Button Style="{DynamicResource MaterialDesignFlatToggleButton}" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,30,45,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource sSettingClose}" Cursor="Hand" Focusable="True" Click="Button_SettingsClose_Click"/>
+            <Button x:Name="bSettingsClose" Style="{DynamicResource MaterialDesignFlatToggleButton}" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,30,45,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource sSettingClose}" Cursor="Hand" Focusable="True" Click="Button_SettingsClose_Click"/>
             <TabControl TabStripPlacement="Left" Margin="75,50" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}">
                 <TabItem Header="{DynamicResource sGeneral}" Background="{DynamicResource MaterialDesignBackground}" Style="{DynamicResource TabItemStyleLeft}">
                     <Grid>

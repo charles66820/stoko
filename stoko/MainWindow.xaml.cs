@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using stoko_class_BLL;
+using stoko_db_BLL;
 
 namespace stoko {
     /// <summary>
@@ -14,7 +15,6 @@ namespace stoko {
 
             //initialise la configuration
             Configs.Init();
-            Configs.SetLanguageDictionary(Configs.Data.Global["lang"]);
 
             InitializeComponent();
 
@@ -71,9 +71,12 @@ namespace stoko {
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
 
-            SettingPanel.Visibility = Visibility.Visible;
-
-            MessageBox.Show((mainTC.SelectedItem as TabItem).Name);
+            if (connectDb()) {
+                MessageBox.Show((mainTC.SelectedItem as TabItem).Name);
+            } else {
+                SettingPanel.Visibility = Visibility.Visible;
+                bSettingsClose.IsEnabled = false;
+            }
         }
     }
 }

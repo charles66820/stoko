@@ -22,11 +22,16 @@ namespace stoko {
         };
         private static String configFileUri = AppDomain.CurrentDomain.BaseDirectory + @"config.ini";
         private static FileIniDataParser fileIniParser;
+        public static ResourceDictionary ResDict { get; set; }
 
         /// <summary>
         /// config initialisation
         /// </summary>
         public static void Init() {
+
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
+            Configs.SetLanguageDictionary();
+
             fileIniParser = new FileIniDataParser();
             fileIniParser.Parser.Configuration.CommentString = "#";
             
@@ -34,9 +39,12 @@ namespace stoko {
 
             try {
                 Data = fileIniParser.ReadFile(configFileUri);
+                SetLanguageDictionary(Data.Global["lang"]);
             } catch (Exception e) {
-                MessageBox.Show("erreur a la lectuer du ficher de configuration", e.Message);
+                MessageBox.Show((String)Application.Current.Resources["sErrorReadConfigsFile"] + e.Message, (String)Application.Current.Resources["sErrorConfigsFile"], MessageBoxButton.OK, MessageBoxImage.Stop);
+                Environment.Exit(0);
             }
+            
         }
 
         /// <summary>
@@ -64,6 +72,10 @@ namespace stoko {
             newData.Global.AddKey("lang", Thread.CurrentThread.CurrentCulture.ToString());
             newData.Global.AddKey("darkMode", "0");
             newData.Global.AddKey("mainMenu", "0");
+            newData.Global.AddKey("dbHost", "");
+            newData.Global.AddKey("dbUser", "");
+            newData.Global.AddKey("dbPassword", "");
+            newData.Global.AddKey("dbName", "");
 
             fileIniParser.WriteFile(configFileUri, newData);
         }
@@ -88,24 +100,24 @@ namespace stoko {
         /// </summary>
         /// <param name="pLang"></param>
         public static void SetLanguageDictionary(String pLang = null) {
-            ResourceDictionary resDict = new ResourceDictionary();
+            if (ResDict == null) {
+                ResDict = new ResourceDictionary();
+                Application.Current.Resources.MergedDictionaries.Add(ResDict);
+            }
 
-            pLang = pLang == null ? Thread.CurrentThread.CurrentCulture.ToString() : pLang;
-
-            switch (pLang) {
+            switch (pLang == null ? Thread.CurrentThread.CurrentCulture.ToString() : pLang) {
                 case "en-US":
-                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
+                    ResDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
                     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                     break;
                 case "fr-FR":
-                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.fr-FR.xaml", UriKind.Relative);
+                    ResDict.Source = new Uri("..\\Assets\\langs\\StringResources.fr-FR.xaml", UriKind.Relative);
                     Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
                     break;
                 default:
-                    resDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
+                    ResDict.Source = new Uri("..\\Assets\\langs\\StringResources.en-US.xaml", UriKind.Relative);
                     break;
             }
-            Application.Current.Resources.MergedDictionaries.Add(resDict);
         }
 
         public static void SetDarkMode(bool p = true) {

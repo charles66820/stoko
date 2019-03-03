@@ -84,4 +84,13 @@
     <system:String x:Key="sAdvanced">Advanced</system:String>
     <system:String x:Key="sAllowMenu">Show menu</system:String>
 
+    <!-- message -->
+    <system:String x:Key="sErrorConfigsFile">Error on load configs file</system:String>
+    <system:String x:Key="sErrorReadConfigsFile">Error on reading configs file. Error message : </system:String>
+    <system:String x:Key="sGoodDbConnexion">Database connexion good</system:String>
+    <system:String x:Key="sErrorAuthDbConnexion">Database authentication error</system:String>
+    <system:String x:Key="sErrorUnknownDbConnexion">Unknown error on database connexion </system:String>
+    <system:String x:Key="sStatus">Status : </system:String>
+    <system:String x:Key="sLoading">Loading... </system:String>
+
 </ResourceDictionary>
