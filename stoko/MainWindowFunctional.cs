@@ -10,6 +10,8 @@ namespace stoko {
     /// File with Functional method for MainWindow.xaml.cs
     /// </summary>
     public partial class MainWindow : Window {
+
+        #region settings
         private void initSettings() {
 
             //initialise les langues
@@ -46,6 +48,15 @@ namespace stoko {
             DFpass.Text = Configs.Data.Global["dbPassword"];
         }
 
+        private void setSettingsPanel(bool p = true) {
+            if (p) {
+                initSettings();
+                SettingPanel.Visibility = Visibility.Visible;
+            } else {
+                SettingPanel.Visibility = Visibility.Hidden;
+            }
+        }
+
         /// <summary>
         /// show/hide main menu
         /// </summary>
@@ -63,7 +74,15 @@ namespace stoko {
                 Configs.EditConfigData("mainMenu", "0");
             }
         }
+        #endregion
 
+        #region product
+        #region actions
+        private void loadProducts() {
+            MessageBox.Show("Products");
+        }
+        #endregion
+        #region form
         /// <summary>
         /// Show or hide product form
         /// </summary>
@@ -115,6 +134,46 @@ namespace stoko {
             PFDelete.SetResourceReference(ContentControl.ContentProperty, "bDelete");
             PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
         }
+        #endregion
+        #endregion
+
+        #region client
+        #region actions
+        private void loadClients() {
+            MessageBox.Show("Clients");
+        }
+        #endregion
+        #region form
+        #endregion
+        #endregion
+
+        #region order
+        #region actions
+        private void loadOrders() {
+            MessageBox.Show("Orders");
+        }
+        #endregion
+        #region form
+        #endregion
+        #endregion
+
+        /// <summary>
+        /// Call method for load tab with tab name
+        /// </summary>
+        /// <param name="tabName"></param>
+        private void loadTab(String tabName) {
+            switch (tabName) {
+                case "tiProduct":
+                    loadProducts();
+                    break;
+                case "tiClient":
+                    loadClients();
+                    break;
+                case "tiOrder":
+                    loadOrders();
+                    break;
+            }
+        }
 
         /// <summary>
         /// Connect to db
@@ -132,15 +191,6 @@ namespace stoko {
                 msgStatut.SetResourceReference(ContentControl.ContentProperty, Data.DbConnStatus);
                 msgStatut.SetResourceReference(ContentControl.ForegroundProperty, "ValidationErrorBrush");
                 return false;
-            }
-        }
-
-        private void setSettingsPanel(bool p = true) {
-            if (p) {
-                initSettings();
-                SettingPanel.Visibility = Visibility.Visible;
-            } else {
-                SettingPanel.Visibility = Visibility.Hidden;
             }
         }
     }

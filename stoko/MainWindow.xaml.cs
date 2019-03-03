@@ -71,9 +71,9 @@ namespace stoko {
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
-
             if (connectDb()) {
-                MessageBox.Show((mainTC.SelectedItem as TabItem).Name);
+                loadTab((mainTC.SelectedItem as TabItem).Name);
+                bSettingsClose.IsEnabled = true;
             } else {
                 setSettingsPanel();
                 bSettingsClose.IsEnabled = false;
@@ -87,10 +87,16 @@ namespace stoko {
             Configs.EditConfigData("dbPassword", DFpass.Text);
 
             if (connectDb()) {
-                MessageBox.Show((mainTC.SelectedItem as TabItem).Name);
+                loadTab((mainTC.SelectedItem as TabItem).Name);
                 bSettingsClose.IsEnabled = true;
             } else {
                 bSettingsClose.IsEnabled = false;
+            }
+        }
+
+        private void MainTC_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (mainTC.IsLoaded) {
+                loadTab((mainTC.SelectedItem as TabItem).Name);
             }
         }
     }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using stoko_class_BLL;
 
 namespace stoko_db_BLL
 {
@@ -14,6 +15,9 @@ namespace stoko_db_BLL
         public static MySqlConnection DbConn { get; set; }
         public static String DbConnStatus { get; set; }
         public static String DbConnMsg { get; set; }
+        public static List<Product> Products { get; set; }
+        public static List<Client> Clients { get; set; }
+        public static List<Order> Orders { get; set; }
 
         public static bool DbConnect() {
             

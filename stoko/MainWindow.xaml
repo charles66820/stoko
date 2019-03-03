@@ -41,7 +41,7 @@
                     <ImageBrush ImageSource="Assets/icons/baseline_more_vert_black_18dp.png"/>
                 </Button.Background>
             </Button>
-            <TabControl x:Name="mainTC" Margin="0,0,0,0" MinWidth="722" MinHeight="320" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}">
+            <TabControl x:Name="mainTC" Margin="0,0,0,0" MinWidth="722" MinHeight="320" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{DynamicResource MaterialDesignPaper}" SelectionChanged="MainTC_SelectionChanged">
                 <TabItem x:Name="tiProduct" Header="{DynamicResource tProduct}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <GroupBox Header="{DynamicResource cProductInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="260">
