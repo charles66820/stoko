@@ -156,28 +156,44 @@
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <GroupBox Header="{DynamicResource cOrders}" Padding="8, 2, 8, 2" Margin="10,10,10,210.4">
                             <Grid Margin="0,0,0,0">
-                                <DataGrid Margin="0,4,0,6"/>
+                                <DataGrid x:Name="dgOrder" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" SelectionChanged="DgOrder_SelectionChanged">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="{DynamicResource cNum}" Binding="{Binding Id}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersClientName}" Binding="{Binding ClientName}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersClientNum}" Binding="{Binding ClientId}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersShipping}" Binding="{Binding Shipping}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersPriceHT}" Binding="{Binding PriceHT}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersPriceTTC}" Binding="{Binding PriceTTC}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersShippingAddress}" Binding="{Binding ShippingAddress}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersDate}" Binding="{Binding OrderedDate, StringFormat={}{0:dd/MM/yyyy HH:mm:ss} }"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersShipped}" Binding="{Binding Shipped, Converter={StaticResource EnumConverter}}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cOrderProducts}" Padding="8, 2, 8, 2" Margin="10,0,290,5.4" VerticalAlignment="Bottom" Height="200">
                             <Grid Margin="0,0,0,0">
-                                <DataGrid Margin="0,4,0,6"/>
+                                <DataGrid x:Name="dgOrderContent" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="{DynamicResource cNumProducts}" Binding="{Binding ProductId}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cProductReference}" Binding="{Binding ProductReference}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cProductTitle}" Binding="{Binding ProductName}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cPriceHT}" Binding="{Binding PriceHT}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cQuantityOrdered}" Binding="{Binding Qantity}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cChangeDeliveryAddress}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="275" Padding="8,2,8,2" Margin="0,0,10,70.4" Height="135">
-                            <Grid Margin="0,0,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="207*"/>
-                                    <ColumnDefinition Width="52*"/>
-                                </Grid.ColumnDefinitions>
-                                <ComboBox materialDesign:HintAssist.Hint="{DynamicResource cAddresses}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="9,6,0,0" Height="60" VerticalAlignment="Top" Width="239" Grid.ColumnSpan="2"/>
-                                <Button Content="{DynamicResource bDone}" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="125"/>
-                                <Button Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,71,0.4,0" VerticalAlignment="Top" Width="125" Grid.ColumnSpan="2"/>
+                            <Grid Margin="0,0,0,0" x:Name="ChangeOrderAddressForm" Visibility="Collapsed">
+                                <ComboBox x:Name="DAFAddress" materialDesign:HintAssist.Hint="{DynamicResource cAddresses}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="9,6,0,0" Height="60" VerticalAlignment="Top" Width="239"/>
+                                <Button x:Name="DAFDone" Content="{DynamicResource bDone}" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="125" Click="DAFDone_Click"/>
+                                <Button x:Name="DAFCancel" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,71,0.2,0" VerticalAlignment="Top" Width="125" Click="DAFCancel_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cActions}" Padding="8,2,8,2" Margin="0,0,10,5.4" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="275">
                             <Grid Margin="0,0,0,1.2">
-                                <Button Content="{DynamicResource bShipTheOrder}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32"/>
+                                <Button x:Name="bShipTheOrder" IsEnabled="False" Content="{DynamicResource bShipTheOrder}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="BShipTheOrder_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -269,6 +285,7 @@
                                     <Button Grid.Column="1" Grid.Row="2" Content="{DynamicResource bDbConnect}" Margin="8" Click="bDbConnect_Click"/>
                                 </Grid>
                                 <Separator/>
+                                <!--<TextBlock x:Name="serveru d'image"></TextBlock>-->
                                 <!--<TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
                             </StackPanel>
                         </Border>

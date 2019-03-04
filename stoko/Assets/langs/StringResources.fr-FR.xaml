@@ -74,7 +74,8 @@
     <system:String x:Key="cOrdersDate">Date de commande</system:String>
     <system:String x:Key="cOrdersShipped">Livrer</system:String>
     <system:String x:Key="cQuantityOrdered">Quantité commandée</system:String>
-    <system:String x:Key="cOrderProducts">Products de la commande</system:String>
+    <system:String x:Key="cOrderProducts">Produits de la commande</system:String>
+    <system:String x:Key="cNumProducts">N° produit</system:String>
     <system:String x:Key="cChangeDeliveryAddress">Changer l'adresse de livraison</system:String>
     <system:String x:Key="cAddresses">Adresses</system:String>
 
@@ -98,5 +99,7 @@
     <system:String x:Key="sErrorUnknownDbConnexion">Erreur inconnue lors de la connexion à la base de données</system:String>
     <system:String x:Key="sStatus">Statut : </system:String>
     <system:String x:Key="sLoading">Chargement...</system:String>
+    <system:String x:Key="sYes">oui</system:String>
+    <system:String x:Key="sNo">non</system:String>
 
 </ResourceDictionary>

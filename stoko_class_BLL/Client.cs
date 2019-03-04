@@ -17,6 +17,9 @@ namespace stoko_class_BLL {
         public List<Address> Addresses { get; set; }
 
         public Client() { }
+        public Client(int pId) {
+            Id = pId;
+        }
 
         /// <summary>
         /// Surcharged constructor without Id

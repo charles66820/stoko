@@ -16,6 +16,12 @@ namespace stoko_class_BLL {
         public String ClientName { get; }
         public Address Address { get; set; }
 
+        public String ShippingAddress {
+            get {
+                return Address.FullAddress;
+            }
+        }
+
         private List<OrderContent> orderContents;
         public List<OrderContent> OrderContents {
             get {
@@ -61,6 +67,6 @@ namespace stoko_class_BLL {
             var oui = ClientId;
 
             return clientAddresses;
-        } 
+        }
     }
 }

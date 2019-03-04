@@ -75,6 +75,7 @@
     <system:String x:Key="cOrdersShipped">Shipped</system:String>
     <system:String x:Key="cQuantityOrdered">Quantity ordered</system:String>
     <system:String x:Key="cOrderProducts">Order products</system:String>
+    <system:String x:Key="cNumProducts">N° product</system:String>
     <system:String x:Key="cChangeDeliveryAddress">Change delivery address</system:String>
     <system:String x:Key="cAddresses">Addresses</system:String>
     
@@ -98,5 +99,7 @@
     <system:String x:Key="sErrorUnknownDbConnexion">Unknown error on database connexion </system:String>
     <system:String x:Key="sStatus">Status : </system:String>
     <system:String x:Key="sLoading">Loading... </system:String>
+    <system:String x:Key="sYes">yes</system:String>
+    <system:String x:Key="sNo">no</system:String>
 
 </ResourceDictionary>

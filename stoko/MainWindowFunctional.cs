@@ -250,7 +250,7 @@ namespace stoko {
         /// <summary>
         /// Fill address info befor edit
         /// </summary>
-        /// <param name="client"></param>
+        /// <param name="address"></param>
         private void editAddressForm(Address address) {
             AFWay.Text = address.Way;
             AFComplement.Text = address.Complement;
@@ -277,10 +277,52 @@ namespace stoko {
         #region order
         #region actions
         private void loadOrders() {
-            MessageBox.Show("Orders");
+            Data.Orders = DbOrder.GetOrders();
+            dgOrder.ItemsSource = Data.Orders;
         }
         #endregion
         #region form
+        /// <summary>
+        /// Show or hide order form
+        /// </summary>
+        /// <param name="p"></param>
+        private void setChangeOrderAddressForm(bool p = true) {
+            if (p) {
+                ChangeOrderAddressForm.Visibility = Visibility.Visible;
+            } else {
+                ChangeOrderAddressForm.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        /// <summary>
+        /// Reset address form
+        /// </summary>
+        /// <param name="p">hide form after reset. true by default</param>
+        private void resetChangeOrderAddressForm(bool p = false) {
+            DAFAddress.ItemsSource = null;
+            bShipTheOrder.IsEnabled = false;
+
+            setChangeOrderAddressForm(p);
+        }
+
+        /// <summary>
+        /// Fill address info befor edit
+        /// </summary>
+        /// <param name="order"></param>
+        private void changeOrderAddressForm(Order order) {
+            DAFAddress.ItemsSource = DbClient.GetAddresses(new Client(order.ClientId));
+            DAFAddress.DisplayMemberPath = "FullAddress";
+            foreach (Address a in DAFAddress.Items) {
+                if (a.Id == order.Address.Id) {
+                    DAFAddress.SelectedItem = a;
+                }
+            }
+
+            DAFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
+            DAFCancel.SetResourceReference(ContentControl.ContentProperty, "bCancel");
+
+            setChangeOrderAddressForm();
+        }
         #endregion
         #endregion
 

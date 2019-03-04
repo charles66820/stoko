@@ -26,6 +26,7 @@
                 <ResourceDictionary Source="Assets/Styles/Buttons.xaml" />
                 
             </ResourceDictionary.MergedDictionaries>
+            <local:EnumConverter x:Key="EnumConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

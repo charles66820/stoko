@@ -222,5 +222,35 @@ namespace stoko {
             }
             resetAddressForm();
         }
+
+        private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            Order o = dgOrder.SelectedItem as Order;
+            if (o != null) {
+                changeOrderAddressForm(o);
+                if (o.Shipped == 0) {
+                    bShipTheOrder.IsEnabled = true;
+                } else {
+                    bShipTheOrder.IsEnabled = false;
+                }
+            } else {
+                resetChangeOrderAddressForm();
+            }
+        }
+
+        private void DAFDone_Click(object sender, RoutedEventArgs e) {
+            (dgOrder.SelectedItem as Order).Address = DAFAddress.SelectedItem as Address;
+
+            dgOrder.Items.Refresh();
+        }
+
+        private void DAFCancel_Click(object sender, RoutedEventArgs e) {
+            changeOrderAddressForm(dgOrder.SelectedItem as Order);
+        }
+
+        private void BShipTheOrder_Click(object sender, RoutedEventArgs e) {
+            (dgOrder.SelectedItem as Order).Shipped = 1;
+            bShipTheOrder.IsEnabled = false;
+            dgOrder.Items.Refresh();
+        }
     }
 }
