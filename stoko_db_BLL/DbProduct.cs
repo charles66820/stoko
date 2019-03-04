@@ -13,7 +13,7 @@ namespace stoko_db_BLL {
         public static List<Product> GetProducts() {
             List<Product> products = new List<Product>();
 
-            string sql = "SELECT p.id_product, p.product_title, p.unit_price_HT, p.reference, p.quantity, " +
+            String sql = "SELECT p.id_product, p.product_title, p.unit_price_HT, p.reference, p.quantity, " +
                 "IFNULL(" +
                     "p.quantity+(SELECT SUM(quantity) as qteCommanded " +
                     "FROM command_content, command " +
@@ -24,8 +24,6 @@ namespace stoko_db_BLL {
                 "WHERE p.id_category = c.id_category";
 
             MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
-
-            //req.Parameters.Add(new MySqlParameter("@id_product", 6));
 
             MySqlDataReader res = req.ExecuteReader();
             
@@ -45,6 +43,7 @@ namespace stoko_db_BLL {
                         );
                 }
             }
+
             res.Close();
 
             return products;
@@ -53,7 +52,7 @@ namespace stoko_db_BLL {
         public static List<Category> GetCategories() {
             List<Category> categories = new List<Category>();
 
-            string sql = "SELECT id_category, title_category FROM category";
+            String sql = "SELECT id_category, title_category FROM category";
 
             MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
 
@@ -69,6 +68,7 @@ namespace stoko_db_BLL {
                         );
                 }
             }
+
             res.Close();
 
             return categories;

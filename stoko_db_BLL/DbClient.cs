@@ -1,20 +1,41 @@
-﻿using stoko_class_BLL;
+﻿using MySql.Data.MySqlClient;
+using stoko_class_BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace stoko_db_BLL {
     public static class DbClient {
         public static List<Client> GetClients() {
             List<Client> Clients = new List<Client>();
 
-            Clients.Add(new Client(2, "toto", "toto@toto.fr", "", "", "", "d58eb04c6ada6c13ee291789565a8ba6.png", new DateTime()));
-            Clients.Add(new Client(3, "tutu", "toto@toto.fr", "zefzef", "fzefzef", "", "", new DateTime()));
-            Clients.Add(new Client(7, "titi", "toto@toto.fr", "fzef", "fzef", "0606060606", "", new DateTime()));
-            Clients.Add(new Client(6, "tete", "toto@toto.fr", "fzefe", "", "0606060606", "d58eb04c6ada6c13ee291789565a8ba6.png", new DateTime()));
-            Clients.Add(new Client(8, "to0a", "to0a66@toto.fr", "lagier", "mathieu", "0606060606", "d58eb04c6ada6c13ee291789565a8ba6.png", new DateTime()));
+            String sql = "SELECT c.id_client, c.login, c.email, c.last_name, c.first_name, c.phone_number, c.avatar_url, c.creation_date FROM client as c";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            MySqlDataReader res = req.ExecuteReader();
+
+            if (res.HasRows) {
+                while (res.Read()) {
+                    Clients.Add(
+                        new Client(
+                            res.GetInt32("id_client"),
+                            res.GetString("login"),
+                            res.GetString("email"),
+                            res.IsDBNull(3) ? null : res.GetString("last_name"),
+                            res.IsDBNull(4) ? null : res.GetString("first_name"),
+                            res.IsDBNull(5) ? null : res.GetString("phone_number"),
+                            res.IsDBNull(6) ? null : res.GetString("avatar_url"),
+                            res.GetDateTime("creation_date")
+                            )
+                        );
+                }
+            }
+
+            res.Close();
 
             return Clients;
         }
@@ -22,9 +43,30 @@ namespace stoko_db_BLL {
         public static List<Address> GetAddresses(Client client) {
             List<Address> Addresses = new List<Address>();
 
-            Addresses.Add(new Address(5, "truc", "", "66000", "perpi", client));
-            Addresses.Add(new Address(1, "fzef", "", "66000", "perpi", client));
-            Addresses.Add(new Address(3, "zefe", "", "66000", "perpi", client));
+            String sql = "SELECT a.id_address, a.way, a.complement, a.zip_code, a.city FROM address as a WHERE a.id_client = @clientId";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            req.Parameters.Add(new MySqlParameter("@clientId", client.Id));
+
+            MySqlDataReader res = req.ExecuteReader();
+
+            if (res.HasRows) {
+                while (res.Read()) {
+                    Addresses.Add(
+                        new Address(
+                            res.GetInt32("id_address"),
+                            res.GetString("way"),
+                            res.IsDBNull(2) ? null : res.GetString("complement"),
+                            res.GetString("zip_code"),
+                            res.GetString("city"),
+                            client
+                            )
+                        );
+                }
+            }
+
+            res.Close();
 
             if (client.Addresses != null) client.Addresses.Clear();
             client.Addresses = Addresses;
