@@ -24,7 +24,7 @@
                 
                 <ResourceDictionary Source="Assets/Styles/TabControl.xaml" />
                 <ResourceDictionary Source="Assets/Styles/Buttons.xaml" />
-
+                
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

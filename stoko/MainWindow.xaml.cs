@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using stoko_class_BLL;
 using stoko_db_BLL;
 
@@ -105,7 +107,11 @@ namespace stoko {
         }
 
         private void DgProducts_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (dgProducts.SelectedItem as Product != null) editProductForm(dgProducts.SelectedItem as Product);
+            if (dgProducts.SelectedItem as Product != null) {
+                editProductForm(dgProducts.SelectedItem as Product);
+            } else {
+                resetProductForm();
+            }
         }
 
         private void PFDone_Click(object sender, RoutedEventArgs e) {
@@ -119,7 +125,10 @@ namespace stoko {
             product.Category = PFCat.SelectedItem as Category;
             product.Description = PFDes.Text;
 
-            if (dgProducts.SelectedIndex == -1) Data.Products.Add(product);
+            if (dgProducts.SelectedIndex == -1) {
+                Data.Products.Add(product);
+                resetProductForm();
+            }
 
             dgProducts.Items.Refresh();
         }
@@ -130,6 +139,88 @@ namespace stoko {
                 dgProducts.Items.Refresh();
             }
             resetProductForm();
+        }
+
+        private void BAddClient_Click(object sender, RoutedEventArgs e) {
+            addClientForm();
+        }
+
+        private void BAddAddress_Click(object sender, RoutedEventArgs e) {
+            addAddressForm();
+        }
+
+        private void CFDone_Click(object sender, RoutedEventArgs e) {
+            //TODO: unit test
+
+            Client client = dgClients.SelectedIndex == -1 ? new Client() : dgClients.SelectedItem as Client;
+            client.Login = CFClientLogin.Text;
+            client.Email = CFClientEmail.Text;
+            client.LastName = CFClientName.Text;
+            client.FirstName = CFClientFirstName.Text;
+            client.PhoneNumber = CFClientPhoneNumber.Text;
+
+            if (dgClients.SelectedIndex == -1) {
+                Data.Clients.Add(client);
+                resetClientForm();
+            }
+
+            dgClients.Items.Refresh();
+        }
+
+        private void CFDelete_Click(object sender, RoutedEventArgs e) {
+            if (dgClients.SelectedIndex != -1) {
+                Data.Clients.Remove(dgClients.SelectedItem as Client);
+                dgClients.Items.Refresh();
+                dgAddresses.ItemsSource = null;
+            }
+            resetClientForm();
+            resetAddressForm();
+            bAddClient.IsEnabled = true;
+        }
+
+        private void DgClients_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            resetAddressForm();
+            dgAddresses.ItemsSource = null;
+            bAddAddress.IsEnabled = false;
+            if (dgClients.SelectedItem as Client != null) {
+                editClientForm(dgClients.SelectedItem as Client);
+            } else {
+                resetClientForm();
+                bAddClient.IsEnabled = false;
+            }
+        }
+
+        private void DgAddresses_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (dgAddresses.SelectedItem as Address != null) {
+                editAddressForm(dgAddresses.SelectedItem as Address);
+            } else {
+                resetAddressForm();
+            }
+        }
+
+        private void AFDone_Click(object sender, RoutedEventArgs e) {
+            //TODO: unit test
+
+            Address address = dgAddresses.SelectedIndex == -1 ? new Address() : dgAddresses.SelectedItem as Address;
+            address.Way = AFWay.Text;
+            address.Complement = AFComplement.Text;
+            address.ZipCode = AFZipCode.Text;
+            address.City = AFCity.Text;
+
+            if (dgAddresses.SelectedIndex == -1) {
+                (dgClients.SelectedItem as Client).Addresses.Add(address);
+                resetAddressForm();
+            }
+
+            dgAddresses.Items.Refresh();
+        }
+
+        private void AFDelete_Click(object sender, RoutedEventArgs e) {
+            if (dgAddresses.SelectedIndex != -1) {
+                (dgClients.SelectedItem as Client).Addresses.Remove(dgAddresses.SelectedItem as Address);
+                dgAddresses.Items.Refresh();
+            }
+            resetAddressForm();
         }
     }
 }
