@@ -80,13 +80,13 @@ namespace stoko {
         #region product
         #region actions
         private void loadProducts() {
-            Data.Products = DbProduct.GetProducts();
-            dgProducts.ItemsSource = Data.Products;
-            List<Category> categories =  DbProduct.GetCategories();
+            List<Category> categories = DbProduct.GetCategories();
             categories.Add(new Category(-1, Application.Current.Resources["cNone"] as String));
-
             PFCat.ItemsSource = categories;
             PFCat.DisplayMemberPath = "Title";
+
+            Data.Products = DbProduct.GetProducts();
+            dgProducts.ItemsSource = Data.Products;
 
             bAddProduct.IsEnabled = true;
         }

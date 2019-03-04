@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using stoko_class_BLL;
 
 namespace stoko_db_BLL {
@@ -11,10 +13,39 @@ namespace stoko_db_BLL {
         public static List<Product> GetProducts() {
             List<Product> products = new List<Product>();
 
-            products.Add(new Product(2, "test", 20, "fzefozef", 8, 8, "fzfzkeffje zefjlzkefjlfk jezeezlk", new Category(5, "truc")));
-            products.Add(new Product(3, "fzefzef", 34, "fzef", 2, 4, "ffzefzefezff zefzez fzeef efzef"));
-            products.Add(new Product(4, "fzefzef", 52, "fzef", 50, 52, "g sdfgrytrjzh zty zerzeryre", new Category(1, "teu")));
-            products.Add(new Product(6, "fzefzef", 9, "fzef", 3, 8, "dsfgdg sdgfdg sdgfsdg", new Category(3, "heu")));
+            string sql = "SELECT p.id_product, p.product_title, p.unit_price_HT, p.reference, p.quantity, " +
+                "IFNULL(" +
+                    "p.quantity+(SELECT SUM(quantity) as qteCommanded " +
+                    "FROM command_content, command " +
+                    "WHERE command.id_command = command_content.id_command AND command.status = 0 AND command_content.id_product = p.id_product), " +
+                    "p.quantity) as qteStock, " +
+                "p.description, c.title_category, c.id_category " +
+                "FROM product as p, category as c " +
+                "WHERE p.id_category = c.id_category";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            //req.Parameters.Add(new MySqlParameter("@id_product", 6));
+
+            MySqlDataReader res = req.ExecuteReader();
+            
+            if (res.HasRows) {
+                while (res.Read()) {
+                    products.Add(
+                        new Product(
+                            res.GetInt32("id_product"),
+                            res.GetString("product_title"),
+                            res.GetInt32("unit_price_HT"),
+                            res.GetString("reference"),
+                            res.GetInt32("quantity"),
+                            res.GetInt32("qteStock"),
+                            res.GetString("description"),
+                            new Category(res.GetInt32("id_category"), res.GetString("title_category"))
+                            )
+                        );
+                }
+            }
+            res.Close();
 
             return products;
         }
@@ -22,9 +53,23 @@ namespace stoko_db_BLL {
         public static List<Category> GetCategories() {
             List<Category> categories = new List<Category>();
 
-            categories.Add(new Category(5, "truc"));
-            categories.Add(new Category(1, "teu"));
-            categories.Add(new Category(3, "heu"));
+            string sql = "SELECT id_category, title_category FROM category";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            MySqlDataReader res = req.ExecuteReader();
+
+            if (res.HasRows) {
+                while (res.Read()) {
+                    categories.Add(
+                        new Category(
+                            res.GetInt32("id_category"),
+                            res.GetString("title_category")
+                            )
+                        );
+                }
+            }
+            res.Close();
 
             return categories;
         }
