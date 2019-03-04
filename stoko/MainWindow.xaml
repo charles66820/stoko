@@ -113,7 +113,7 @@
                                         <DataGridTemplateColumn  Header="{DynamicResource cClientAvatar}" MaxWidth="80">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <Image Source="{Binding Avatar}" />
+                                                    <Image Source="{Binding Avatar, Converter={StaticResource AvatarConverter}}" />
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
@@ -166,7 +166,7 @@
                                         <DataGridTextColumn Header="{DynamicResource cOrdersPriceTTC}" Binding="{Binding PriceTTC}"/>
                                         <DataGridTextColumn Header="{DynamicResource cOrdersShippingAddress}" Binding="{Binding ShippingAddress}"/>
                                         <DataGridTextColumn Header="{DynamicResource cOrdersDate}" Binding="{Binding OrderedDate, StringFormat={}{0:dd/MM/yyyy HH:mm:ss} }"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersShipped}" Binding="{Binding Shipped, Converter={StaticResource EnumConverter}}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersShipped}" Binding="{Binding Shipped, Converter={StaticResource ShippedConverter}}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>

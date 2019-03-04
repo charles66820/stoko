@@ -26,7 +26,9 @@
                 <ResourceDictionary Source="Assets/Styles/Buttons.xaml" />
                 
             </ResourceDictionary.MergedDictionaries>
-            <local:EnumConverter x:Key="EnumConverter" />
+            <local:ShippedConverter x:Key="ShippedConverter" />
+            <local:AvatarConverter x:Key="AvatarConverter" />
+            <local:ProductPictureConverter x:Key="ProductPictureConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

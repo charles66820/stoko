@@ -9,7 +9,7 @@ using System.Windows;
 using System.Windows.Data;
 
 namespace stoko {
-    class EnumConverter : IValueConverter {
+    class ShippedConverter : IValueConverter {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture) {
             String str;
 

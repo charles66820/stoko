@@ -109,7 +109,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Class\Converter\EnumConverter.cs" />
+    <Compile Include="Class\Converter\PictureConverter.cs" />
+    <Compile Include="Class\Converter\ShippedConverter.cs" />
     <Compile Include="MainWindowFunctional.cs" />
     <Compile Include="Class\Lang.cs" />
     <Compile Include="Class\Configs.cs" />
