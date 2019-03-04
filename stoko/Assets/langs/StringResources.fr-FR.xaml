@@ -90,6 +90,7 @@
     <system:String x:Key="sDbName">nom de la bdd</system:String>
     <system:String x:Key="sDbUser">identifiant de la bdd</system:String>
     <system:String x:Key="sDbPassword">mots de passe de la bdd</system:String>
+    <system:String x:Key="sImgServerUrl">lien du serveur d'images. ex: http://imgserveur.fr/img</system:String>
 
     <!-- message -->
     <system:String x:Key="sErrorConfigsFile">Erreur lors du chargement du fichier de configuration</system:String>

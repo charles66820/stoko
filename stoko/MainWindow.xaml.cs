@@ -252,5 +252,9 @@ namespace stoko {
             bShipTheOrder.IsEnabled = false;
             dgOrder.Items.Refresh();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            Configs.EditConfigData("imgSrvUrl", imgSrvUrl.Text);
+        }
     }
 }

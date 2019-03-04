@@ -215,7 +215,7 @@
                     <Border Background="Transparent">
                         <StackPanel>
                             <Button 
-                                Content="add"
+                                Content="{DynamicResource cNone}"
                                 VerticalAlignment="Top"
                                 Style="{DynamicResource MaterialDesignFlatButton}" 
                                 Foreground="{DynamicResource MaterialDesignBody}"
@@ -229,7 +229,6 @@
                                 FontFamily="/stoko;component/Resources/#Roboto"
                                 Focusable="False"
                                 Click="Button_Settings_Click"/>
-
                         </StackPanel>
                     </Border>
                 </Border>
@@ -243,7 +242,7 @@
         <!-- Settings panel -->
         <Grid x:Name="SettingPanel" Background="{DynamicResource MaterialDesignPaper}" Visibility="Hidden" Margin="0,0,0,20">
             <Button x:Name="bSettingsClose" Style="{DynamicResource MaterialDesignFlatToggleButton}" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="18" Height="18" Margin="0,30,45,0" Panel.ZIndex="1" Padding="1" BorderBrush="{x:Null}" Foreground="{StaticResource MaterialDesignBody}" ToolTip="{DynamicResource sSettingClose}" Cursor="Hand" Focusable="True" Click="Button_SettingsClose_Click"/>
-            <TabControl TabStripPlacement="Left" Margin="75,50" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}">
+            <TabControl TabStripPlacement="Left" Margin="75,40" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}">
                 <TabItem Header="{DynamicResource sGeneral}" Background="{DynamicResource MaterialDesignBackground}" Style="{DynamicResource TabItemStyleLeft}">
                     <Grid>
                         <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -285,7 +284,14 @@
                                     <Button Grid.Column="1" Grid.Row="2" Content="{DynamicResource bDbConnect}" Margin="8" Click="bDbConnect_Click"/>
                                 </Grid>
                                 <Separator/>
-                                <!--<TextBlock x:Name="serveru d'image"></TextBlock>-->
+                                <Grid VerticalAlignment="Center" Margin="40,16,40,16">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="200"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBox x:Name="imgSrvUrl" materialDesign:HintAssist.Hint="{DynamicResource sImgServerUrl}" Grid.Column="0" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Height="60" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                    <Button Grid.Column="1" Content="{DynamicResource bDone}" Margin="8" Click="Button_Click"/>
+                                </Grid>
                                 <!--<TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
                             </StackPanel>
                         </Border>

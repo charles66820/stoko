@@ -90,6 +90,7 @@
     <system:String x:Key="sDbName">db name</system:String>
     <system:String x:Key="sDbUser">db user</system:String>
     <system:String x:Key="sDbPassword">db password</system:String>
+    <system:String x:Key="sImgServerUrl">Images server url. ex: http://imgserver.com/img</system:String>
 
     <!-- message -->
     <system:String x:Key="sErrorConfigsFile">Error on load configs file</system:String>

@@ -12,7 +12,7 @@ namespace stoko_db_BLL {
 
             Clients.Add(new Client(2, "toto", "toto@toto.fr", "", "", "", "https://scontent-mrs1-1.xx.fbcdn.net/v/t1.0-9/23844688_1730458603665154_1432580857537994705_n.jpg?_nc_cat=106&_nc_ht=scontent-mrs1-1.xx&oh=e65ecd7abbf8e5ebb42ca2e89d272d9c&oe=5D15DE6D", new DateTime()));
             Clients.Add(new Client(3, "tutu", "toto@toto.fr", "zefzef", "fzefzef", "", "", new DateTime()));
-            Clients.Add(new Client(7, "titi", "toto@toto.fr", "fzef", "fzef", "0606060606", "https://scontent-mrs1-1.xx.fbcdn.net/v/t1.0-9/23844688_1730458603665154_1432580857537994705_n.jpg?_nc_cat=106&_nc_ht=scontent-mrs1-1.xx&oh=e65ecd7abbf8e5ebb42ca2e89d272d9c&oe=5D15DE6D", new DateTime()));
+            Clients.Add(new Client(7, "titi", "toto@toto.fr", "fzef", "fzef", "0606060606", "https://pbs.twimg.com/profile_images/1102487135398096903/GUsIUvV__400x400.jpg", new DateTime()));
             Clients.Add(new Client(6, "tete", "toto@toto.fr", "fzefe", "", "0606060606", "https://scontent-mrs1-1.xx.fbcdn.net/v/t1.0-9/23844688_1730458603665154_1432580857537994705_n.jpg?_nc_cat=106&_nc_ht=scontent-mrs1-1.xx&oh=e65ecd7abbf8e5ebb42ca2e89d272d9c&oe=5D15DE6D", new DateTime()));
             Clients.Add(new Client(8, "to0a", "to0a66@toto.fr", "lagier", "mathieu", "0606060606", "https://scontent-mrs1-1.xx.fbcdn.net/v/t1.0-9/23844688_1730458603665154_1432580857537994705_n.jpg?_nc_cat=106&_nc_ht=scontent-mrs1-1.xx&oh=e65ecd7abbf8e5ebb42ca2e89d272d9c&oe=5D15DE6D", new DateTime()));
 

@@ -46,6 +46,7 @@ namespace stoko {
             DFname.Text = Configs.Data.Global["dbName"];
             DFuser.Text = Configs.Data.Global["dbUser"];
             DFpass.Text = Configs.Data.Global["dbPassword"];
+            imgSrvUrl.Text = Configs.Data.Global["imgSrvUrl"];
         }
 
         private void setSettingsPanel(bool p = true) {
