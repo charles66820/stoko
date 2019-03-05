@@ -89,7 +89,7 @@
                         <GroupBox Header="{DynamicResource cActions}" Padding="8, 2, 8, 2" Margin="0,0,10,10.2" Height="135" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="211">
                             <Grid Margin="0,0,0,1.2">
                                 <Button x:Name="bAddProduct" IsEnabled="False" Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="bAddProduct_Click"/>
-                                <Button x:Name="bAddImage" IsEnabled="False" Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32"/>
+                                <Button x:Name="bAddImage" IsEnabled="False" Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32" Click="BAddImage_Click"/>
                                 <Button x:Name="bDeleteImages" IsEnabled="False" Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32"/>
                             </Grid>
                         </GroupBox>

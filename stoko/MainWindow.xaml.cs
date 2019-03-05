@@ -1,7 +1,9 @@
-﻿using stoko_class_BLL;
+﻿using Microsoft.Win32;
+using stoko_class_BLL;
 using stoko_db_BLL;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -120,8 +122,10 @@ namespace stoko {
 
                 p.Pictures = DbProduct.GetPictures(p);
                 lbPictures.ItemsSource = p.Pictures;
+                bAddImage.IsEnabled = true;
             } else {
                 resetProductForm();
+                bAddImage.IsEnabled = false;
             }
             lbPictures.Items.Refresh();
         }
@@ -166,6 +170,17 @@ namespace stoko {
                 dgProducts.Items.Refresh();
             }
             resetProductForm();
+        }
+
+        private void BAddImage_Click(object sender, RoutedEventArgs e) {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Images|*.png;*.jpg;*.jpeg;*.gif";
+
+            if (openFileDialog.ShowDialog() == true) {
+                WebClient myWebClient = new WebClient();
+                byte[] responseArray = myWebClient.UploadFile(/*Configs.Data.Global["imgSrvUrl"]*/"http://127.0.0.1/" + "up.php", "POST", openFileDialog.FileName);
+                MessageBox.Show(System.Text.Encoding.ASCII.GetString(responseArray));
+            }
         }
         #endregion
 
