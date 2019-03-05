@@ -68,6 +68,34 @@ namespace stoko_db_BLL {
             return categories;
         }
 
+        public static List<Picture> GetPictures(Product product) {
+            List<Picture> pictures = new List<Picture>();
+
+            String sql = "SELECT id_product_picture, picture_name, updated_at FROM product_picture WHERE id_product = @productId";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+            req.Parameters.Add(new MySqlParameter("@productId", product.Id));
+
+            MySqlDataReader res = req.ExecuteReader();
+
+            if (res.HasRows) {
+                while (res.Read()) {
+                    pictures.Add(
+                        new Picture(
+                            res.GetInt32("id_product_picture"),
+                            res.GetString("picture_name"),
+                            res.GetDateTime("updated_at"),
+                            product
+                            )
+                        );
+                }
+            }
+
+            res.Close();
+
+            return pictures;
+        }
+
         public static int CreateProduct(Product product) {
             String sql = "INSERT INTO product(product_title, unit_price_HT, reference, quantity, description, id_category)" +
                 "VALUE(@productTitle, @productPrice, @productRef, @productQuantity, @productDes, @productIdCat)";

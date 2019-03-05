@@ -8,9 +8,9 @@ namespace stoko {
             String avatarUrl;
 
             if (value == null || (String)value == String.Empty) {
-                avatarUrl = Configs.Data.Global["imgSrvUrl"] + "defaultavatarurl.png";
+                avatarUrl = Configs.Data.Global["imgSrvUrl"] + "img/defaultavatarurl.png";
             } else {
-                avatarUrl = Configs.Data.Global["imgSrvUrl"] + "clients/" + (String)value;
+                avatarUrl = Configs.Data.Global["imgSrvUrl"] + "img/clients/" + (String)value;
             }
             return avatarUrl;
         }
@@ -24,9 +24,9 @@ namespace stoko {
             String avatarUrl;
 
             if (value == null) {
-                avatarUrl = Configs.Data.Global["imgSrvUrl"] + "defaultproduitimg.png";
+                avatarUrl = Configs.Data.Global["imgSrvUrl"] + "img/defaultproduitimg.png";
             } else {
-                avatarUrl = Configs.Data.Global["imgSrvUrl"] + "products/" + (String)value;
+                avatarUrl = Configs.Data.Global["imgSrvUrl"] + "img/products/" + (String)value;
             }
             return avatarUrl;
         }

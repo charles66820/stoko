@@ -1,7 +1,10 @@
 ﻿using stoko_class_BLL;
 using stoko_db_BLL;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace stoko {
     /// <summary>
@@ -110,10 +113,26 @@ namespace stoko {
         }
 
         private void DgProducts_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            lbPictures.ItemsSource = null;
             if (dgProducts.SelectedItem as Product != null) {
-                editProductForm(dgProducts.SelectedItem as Product);
+                Product p = dgProducts.SelectedItem as Product;
+                editProductForm(p);
+
+                p.Pictures = DbProduct.GetPictures(p);
+                lbPictures.ItemsSource = p.Pictures;
             } else {
                 resetProductForm();
+            }
+            lbPictures.Items.Refresh();
+        }
+
+        private void LbPictures_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (lbPictures.SelectedItem as Picture != null) {
+                imgViewPicture.Source = new BitmapImage(
+                    new Uri(Configs.Data.Global["imgSrvUrl"] + "img/products/" + (lbPictures.SelectedItem as Picture).PictureName, UriKind.Absolute)
+                    );
+            } else {
+                imgViewPicture.Source = null;
             }
         }
 
@@ -302,5 +321,27 @@ namespace stoko {
             dgOrder.Items.Refresh();
         }
         #endregion
+
+        private void AddressForm_SizeChanged(object sender, SizeChangedEventArgs e) {
+            if (AddressForm.ActualHeight > 300) {
+                AFWay.Width = 259;
+                AFWay.Margin = new Thickness(0, 4, 0, 0);
+                AFComplement.Width = 259;
+                AFComplement.Margin = new Thickness(0, 69, 0, 0);
+                AFZipCode.Width = 259;
+                AFZipCode.Margin = new Thickness(0, 134, 0, 0);
+                AFCity.Width = 259;
+                AFCity.Margin = new Thickness(0, 199, 0, 0);
+            } else {
+                AFWay.Width = 129;
+                AFWay.Margin = new Thickness(0, 4, 0, 0);
+                AFComplement.Width = 125;
+                AFComplement.Margin = new Thickness(134, 4, 0, 0);
+                AFZipCode.Width = 129;
+                AFZipCode.Margin = new Thickness(0, 69, 0, 0);
+                AFCity.Width = 125;
+                AFCity.Margin = new Thickness(134, 69, 0, 0);
+            }
+        }
     }
 }
