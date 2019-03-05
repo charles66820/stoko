@@ -91,9 +91,9 @@
                         <GroupBox Header="{DynamicResource cClientInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="257">
                             <Grid Margin="0,0,0,0" x:Name="ClientForm" Visibility="Collapsed">
                                 <TextBox x:Name="CFClientLogin" materialDesign:HintAssist.Hint="{DynamicResource cClientLogin}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <TextBox x:Name="CFClientFirstName" materialDesign:HintAssist.Hint="{DynamicResource cClientFirstName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <TextBox x:Name="CFClientEmail" materialDesign:HintAssist.Hint="{DynamicResource cClientEmail}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="88" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
                                 <TextBox x:Name="CFClientName" materialDesign:HintAssist.Hint="{DynamicResource cClientLastName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
-                                <TextBox x:Name="CFClientFirstName" materialDesign:HintAssist.Hint="{DynamicResource cClientFirstName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <TextBox x:Name="CFClientPhoneNumber" materialDesign:HintAssist.Hint="{DynamicResource cClientPhoneNumber}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <Button IsEnabled="False" Content="{DynamicResource bResetPassword}" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.215,2.439"/>
                                 <Button x:Name="CFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125" Click="CFDone_Click"/>
@@ -122,14 +122,14 @@
                                 </DataGrid>
                             </Grid>
                         </GroupBox>
-                        <GroupBox Header="{DynamicResource cAddressInfos}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="275" Padding="8, 2, 8, 2" Margin="10,0,0,4.4" Height="195">
+                        <GroupBox Header="{DynamicResource cAddressInfos}" HorizontalAlignment="Left" Width="275" Padding="8, 2, 8, 2" Margin="10,270,0,4">
                             <Grid Margin="0,0,0,0" x:Name="AddressForm" Visibility="Collapsed">
                                 <TextBox x:Name="AFWay" materialDesign:HintAssist.Hint="{DynamicResource cAddressWay}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
                                 <TextBox x:Name="AFComplement" materialDesign:HintAssist.Hint="{DynamicResource cAddressComplement}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <TextBox x:Name="AFCity" materialDesign:HintAssist.Hint="{DynamicResource cAddressCity}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <TextBox x:Name="AFZipCode" materialDesign:HintAssist.Hint="{DynamicResource cAddressZipCode}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
-                                <Button x:Name="AFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,134,0,0" VerticalAlignment="Top" Width="125" Click="AFDone_Click"/>
-                                <Button x:Name="AFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,134,0.2,0" VerticalAlignment="Top" Width="125" Click="AFDelete_Click"/>
+                                <Button x:Name="AFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,0,0,4" VerticalAlignment="Bottom" Width="125" Click="AFDone_Click"/>
+                                <Button x:Name="AFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,0,0,4" VerticalAlignment="Bottom" Width="125" Click="AFDelete_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cClientAddress}" Padding="8,2,8,2" Margin="290,0,189,4.4" VerticalAlignment="Bottom" Height="198">

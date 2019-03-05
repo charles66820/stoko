@@ -70,11 +70,11 @@ namespace stoko_db_BLL {
 
         public static int CreateProduct(Product product) {
             String sql = "INSERT INTO product(product_title, unit_price_HT, reference, quantity, description, id_category)" +
-                "VALUE(@pproductTitle, @productPrice, @productRef, @productQuantity, @productDes, @productIdCat)";
+                "VALUE(@productTitle, @productPrice, @productRef, @productQuantity, @productDes, @productIdCat)";
 
             MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
 
-            req.Parameters.Add(new MySqlParameter("@pproductTitle", product.Title));
+            req.Parameters.Add(new MySqlParameter("@productTitle", product.Title));
             req.Parameters.Add(new MySqlParameter("@productPrice", product.PriceHT));
             req.Parameters.Add(new MySqlParameter("@productRef", product.Reference));
             req.Parameters.Add(new MySqlParameter("@productQuantity", product.Quantity));
@@ -86,20 +86,18 @@ namespace stoko_db_BLL {
                 req.Parameters.Add(new MySqlParameter("@productIdCat", product.Category.Id));
             }
 
-            req.Parameters.Add(new MySqlParameter("@productId", product.Id));
-
             req.ExecuteNonQuery();
             return int.Parse(req.LastInsertedId.ToString());
         }
 
         public static void UpdateProduct(Product product) {
-            String sql = "UPDATE product SET product_title = @pproductTitle, unit_price_HT = @productPrice, " +
+            String sql = "UPDATE product SET product_title = @productTitle, unit_price_HT = @productPrice, " +
                 "reference = @productRef, quantity = @productQuantity, description = @productDes, id_category = @productIdCat " +
                 "WHERE id_product = @productId";
 
             MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
 
-            req.Parameters.Add(new MySqlParameter("@pproductTitle", product.Title));
+            req.Parameters.Add(new MySqlParameter("@productTitle", product.Title));
             req.Parameters.Add(new MySqlParameter("@productPrice", product.PriceHT));
             req.Parameters.Add(new MySqlParameter("@productRef", product.Reference));
             req.Parameters.Add(new MySqlParameter("@productQuantity", product.Quantity));

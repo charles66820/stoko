@@ -171,7 +171,10 @@ namespace stoko {
 
             if (dgClients.SelectedIndex == -1) {
                 Data.Clients.Add(client);
+                client.Id = DbClient.CreateClient(client);
                 resetClientForm();
+            } else {
+                DbClient.UpdateClient(client);
             }
 
             dgClients.Items.Refresh();
@@ -179,9 +182,13 @@ namespace stoko {
 
         private void CFDelete_Click(object sender, RoutedEventArgs e) {
             if (dgClients.SelectedIndex != -1) {
-                Data.Clients.Remove(dgClients.SelectedItem as Client);
+                Client c = dgClients.SelectedItem as Client;
+                Data.Clients.Remove(c);
+                DbClient.DeleteClient(c);
+
                 dgClients.Items.Refresh();
                 dgAddresses.ItemsSource = null;
+                dgAddresses.Items.Refresh();
             }
             resetClientForm();
             resetAddressForm();
@@ -218,8 +225,13 @@ namespace stoko {
             address.City = AFCity.Text;
 
             if (dgAddresses.SelectedIndex == -1) {
-                (dgClients.SelectedItem as Client).Addresses.Add(address);
+                Client c = dgClients.SelectedItem as Client;
+                c.Addresses.Add(address);
+                address.Client = c;
+                address.Id = DbClient.CreateAddress(address);
                 resetAddressForm();
+            } else {
+                DbClient.UpdateAddress(address);
             }
 
             dgAddresses.Items.Refresh();
@@ -227,12 +239,14 @@ namespace stoko {
 
         private void AFDelete_Click(object sender, RoutedEventArgs e) {
             if (dgAddresses.SelectedIndex != -1) {
-                (dgClients.SelectedItem as Client).Addresses.Remove(dgAddresses.SelectedItem as Address);
+                Address a = dgAddresses.SelectedItem as Address;
+                (dgClients.SelectedItem as Client).Addresses.Remove(a);
+                DbClient.DeleteAddress(a);
                 dgAddresses.Items.Refresh();
             }
             resetAddressForm();
         }
-#endregion
+        #endregion
 
         #region orders tab
         private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e) {
