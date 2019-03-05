@@ -95,5 +95,28 @@ namespace stoko_db_BLL {
 
             return OrderContents;
         }
+
+        public static void UpdateOrderedAddress(Order order) {
+
+            String sql = "UPDATE command SET id_address_delivery=@addressId WHERE id_command = @orderId";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            req.Parameters.Add(new MySqlParameter("@orderId", order.Id));
+            req.Parameters.Add(new MySqlParameter("@addressId", order.Address.Id));
+
+            req.ExecuteNonQuery();
+        }
+
+        public static void UpdateShipOrder(Order order) {
+
+            String sql = "UPDATE command SET status=1 WHERE id_command = @orderId";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            req.Parameters.Add(new MySqlParameter("@orderId", order.Id));
+
+            req.ExecuteNonQuery();
+        }
     }
 }

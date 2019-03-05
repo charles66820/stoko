@@ -258,8 +258,9 @@ namespace stoko {
         }
 
         private void DAFDone_Click(object sender, RoutedEventArgs e) {
-            (dgOrder.SelectedItem as Order).Address = DAFAddress.SelectedItem as Address;
-
+            Order o = dgOrder.SelectedItem as Order;
+            o.Address = DAFAddress.SelectedItem as Address;
+            DbOrder.UpdateOrderedAddress(o);
             dgOrder.Items.Refresh();
         }
 
@@ -268,12 +269,14 @@ namespace stoko {
         }
 
         private void BShipTheOrder_Click(object sender, RoutedEventArgs e) {
-            (dgOrder.SelectedItem as Order).Shipped = 1;
+            Order o = dgOrder.SelectedItem as Order;
+            o.Shipped = 1;
             bShipTheOrder.IsEnabled = false;
+            DbOrder.UpdateShipOrder(o);
             dgOrder.Items.Refresh();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
+        private void imgSrvUrlButton_Click(object sender, RoutedEventArgs e) {
             Configs.EditConfigData("imgSrvUrl", imgSrvUrl.Text);
         }
     }
