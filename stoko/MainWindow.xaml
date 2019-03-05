@@ -63,7 +63,7 @@
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="{DynamicResource cNum}"  Binding="{Binding Id}"/>
                                         <DataGridTextColumn Header="{DynamicResource cProductTitle}" Binding="{Binding Title}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cPriceHT}" Binding="{Binding PriceHT}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cPriceHT}" Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}"/>
                                         <DataGridTextColumn Header="{DynamicResource cProductReference}" Binding="{Binding Reference}"/>
                                         <DataGridTextColumn Header="{DynamicResource cQuantityNotOrdered}" Binding="{Binding Quantity}"/>
                                         <DataGridTextColumn Header="{DynamicResource cQuantityInStock}" Binding="{Binding QuantityStock}"/>
@@ -160,10 +160,10 @@
                                     <DataGrid.Columns>
                                         <DataGridTextColumn Header="{DynamicResource cNum}" Binding="{Binding Id}"/>
                                         <DataGridTextColumn Header="{DynamicResource cOrdersClientName}" Binding="{Binding ClientName}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersClientNum}" Binding="{Binding ClientId}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersShipping}" Binding="{Binding Shipping}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersPriceHT}" Binding="{Binding PriceHT}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersPriceTTC}" Binding="{Binding PriceTTC}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersClientNum}" Binding="{Binding ClientId, Converter={StaticResource NoneConverter}}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersShipping}" Binding="{Binding Shipping, Converter={StaticResource PriceConverter}}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersPriceHT}" Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cOrdersPriceTTC}" Binding="{Binding PriceTTC, Converter={StaticResource PriceConverter}}"/>
                                         <DataGridTextColumn Header="{DynamicResource cOrdersShippingAddress}" Binding="{Binding ShippingAddress}"/>
                                         <DataGridTextColumn Header="{DynamicResource cOrdersDate}" Binding="{Binding OrderedDate, StringFormat={}{0:dd/MM/yyyy HH:mm:ss} }"/>
                                         <DataGridTextColumn Header="{DynamicResource cOrdersShipped}" Binding="{Binding Shipped, Converter={StaticResource ShippedConverter}}"/>
@@ -175,10 +175,10 @@
                             <Grid Margin="0,0,0,0">
                                 <DataGrid x:Name="dgOrderContent" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{DynamicResource cNumProducts}" Binding="{Binding ProductId}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cNumProducts}" Binding="{Binding ProductId, Converter={StaticResource NoneConverter}}"/>
                                         <DataGridTextColumn Header="{DynamicResource cProductReference}" Binding="{Binding ProductReference}"/>
                                         <DataGridTextColumn Header="{DynamicResource cProductTitle}" Binding="{Binding ProductName}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cPriceHT}" Binding="{Binding PriceHT}"/>
+                                        <DataGridTextColumn Header="{DynamicResource cPriceHT}" Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}"/>
                                         <DataGridTextColumn Header="{DynamicResource cQuantityOrdered}" Binding="{Binding Qantity}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>

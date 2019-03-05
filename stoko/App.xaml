@@ -29,6 +29,8 @@
             <local:ShippedConverter x:Key="ShippedConverter" />
             <local:AvatarConverter x:Key="AvatarConverter" />
             <local:ProductPictureConverter x:Key="ProductPictureConverter" />
+            <local:PriceConverter x:Key="PriceConverter" />
+            <local:NoneConverter x:Key="NoneConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

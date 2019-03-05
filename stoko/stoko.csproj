@@ -109,6 +109,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\Converter\noneConverter.cs" />
+    <Compile Include="Class\Converter\priceConverter.cs" />
     <Compile Include="Class\Converter\PictureConverter.cs" />
     <Compile Include="Class\Converter\ShippedConverter.cs" />
     <Compile Include="MainWindowFunctional.cs" />
