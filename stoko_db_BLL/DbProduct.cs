@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using stoko_class_BLL;
+using System;
+using System.Collections.Generic;
 
 namespace stoko_db_BLL {
     public static class DbProduct {
@@ -71,6 +66,64 @@ namespace stoko_db_BLL {
             res.Close();
 
             return categories;
+        }
+
+        public static int CreateProduct(Product product) {
+            String sql = "INSERT INTO product(product_title, unit_price_HT, reference, quantity, description, id_category)" +
+                "VALUE(@pproductTitle, @productPrice, @productRef, @productQuantity, @productDes, @productIdCat)";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            req.Parameters.Add(new MySqlParameter("@pproductTitle", product.Title));
+            req.Parameters.Add(new MySqlParameter("@productPrice", product.PriceHT));
+            req.Parameters.Add(new MySqlParameter("@productRef", product.Reference));
+            req.Parameters.Add(new MySqlParameter("@productQuantity", product.Quantity));
+            req.Parameters.Add(new MySqlParameter("@productDes", product.Description));
+
+            if (product.Category == null || product.Category.Id == -1) {
+                req.Parameters.Add(new MySqlParameter("@productIdCat", null));
+            } else {
+                req.Parameters.Add(new MySqlParameter("@productIdCat", product.Category.Id));
+            }
+
+            req.Parameters.Add(new MySqlParameter("@productId", product.Id));
+
+            req.ExecuteNonQuery();
+            return int.Parse(req.LastInsertedId.ToString());
+        }
+
+        public static void UpdateProduct(Product product) {
+            String sql = "UPDATE product SET product_title = @pproductTitle, unit_price_HT = @productPrice, " +
+                "reference = @productRef, quantity = @productQuantity, description = @productDes, id_category = @productIdCat " +
+                "WHERE id_product = @productId";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            req.Parameters.Add(new MySqlParameter("@pproductTitle", product.Title));
+            req.Parameters.Add(new MySqlParameter("@productPrice", product.PriceHT));
+            req.Parameters.Add(new MySqlParameter("@productRef", product.Reference));
+            req.Parameters.Add(new MySqlParameter("@productQuantity", product.Quantity));
+            req.Parameters.Add(new MySqlParameter("@productDes", product.Description));
+
+            if (product.Category == null || product.Category.Id == -1) {
+                req.Parameters.Add(new MySqlParameter("@productIdCat", null));
+            } else {
+                req.Parameters.Add(new MySqlParameter("@productIdCat", product.Category.Id));
+            }
+
+            req.Parameters.Add(new MySqlParameter("@productId", product.Id));
+
+            req.ExecuteNonQuery();
+        }
+
+        public static void DeleteProduct(Product product) {
+            String sql = "DELETE FROM product WHERE id_product = @productId";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            req.Parameters.Add(new MySqlParameter("@productId", product.Id));
+
+            req.ExecuteNonQuery();
         }
     }
 }

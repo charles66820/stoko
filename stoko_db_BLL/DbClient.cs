@@ -2,10 +2,6 @@
 using stoko_class_BLL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace stoko_db_BLL {
     public static class DbClient {
@@ -72,6 +68,16 @@ namespace stoko_db_BLL {
             client.Addresses = Addresses;
 
             return Addresses;
+        }
+
+        public static void DeleteAddress(Address address) {
+            String sql = "DELETE FROM address WHERE id_address = @addressId";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            req.Parameters.Add(new MySqlParameter("@addressId", address.Id));
+
+            req.ExecuteNonQuery();
         }
     }
 }
