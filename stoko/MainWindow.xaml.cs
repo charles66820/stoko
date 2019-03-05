@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using stoko_class_BLL;
+using stoko_db_BLL;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using stoko_class_BLL;
-using stoko_db_BLL;
 
 namespace stoko {
     /// <summary>
@@ -23,6 +19,7 @@ namespace stoko {
             initSettings();
         }
 
+        #region UI
         private void Button_GotFocus(object sender, RoutedEventArgs e) {
             popMenu.Visibility = Visibility.Visible;
         }
@@ -72,20 +69,6 @@ namespace stoko {
             }
         }
 
-        private void bAddProduct_Click(object sender, RoutedEventArgs e) {
-            addProductForm();
-        }
-
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
-            if (connectDb()) {
-                loadTab((mainTC.SelectedItem as TabItem).Name);
-                bSettingsClose.IsEnabled = true;
-            } else {
-                setSettingsPanel();
-                bSettingsClose.IsEnabled = false;
-            }
-        }
-
         private void bDbConnect_Click(object sender, RoutedEventArgs e) {
             Configs.EditConfigData("dbHost", DFhost.Text);
             Configs.EditConfigData("dbName", DFname.Text);
@@ -100,10 +83,30 @@ namespace stoko {
             }
         }
 
+        private void imgSrvUrlButton_Click(object sender, RoutedEventArgs e) {
+            Configs.EditConfigData("imgSrvUrl", imgSrvUrl.Text);
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
+            if (connectDb()) {
+                loadTab((mainTC.SelectedItem as TabItem).Name);
+                bSettingsClose.IsEnabled = true;
+            } else {
+                setSettingsPanel();
+                bSettingsClose.IsEnabled = false;
+            }
+        }
+
         private void MainTC_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (mainTC.IsLoaded && e.Source as TabControl != null) {
                 loadTab((mainTC.SelectedItem as TabItem).Name);
             }
+        }
+        #endregion
+
+        #region products tab
+        private void bAddProduct_Click(object sender, RoutedEventArgs e) {
+            addProductForm();
         }
 
         private void DgProducts_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -127,7 +130,10 @@ namespace stoko {
 
             if (dgProducts.SelectedIndex == -1) {
                 Data.Products.Add(product);
+                product.Id = DbProduct.CreateProduct(product);
                 resetProductForm();
+            } else {
+                DbProduct.UpdateProduct(product);
             }
 
             dgProducts.Items.Refresh();
@@ -135,12 +141,16 @@ namespace stoko {
 
         private void PFDelete_Click(object sender, RoutedEventArgs e) {
             if (dgProducts.SelectedIndex != -1) {
-                Data.Products.Remove(dgProducts.SelectedItem as Product);
+                Product p = dgProducts.SelectedItem as Product;
+                Data.Products.Remove(p);
+                DbProduct.DeleteProduct(p);
                 dgProducts.Items.Refresh();
             }
             resetProductForm();
         }
+        #endregion
 
+        #region clients tab
         private void BAddClient_Click(object sender, RoutedEventArgs e) {
             addClientForm();
         }
@@ -222,7 +232,9 @@ namespace stoko {
             }
             resetAddressForm();
         }
+#endregion
 
+        #region orders tab
         private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             dgOrderContent.ItemsSource = null;
             dgOrderContent.Items.Refresh();
@@ -275,9 +287,6 @@ namespace stoko {
             DbOrder.UpdateShipOrder(o);
             dgOrder.Items.Refresh();
         }
-
-        private void imgSrvUrlButton_Click(object sender, RoutedEventArgs e) {
-            Configs.EditConfigData("imgSrvUrl", imgSrvUrl.Text);
-        }
+        #endregion
     }
 }

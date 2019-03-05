@@ -1,14 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
+using stoko_class_BLL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using stoko_class_BLL;
 
-namespace stoko_db_BLL
-{
+namespace stoko_db_BLL {
     public static class Data
     {
         public static string DbURL { get; set; }
