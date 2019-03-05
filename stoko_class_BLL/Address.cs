@@ -23,6 +23,9 @@ namespace stoko_class_BLL {
         }
 
         public Address() { }
+        public Address(int pId) {
+            Id = pId;
+        }
 
         /// <summary>
         /// Surcharged constructor without Id

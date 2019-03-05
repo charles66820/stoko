@@ -20,8 +20,7 @@ namespace stoko_db_BLL {
                     "WHERE command.id_command = command_content.id_command AND command.status = 0 AND command_content.id_product = p.id_product), " +
                     "p.quantity) as qteStock, " +
                 "p.description, c.title_category, c.id_category " +
-                "FROM product as p, category as c " +
-                "WHERE p.id_category = c.id_category";
+                "FROM product as p LEFT JOIN category as c ON p.id_category = c.id_category";
 
             MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
 
@@ -38,7 +37,7 @@ namespace stoko_db_BLL {
                             res.GetInt32("quantity"),
                             res.GetInt32("qteStock"),
                             res.GetString("description"),
-                            new Category(res.GetInt32("id_category"), res.GetString("title_category"))
+                            new Category((res.IsDBNull(7) ? -1 : res.GetInt32("id_category")), (res.IsDBNull(8) ? null : res.GetString("title_category")))
                             )
                         );
                 }

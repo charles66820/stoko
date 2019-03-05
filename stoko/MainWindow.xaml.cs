@@ -224,6 +224,8 @@ namespace stoko {
         }
 
         private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            dgOrderContent.ItemsSource = null;
+            dgOrderContent.Items.Refresh();
             Order o = dgOrder.SelectedItem as Order;
             if (o != null) {
                 changeOrderAddressForm(o);
@@ -232,8 +234,26 @@ namespace stoko {
                 } else {
                     bShipTheOrder.IsEnabled = false;
                 }
+                if (o.Address.Id != -1) {
+                    DAFDone.IsEnabled = true;
+                } else {
+                    DAFDone.IsEnabled = false;
+                }
+
+                if (o.OrderContents == null) o.OrderContents = DbOrder.GetOrdersContent(o);
+
+                dgOrderContent.ItemsSource = o.OrderContents;
+                dgOrderContent.Items.Refresh();
             } else {
                 resetChangeOrderAddressForm();
+            }
+        }
+
+        private void DAFAddress_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (DAFAddress.SelectedIndex != -1) {
+                DAFDone.IsEnabled = true;
+            } else {
+                DAFDone.IsEnabled = false;
             }
         }
 

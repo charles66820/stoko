@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using stoko_class_BLL;
 
 namespace stoko_class_BLL {
     public class Order {
@@ -18,22 +19,11 @@ namespace stoko_class_BLL {
 
         public String ShippingAddress {
             get {
-                return Address.FullAddress;
+                return (Address.Id == -1) ? String.Empty : Address.FullAddress;
             }
         }
-
-        private List<OrderContent> orderContents;
-        public List<OrderContent> OrderContents {
-            get {
-                if (orderContents == null) {
-                    /* TODO: BDD GET */
-                    //orderContents = new OrderContent();
-                    return orderContents;
-                } else {
-                    return orderContents;
-                }
-            }
-        }
+        
+        public List<OrderContent> OrderContents { get; set; }
 
         /// <summary>
         /// Constructor

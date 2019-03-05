@@ -186,8 +186,8 @@
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cChangeDeliveryAddress}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="275" Padding="8,2,8,2" Margin="0,0,10,70.4" Height="135">
                             <Grid Margin="0,0,0,0" x:Name="ChangeOrderAddressForm" Visibility="Collapsed">
-                                <ComboBox x:Name="DAFAddress" materialDesign:HintAssist.Hint="{DynamicResource cAddresses}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="9,6,0,0" Height="60" VerticalAlignment="Top" Width="239"/>
-                                <Button x:Name="DAFDone" Content="{DynamicResource bDone}" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="125" Click="DAFDone_Click"/>
+                                <ComboBox x:Name="DAFAddress" materialDesign:HintAssist.Hint="{DynamicResource cAddresses}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="9,6,0,0" Height="60" VerticalAlignment="Top" Width="239" SelectionChanged="DAFAddress_SelectionChanged"/>
+                                <Button x:Name="DAFDone" IsEnabled="False" Content="{DynamicResource bDone}" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="125" Click="DAFDone_Click"/>
                                 <Button x:Name="DAFCancel" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,71,0.2,0" VerticalAlignment="Top" Width="125" Click="DAFCancel_Click"/>
                             </Grid>
                         </GroupBox>
