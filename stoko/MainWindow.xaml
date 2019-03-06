@@ -47,12 +47,12 @@
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <GroupBox Header="{DynamicResource cProductInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="311">
                             <Grid Margin="0,0,0,0" x:Name="ProductForm" Visibility="Collapsed">
-                                <TextBox x:Name="PFTitle" materialDesign:HintAssist.Hint="{DynamicResource cProductTitle}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-                                <TextBox x:Name="PFPriceHT" materialDesign:HintAssist.Hint="{DynamicResource cPriceHT}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="155,4,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-                                <TextBox x:Name="PFQentity" materialDesign:HintAssist.Hint="{DynamicResource cQuantityNotOrdered}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="209,4,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
-                                <TextBox x:Name="PFRef" materialDesign:HintAssist.Hint="{DynamicResource cProductReference}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,79,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
-                                <TextBox x:Name="PFDes" materialDesign:HintAssist.Hint="{DynamicResource cDescription}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,154,0,0" Height="88" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
-                                <ComboBox x:Name="PFCat" materialDesign:HintAssist.Hint="{DynamicResource cCategory}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="110,79,-0.8,0" Height="70" VerticalAlignment="Top" Width="150" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="12,0"/>
+                                <TextBox x:Name="PFTitle" ToolTip="{DynamicResource cProductTitle}" materialDesign:HintAssist.Hint="{DynamicResource cProductTitle}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                                <TextBox x:Name="PFPriceHT" ToolTip="{DynamicResource cPriceHT}" materialDesign:HintAssist.Hint="{DynamicResource cPriceHT}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="155,4,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+                                <TextBox x:Name="PFQentity" ToolTip="{DynamicResource cQuantityNotOrdered}" materialDesign:HintAssist.Hint="{DynamicResource cQuantityNotOrdered}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="209,4,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="50"/>
+                                <TextBox x:Name="PFRef" ToolTip="{DynamicResource cProductReference}" materialDesign:HintAssist.Hint="{DynamicResource cProductReference}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,79,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
+                                <TextBox x:Name="PFDes" ToolTip="{DynamicResource cDescription}" materialDesign:HintAssist.Hint="{DynamicResource cDescription}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,154,0,0" Height="88" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
+                                <ComboBox x:Name="PFCat" ToolTip="{DynamicResource cCategory}" materialDesign:HintAssist.Hint="{DynamicResource cCategory}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="110,79,-0.8,0" Height="70" VerticalAlignment="Top" Width="150" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="12,0"/>
                                 <Button x:Name="PFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,0,0,8" VerticalAlignment="Bottom" Width="125" Click="PFDone_Click"/>
                                 <Button x:Name="PFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,0,4,8" VerticalAlignment="Bottom" Width="125" Click="PFDelete_Click"/>
                             </Grid>
@@ -99,11 +99,11 @@
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
                         <GroupBox Header="{DynamicResource cClientInfos}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="275" Padding="8, 2, 8, 2" Margin="10,10,0,0" Height="257">
                             <Grid Margin="0,0,0,0" x:Name="ClientForm" Visibility="Collapsed">
-                                <TextBox x:Name="CFClientLogin" materialDesign:HintAssist.Hint="{DynamicResource cClientLogin}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
-                                <TextBox x:Name="CFClientFirstName" materialDesign:HintAssist.Hint="{DynamicResource cClientFirstName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
-                                <TextBox x:Name="CFClientEmail" materialDesign:HintAssist.Hint="{DynamicResource cClientEmail}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="88" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
-                                <TextBox x:Name="CFClientName" materialDesign:HintAssist.Hint="{DynamicResource cClientLastName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
-                                <TextBox x:Name="CFClientPhoneNumber" materialDesign:HintAssist.Hint="{DynamicResource cClientPhoneNumber}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox x:Name="CFClientLogin" ToolTip="{DynamicResource cClientLogin}" materialDesign:HintAssist.Hint="{DynamicResource cClientLogin}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <TextBox x:Name="CFClientFirstName" ToolTip="{DynamicResource cClientFirstName}" materialDesign:HintAssist.Hint="{DynamicResource cClientFirstName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox x:Name="CFClientEmail" ToolTip="{DynamicResource cClientEmail}" materialDesign:HintAssist.Hint="{DynamicResource cClientEmail}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="88" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <TextBox x:Name="CFClientName" ToolTip="{DynamicResource cClientLastName}" materialDesign:HintAssist.Hint="{DynamicResource cClientLastName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox x:Name="CFClientPhoneNumber" ToolTip="{DynamicResource cClientPhoneNumber}" materialDesign:HintAssist.Hint="{DynamicResource cClientPhoneNumber}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <Button IsEnabled="False" Content="{DynamicResource bResetPassword}" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.215,2.439"/>
                                 <Button x:Name="CFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125" Click="CFDone_Click"/>
                                 <Button x:Name="CFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125" Click="CFDelete_Click"/>
@@ -133,10 +133,10 @@
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cAddressInfos}" HorizontalAlignment="Left" Width="275" Padding="8,2,8,2" Margin="10,270,0,4">
                             <Grid Margin="0,0,0,0" x:Name="AddressForm" Visibility="Collapsed" SizeChanged="AddressForm_SizeChanged">
-                                <TextBox x:Name="AFWay" materialDesign:HintAssist.Hint="{DynamicResource cAddressWay}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
-                                <TextBox x:Name="AFComplement" materialDesign:HintAssist.Hint="{DynamicResource cAddressComplement}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
-                                <TextBox x:Name="AFCity" materialDesign:HintAssist.Hint="{DynamicResource cAddressCity}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
-                                <TextBox x:Name="AFZipCode" materialDesign:HintAssist.Hint="{DynamicResource cAddressZipCode}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <TextBox x:Name="AFWay" ToolTip="{DynamicResource cAddressWay}" materialDesign:HintAssist.Hint="{DynamicResource cAddressWay}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
+                                <TextBox x:Name="AFComplement" ToolTip="{DynamicResource cAddressComplement}" materialDesign:HintAssist.Hint="{DynamicResource cAddressComplement}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox x:Name="AFCity" ToolTip="{DynamicResource cAddressCity}" materialDesign:HintAssist.Hint="{DynamicResource cAddressCity}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+                                <TextBox x:Name="AFZipCode" ToolTip="{DynamicResource cAddressZipCode}" materialDesign:HintAssist.Hint="{DynamicResource cAddressZipCode}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
                                 <Button x:Name="AFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,0,0,4" VerticalAlignment="Bottom" Width="125" Click="AFDone_Click"/>
                                 <Button x:Name="AFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,0,0,4" VerticalAlignment="Bottom" Width="125" Click="AFDelete_Click"/>
                             </Grid>
@@ -163,7 +163,7 @@
                 </TabItem>
                 <TabItem x:Name="tiOrder" Header="{DynamicResource tOrder}" Background="{DynamicResource MaterialDesignBackground}" BorderBrush="{x:Null}" Style="{DynamicResource TabItemStyle}">
                     <Grid Background="{DynamicResource MaterialDesignCardBackground}">
-                        <GroupBox Header="{DynamicResource cOrders}" Padding="8, 2, 8, 2" Margin="10,10,10,210.4">
+                        <GroupBox Header="{DynamicResource cOrders}" Padding="8, 2, 8, 2" Margin="10,10,215,210.4">
                             <Grid Margin="0,0,0,0">
                                 <DataGrid x:Name="dgOrder" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" SelectionChanged="DgOrder_SelectionChanged">
                                     <DataGrid.Columns>
@@ -193,9 +193,15 @@
                                 </DataGrid>
                             </Grid>
                         </GroupBox>
+                        <GroupBox Header="{DynamicResource bSearch}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Padding="8,2,8,2" Margin="0,10,10,0" Height="135">
+                            <Grid Margin="0,0,0,0" x:Name="ChangeOrderAddressForm1">
+                                <TextBox x:Name="OrderSearch" ToolTip="{DynamicResource cOrderSearch}" materialDesign:HintAssist.Hint="{DynamicResource cOrderSearch}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  Margin="0" Height="60" VerticalAlignment="Top"/>
+                                <Button Content="{DynamicResource bSearch}" HorizontalAlignment="Center" Margin="0,71,0.2,0" VerticalAlignment="Top" Width="125" Click="OrderSearch_Click"/>
+                            </Grid>
+                        </GroupBox>
                         <GroupBox Header="{DynamicResource cChangeDeliveryAddress}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="275" Padding="8,2,8,2" Margin="0,0,10,70.4" Height="135">
                             <Grid Margin="0,0,0,0" x:Name="ChangeOrderAddressForm" Visibility="Collapsed">
-                                <ComboBox x:Name="DAFAddress" materialDesign:HintAssist.Hint="{DynamicResource cAddresses}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="9,6,0,0" Height="60" VerticalAlignment="Top" Width="239" SelectionChanged="DAFAddress_SelectionChanged"/>
+                                <ComboBox x:Name="DAFAddress" ToolTip="{DynamicResource cAddresses}" materialDesign:HintAssist.Hint="{DynamicResource cAddresses}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="9,6,0,0" Height="60" VerticalAlignment="Top" Width="239" SelectionChanged="DAFAddress_SelectionChanged"/>
                                 <Button x:Name="DAFDone" IsEnabled="False" Content="{DynamicResource bDone}" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="125" Click="DAFDone_Click"/>
                                 <Button x:Name="DAFCancel" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,71,0.2,0" VerticalAlignment="Top" Width="125" Click="DAFCancel_Click"/>
                             </Grid>
@@ -255,54 +261,66 @@
                 <TabItem Header="{DynamicResource sGeneral}" Background="{DynamicResource MaterialDesignBackground}" Style="{DynamicResource TabItemStyleLeft}">
                     <Grid>
                         <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <StackPanel>
-                                <Grid VerticalAlignment="Center" Margin="40,16,40,16">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <Label Content="{DynamicResource sLang}" Grid.Column="0" Foreground="{DynamicResource MaterialDesignBody}"/>
-                                    <ComboBox Grid.Column="1" BorderBrush="{x:Null}" Background="{DynamicResource MaterialDesignBackground}" Foreground="{DynamicResource MaterialDesignBody}" x:Name="cbLang" SelectionChanged="ComboBoxLang_SelectionChanged"/>
-                                </Grid>
-                                <Separator/>
-                                <CheckBox x:Name="allowDarkMode" Content="{DynamicResource sDarkMode}" Margin="40,16,40,16" VerticalAlignment="top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxDarkTheme_Checked" Unchecked="CheckBoxLightTheme_Checked"/>
-                            </StackPanel>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <Grid VerticalAlignment="Center" Margin="40,16,40,16">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Content="{DynamicResource sLang}" Grid.Column="0" Foreground="{DynamicResource MaterialDesignBody}"/>
+                                        <ComboBox Grid.Column="1" BorderBrush="{x:Null}" Background="{DynamicResource MaterialDesignBackground}" Foreground="{DynamicResource MaterialDesignBody}" x:Name="cbLang" SelectionChanged="ComboBoxLang_SelectionChanged"/>
+                                    </Grid>
+                                    <Separator/>
+                                    <CheckBox x:Name="allowDarkMode" Content="{DynamicResource sDarkMode}" Margin="40,16,40,16" VerticalAlignment="top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxDarkTheme_Checked" Unchecked="CheckBoxLightTheme_Checked"/>
+                                    <Separator/>
+                                    <CheckBox x:Name="allowMenu" Content="{DynamicResource sAllowMenu}" Margin="40,16,40,16" VerticalAlignment="Top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxAllowMenu_Checked" Unchecked="CheckBoxUnAllowMenu_Checked"/>
+                                </StackPanel>
+                            </ScrollViewer>
                         </Border>
                     </Grid>
                 </TabItem>
                 <TabItem Header="{DynamicResource sAdvanced}" Foreground="{DynamicResource MaterialDesignBody}" Style="{DynamicResource TabItemStyleLeft}">
                     <Grid>
-                        <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                            <StackPanel>
-                                <CheckBox x:Name="allowMenu" Content="{DynamicResource sAllowMenu}" Margin="40,16,40,16" VerticalAlignment="Top" HorizontalContentAlignment="Right" FlowDirection="RightToLeft" BorderBrush="{x:Null}" Foreground="{DynamicResource MaterialDesignBody}" Background="{DynamicResource MaterialDesignBody}" Checked="CheckBoxAllowMenu_Checked" Unchecked="CheckBoxUnAllowMenu_Checked"/>
-                                <Separator/>
-                                <Grid VerticalAlignment="Center" Margin="40,16,40,16">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <TextBox x:Name="DFhost" Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="{DynamicResource sDbHost}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
-                                    <TextBox x:Name="DFname" Grid.Column="1" Grid.Row="0" materialDesign:HintAssist.Hint="{DynamicResource sDbName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
-                                    <TextBox x:Name="DFuser" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="{DynamicResource sDbUser}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
-                                    <TextBox x:Name="DFpass" Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="{DynamicResource sDbPassword}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
-                                    <Button Grid.Column="1" Grid.Row="2" Content="{DynamicResource bDbConnect}" Margin="8" Click="bDbConnect_Click"/>
-                                </Grid>
-                                <Separator/>
-                                <Grid VerticalAlignment="Center" Margin="40,16,40,16">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="200"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBox x:Name="imgSrvUrl" materialDesign:HintAssist.Hint="{DynamicResource sImgServerUrl}" Grid.Column="0" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Height="60" Margin="8" TextWrapping="Wrap" Width="auto"/>
-                                    <Button Grid.Column="1" Content="{DynamicResource bDone}" Margin="8" Click="imgSrvUrlButton_Click"/>
-                                </Grid>
-                                <!--<TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
-                            </StackPanel>
+                        <Border Margin="1,-2,1,1" Padding="8" BorderThickness="1" CornerRadius="16"  BorderBrush="{DynamicResource MaterialDesignBackground}">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <StackPanel>
+                                    <Grid VerticalAlignment="Center" Margin="40,16,40,16">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBox x:Name="DFhost" Grid.Column="0" Grid.Row="0" materialDesign:HintAssist.Hint="{DynamicResource sDbHost}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                        <TextBox x:Name="DFname" Grid.Column="1" Grid.Row="0" materialDesign:HintAssist.Hint="{DynamicResource sDbName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                        <TextBox x:Name="DFuser" Grid.Column="0" Grid.Row="1" materialDesign:HintAssist.Hint="{DynamicResource sDbUser}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                        <TextBox x:Name="DFpass" Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="{DynamicResource sDbPassword}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" MaxHeight="80" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                        <Button Grid.Column="1" Grid.Row="2" Content="{DynamicResource bDbConnect}" Margin="8" Click="bDbConnect_Click"/>
+                                    </Grid>
+                                    <Separator/>
+                                    <Grid VerticalAlignment="Center" Margin="40,16,40,16">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="200"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox x:Name="imgSrvUrl" materialDesign:HintAssist.Hint="{DynamicResource sImgServerUrl}" Grid.Column="0" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Height="60" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                        <Button Grid.Column="1" Content="{DynamicResource bDone}" Margin="8" Click="imgSrvUrlButton_Click"/>
+                                    </Grid>
+                                    <Grid VerticalAlignment="Center" Margin="40,16,40,16">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="200"/>
+                                        </Grid.ColumnDefinitions>
+                                        <TextBox x:Name="accessToken" materialDesign:HintAssist.Hint="{DynamicResource sImgServerUrl}" Grid.Column="0" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Height="60" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                        <Button Grid.Column="1" Content="{DynamicResource bDone}" Margin="8" Click="Button_Click"/>
+                                    </Grid>
+                                    <!--<TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
+                                </StackPanel>
+                            </ScrollViewer>
                         </Border>
                     </Grid>
                 </TabItem>

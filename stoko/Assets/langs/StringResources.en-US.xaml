@@ -78,7 +78,9 @@
     <system:String x:Key="cNumProducts">N° product</system:String>
     <system:String x:Key="cChangeDeliveryAddress">Change delivery address</system:String>
     <system:String x:Key="cAddresses">Addresses</system:String>
-    
+    <system:String x:Key="cOrderSearch">Search order by client name</system:String>
+    <system:String x:Key="bSearch">Search</system:String>
+
     <!-- settings -->
     <system:String x:Key="sSettingClose">Close settings</system:String>
     <system:String x:Key="sGeneral">General</system:String>
@@ -91,6 +93,7 @@
     <system:String x:Key="sDbUser">db user</system:String>
     <system:String x:Key="sDbPassword">db password</system:String>
     <system:String x:Key="sImgServerUrl">Images server url. ex: http://imgserver.com/</system:String>
+    <system:String x:Key="sAccessToken">Images server access token</system:String>
 
     <!-- message -->
     <system:String x:Key="sErrorConfigsFile">Error on load configs file</system:String>

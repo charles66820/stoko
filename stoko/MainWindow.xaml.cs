@@ -92,6 +92,10 @@ namespace stoko {
             Configs.EditConfigData("imgSrvUrl", imgSrvUrl.Text);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            Configs.EditConfigData("imgSrvUrl", accessToken.Text);
+        }
+
         private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
             if (connectDb()) {
                 loadTab((mainTC.SelectedItem as TabItem).Name);
@@ -394,6 +398,14 @@ namespace stoko {
             o.Shipped = 1;
             bShipTheOrder.IsEnabled = false;
             DbOrder.UpdateShipOrder(o);
+            dgOrder.Items.Refresh();
+        }
+
+        private void OrderSearch_Click(object sender, RoutedEventArgs e) {
+            dgOrderContent.ItemsSource = null;
+            dgOrderContent.Items.Refresh();
+            dgOrder.SelectedIndex = -1;
+            OrderView.Refresh();
             dgOrder.Items.Refresh();
         }
         #endregion

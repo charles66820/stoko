@@ -2,8 +2,10 @@
 using stoko_db_BLL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace stoko {
     /// <summary>
@@ -47,6 +49,7 @@ namespace stoko {
             DFuser.Text = Configs.Data.Global["dbUser"];
             DFpass.Text = Configs.Data.Global["dbPassword"];
             imgSrvUrl.Text = Configs.Data.Global["imgSrvUrl"];
+            accessToken.Text = Configs.Data.Global["accessToken"];
         }
 
         private void setSettingsPanel(bool p = true) {
@@ -276,10 +279,25 @@ namespace stoko {
         #endregion
 
         #region order
+        ICollectionView OrderView;
         #region actions
         private void loadOrders() {
             Data.Orders = DbOrder.GetOrders();
-            dgOrder.ItemsSource = Data.Orders;
+
+            OrderView = CollectionViewSource.GetDefaultView(Data.Orders);
+            OrderView.Filter = orderFilter;
+
+            dgOrder.ItemsSource = OrderView;
+        }
+
+        private bool orderFilter(object item) {
+            Order o = item as Order;
+            if (o.ClientName == null && OrderSearch.Text == "") {
+                return true;
+            } else if (o.ClientName == null) {
+                return false;
+            }
+            return o.ClientName.Contains(OrderSearch.Text);
         }
         #endregion
         #region form
