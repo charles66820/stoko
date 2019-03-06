@@ -76,6 +76,7 @@ namespace stoko {
             newData.Global.AddKey("dbPassword", "");
             newData.Global.AddKey("dbName", "");
             newData.Global.AddKey("imgSrvUrl", "");
+            newData.Global.AddKey("accessToken", "rainbow");
 
             fileIniParser.WriteFile(configFileUri, newData);
         }

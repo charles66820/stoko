@@ -96,6 +96,30 @@ namespace stoko_db_BLL {
             return pictures;
         }
 
+        public static int CreatePicture(Picture picture) {
+            String sql = "INSERT INTO product_picture(picture_name, updated_at, id_product) " +
+                "VALUE(@pictureName, @pictureDate, @productId)";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+            
+            req.Parameters.Add(new MySqlParameter("@pictureName", picture.PictureName));
+            req.Parameters.Add(new MySqlParameter("@pictureDate", picture.UpdateAt.ToString("yyyy-MM-dd HH:mm:ss")));
+            req.Parameters.Add(new MySqlParameter("@productId", picture.Product.Id));
+
+            req.ExecuteNonQuery();
+            return int.Parse(req.LastInsertedId.ToString());
+        }
+
+        public static void DeletePicture(Picture picture) {
+            String sql = "DELETE FROM product_picture WHERE id_product_picture = @pictureId";
+
+            MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
+
+            req.Parameters.Add(new MySqlParameter("@pictureId", picture.Id));
+
+            req.ExecuteNonQuery();
+        }
+
         public static int CreateProduct(Product product) {
             String sql = "INSERT INTO product(product_title, unit_price_HT, reference, quantity, description, id_category)" +
                 "VALUE(@productTitle, @productPrice, @productRef, @productQuantity, @productDes, @productIdCat)";

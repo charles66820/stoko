@@ -102,5 +102,6 @@
     <system:String x:Key="sLoading">Chargement...</system:String>
     <system:String x:Key="sYes">oui</system:String>
     <system:String x:Key="sNo">non</system:String>
+    <system:String x:Key="sErrorImageSending">Erreur lors de l'envois de l'image</system:String>
 
 </ResourceDictionary>

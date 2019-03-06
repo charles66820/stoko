@@ -102,5 +102,6 @@
     <system:String x:Key="sLoading">Loading... </system:String>
     <system:String x:Key="sYes">yes</system:String>
     <system:String x:Key="sNo">no</system:String>
+    <system:String x:Key="sErrorImageSending">Error on image sending</system:String>
 
 </ResourceDictionary>

@@ -134,9 +134,26 @@ namespace stoko {
             if (lbPictures.SelectedItem as Picture != null) {
                 imgViewPicture.Source = new BitmapImage(
                     new Uri(Configs.Data.Global["imgSrvUrl"] + "img/products/" + (lbPictures.SelectedItem as Picture).PictureName, UriKind.Absolute)
-                    );
+                );
+                bDeleteImages.IsEnabled = true;
             } else {
                 imgViewPicture.Source = null;
+                bDeleteImages.IsEnabled = false;
+            }
+        }
+
+        private void BDeleteImages_Click(object sender, RoutedEventArgs e) {
+            if (lbPictures.SelectedItem as Picture != null) {
+                Picture p = lbPictures.SelectedItem as Picture;
+                WebRequest req = WebRequest.Create(
+                        Configs.Data.Global["imgSrvUrl"] + "product/picture?name=" +
+                        p.PictureName + "&token=" +
+                        Configs.Data.Global["accessToken"]
+                    );
+                req.GetResponse();
+                DbProduct.DeletePicture(p);
+                p.Product.Pictures.Remove(p);
+                lbPictures.Items.Refresh();
             }
         }
 
@@ -165,6 +182,16 @@ namespace stoko {
         private void PFDelete_Click(object sender, RoutedEventArgs e) {
             if (dgProducts.SelectedIndex != -1) {
                 Product p = dgProducts.SelectedItem as Product;
+                //delete product images
+                foreach (Picture pic in p.Pictures) {
+                    WebRequest req = WebRequest.Create(
+                        Configs.Data.Global["imgSrvUrl"] + "product/picture?name=" + 
+                        pic.PictureName + "&token="+ 
+                        Configs.Data.Global["accessToken"]
+                    );
+                    req.GetResponse();
+                }
+                
                 Data.Products.Remove(p);
                 DbProduct.DeleteProduct(p);
                 dgProducts.Items.Refresh();
@@ -177,9 +204,35 @@ namespace stoko {
             openFileDialog.Filter = "Images|*.png;*.jpg;*.jpeg;*.gif";
 
             if (openFileDialog.ShowDialog() == true) {
-                WebClient myWebClient = new WebClient();
-                byte[] responseArray = myWebClient.UploadFile(/*Configs.Data.Global["imgSrvUrl"]*/"http://127.0.0.1/" + "up.php", "POST", openFileDialog.FileName);
-                MessageBox.Show(System.Text.Encoding.ASCII.GetString(responseArray));
+                if (dgProducts.SelectedIndex != -1) {
+                    Product p = dgProducts.SelectedItem as Product;
+
+                    //sende image to server
+                    WebClient webCli = new WebClient();
+                    try {
+                        byte[] responseArray = webCli.UploadFile(
+                            Configs.Data.Global["imgSrvUrl"] + "product/" + p.Id.ToString() + "/picture?token=" + Configs.Data.Global["accessToken"],
+                            "POST", 
+                            openFileDialog.FileName
+                        );
+                        String res = System.Text.Encoding.ASCII.GetString(responseArray);
+                        if (res.Equals("none")) {
+                            MessageBox.Show(Application.Current.Resources["sErrorImageSending"] as String);
+                        } else {
+                            Picture newPic = new Picture();
+                            newPic.PictureName = res;
+                            newPic.UpdateAt = DateTime.Now;
+                            newPic.Product = p;
+
+                            newPic.Id = DbProduct.CreatePicture(newPic);
+
+                            p.Pictures.Add(newPic);
+                            lbPictures.Items.Refresh();
+                        }
+                    } catch {
+                        MessageBox.Show(Application.Current.Resources["sErrorImageSending"] as String);
+                    }
+                }
             }
         }
         #endregion
@@ -217,6 +270,14 @@ namespace stoko {
         private void CFDelete_Click(object sender, RoutedEventArgs e) {
             if (dgClients.SelectedIndex != -1) {
                 Client c = dgClients.SelectedItem as Client;
+
+                WebRequest req = WebRequest.Create(
+                        Configs.Data.Global["imgSrvUrl"] + "client/picture?name=" +
+                        c.Avatar + "&token=" +
+                        Configs.Data.Global["accessToken"]
+                    );
+                req.GetResponse();
+
                 Data.Clients.Remove(c);
                 DbClient.DeleteClient(c);
 
