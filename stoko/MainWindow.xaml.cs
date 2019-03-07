@@ -2,7 +2,6 @@
 using stoko_class_BLL;
 using stoko_db_BLL;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -109,6 +108,28 @@ namespace stoko {
         private void MainTC_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (mainTC.IsLoaded && e.Source as TabControl != null) {
                 loadTab((mainTC.SelectedItem as TabItem).Name);
+            }
+        }
+
+        private void AddressForm_SizeChanged(object sender, SizeChangedEventArgs e) {
+            if (AddressForm.ActualHeight > 300) {
+                AFWay.Width = 259;
+                AFWay.Margin = new Thickness(0, 4, 0, 0);
+                AFComplement.Width = 259;
+                AFComplement.Margin = new Thickness(0, 69, 0, 0);
+                AFZipCode.Width = 259;
+                AFZipCode.Margin = new Thickness(0, 134, 0, 0);
+                AFCity.Width = 259;
+                AFCity.Margin = new Thickness(0, 199, 0, 0);
+            } else {
+                AFWay.Width = 129;
+                AFWay.Margin = new Thickness(0, 4, 0, 0);
+                AFComplement.Width = 125;
+                AFComplement.Margin = new Thickness(134, 4, 0, 0);
+                AFZipCode.Width = 129;
+                AFZipCode.Margin = new Thickness(0, 69, 0, 0);
+                AFCity.Width = 125;
+                AFCity.Margin = new Thickness(134, 69, 0, 0);
             }
         }
         #endregion
@@ -444,27 +465,5 @@ namespace stoko {
             dgOrder.Items.Refresh();
         }
         #endregion
-
-        private void AddressForm_SizeChanged(object sender, SizeChangedEventArgs e) {
-            if (AddressForm.ActualHeight > 300) {
-                AFWay.Width = 259;
-                AFWay.Margin = new Thickness(0, 4, 0, 0);
-                AFComplement.Width = 259;
-                AFComplement.Margin = new Thickness(0, 69, 0, 0);
-                AFZipCode.Width = 259;
-                AFZipCode.Margin = new Thickness(0, 134, 0, 0);
-                AFCity.Width = 259;
-                AFCity.Margin = new Thickness(0, 199, 0, 0);
-            } else {
-                AFWay.Width = 129;
-                AFWay.Margin = new Thickness(0, 4, 0, 0);
-                AFComplement.Width = 125;
-                AFComplement.Margin = new Thickness(134, 4, 0, 0);
-                AFZipCode.Width = 129;
-                AFZipCode.Margin = new Thickness(0, 69, 0, 0);
-                AFCity.Width = 125;
-                AFCity.Margin = new Thickness(134, 69, 0, 0);
-            }
-        }
     }
 }
