@@ -114,8 +114,8 @@ namespace stoko_db_BLL {
         }
 
         public static int CreateAddress(Address address) {
-            String sql = "INSERT INTO address(way, complement, zip_code, city, id_client) " +
-                "VALUE(@addressWay, @addressComplement, @addressZipCode, @addressCity, @addressClientId)";
+            String sql = "INSERT INTO address(way, complement, zip_code, city, id_client, country) " +
+                "VALUE(@addressWay, @addressComplement, @addressZipCode, @addressCity, @addressClientId, 'France')";
 
             MySqlCommand req = new MySqlCommand(sql, Data.DbConn);
 

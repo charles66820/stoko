@@ -5,7 +5,7 @@ namespace stoko_class_BLL {
         public int ProductId { get; }
         public String ProductReference { get; }
         public String ProductName { get; }
-        public int PriceHT { get; }
+        public double PriceHT { get; }
         public int Qantity { get; }
         public Order Order { get; }
 
@@ -18,7 +18,7 @@ namespace stoko_class_BLL {
         /// <param name="pPriceHT"></param>
         /// <param name="pQantity"></param>
         /// <param name="pOrder"></param>
-        public OrderContent(int pProductId, String pProductReference, String pProductName, int pPriceHT, int pQantity, Order pOrder) {
+        public OrderContent(int pProductId, String pProductReference, String pProductName, double pPriceHT, int pQantity, Order pOrder) {
             ProductId = pProductId;
             ProductReference = pProductReference;
             ProductName = pProductName;

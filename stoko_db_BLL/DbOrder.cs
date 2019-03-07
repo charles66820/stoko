@@ -37,9 +37,9 @@ namespace stoko_db_BLL {
                         new Order(
                             res.GetInt32("id_command"),
                             res.IsDBNull(1) ? -1 : res.GetInt32("id_client"),
-                            res.GetInt32("shipping"),
-                            res.GetInt32("total_HT"),
-                            res.GetInt32("total_TTC"),
+                            res.GetDouble("shipping"),
+                            res.GetDouble("total_HT"),
+                            res.GetDouble("total_TTC"),
                             res.GetDateTime("date"),
                             res.GetInt32("status"),
                             res.IsDBNull(7) ? null : res.GetString("client_name"),
@@ -80,7 +80,7 @@ namespace stoko_db_BLL {
                             res.IsDBNull(0) ? -1 : res.GetInt32("id_product"),
                             res.IsDBNull(1) ? null : res.GetString("reference"),
                             res.IsDBNull(2) ? null : res.GetString("product_title"),
-                            res.GetInt32("unit_price_HT"),
+                            res.GetDouble("unit_price_HT"),
                             res.GetInt32("quantity"),
                             order
                             )

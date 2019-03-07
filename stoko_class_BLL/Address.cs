@@ -7,6 +7,7 @@ namespace stoko_class_BLL {
         public String Complement { get; set; }
         public String ZipCode { get; set; }
         public String City { get; set; }
+        public String Country { get; set; }
         public Client Client { get; set; }
         public String FullAddress {
             get {

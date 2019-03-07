@@ -47,6 +47,19 @@
     <system:String x:Key="cDescription">Description</system:String>
     <system:String x:Key="cCategory">Catégorie</system:String>
 
+    <!-- form product -->
+    <system:String x:Key="mpfTitleNull">Le titre du produit dois faire entre 2 et 100 caractères de long</system:String>
+    <system:String x:Key="mpfTitleMin">Le titre du produit dois faire plus de 2 caractères de long</system:String>
+    <system:String x:Key="mpfTitleMax">Le titre du produit ne dois pas faire plus de 100 caractères de long</system:String>
+    
+    <system:String x:Key="mpfPriceNull">Le prix du produit dois être résigner par un nombre</system:String>
+    
+    <system:String x:Key="mpfRefnull">La référence du produit dois faire entre 6 et 100 caractères de long</system:String>
+    <system:String x:Key="mpfRefMin">Le référence du produit dois faire plus de 6 caractères de long</system:String>
+    <system:String x:Key="mpfRefMax">Le référence du produit ne dois pas faire plus de 100 caractères de long</system:String>
+    
+    <system:String x:Key="mpfDesNull">La description du produit ne dois pas faire plus de 1000 caractères de long</system:String>
+    
     <!-- contents Clients tab -->
     <system:String x:Key="cClientInfos">Infos du client</system:String>
     <system:String x:Key="cClients">Les clients</system:String>
@@ -64,6 +77,36 @@
     <system:String x:Key="cAddressZipCode">Code postal</system:String>
     <system:String x:Key="cAddressCity">Ville</system:String>
     <system:String x:Key="sAccessToken">Token d'accée au serveur</system:String>
+    
+    <!-- form product -->
+    <system:String x:Key="mcfLoginNull">L'identifiant du client dois faire entre 2 et 20 caractères de long</system:String>
+    <system:String x:Key="mcfLoginMin">L'identifiant du client dois faire plus de 2 caractères de long</system:String>
+    <system:String x:Key="mcfLoginMax">L'identifiant du client ne dois pas faire plus de 20 caractères de long</system:String>
+
+    <system:String x:Key="mcfEmailNull">L'email du client dois faire entre 5 et 100 caractères de long</system:String>
+    <system:String x:Key="mcfEmailMin">L'email du client dois faire plus de 5 caractères de long</system:String>
+    <system:String x:Key="mcfEmailMax">L'email du client ne dois pas faire plus de 100 caractères de long</system:String>
+
+    <system:String x:Key="mcfLastNameMax">Le nom de famille du client ne dois pas faire plus de 50 caractères de long</system:String>
+
+    <system:String x:Key="mcfFirstNameMax">Le prénom du client ne dois pas faire plus de 50 caractères de long</system:String>
+
+    <system:String x:Key="mcfPhoneNumberMax">Le numéro de telephone du client ne dois pas faire plus de 13 caractères de long</system:String>
+
+    <!-- form address -->
+    <system:String x:Key="mAfWayNull">L'adresse dois faire entre 10 et 100 caractères de long</system:String>
+    <system:String x:Key="mAfWayMin">L'adresse dois faire plus de 10 caractères de long</system:String>
+    <system:String x:Key="mAfWayMax">L'adresse ne dois pas faire plus de 100 caractères de long</system:String>
+
+    <system:String x:Key="mAfComplementMax">Le complement d'adresse ne dois pas faire plus de 100 caractères de long</system:String>
+
+    <system:String x:Key="mAfZipCodeNull">Le code postal dois faire entre 2 et 10 caractères de long</system:String>
+    <system:String x:Key="mAfZipCodeMin">Le code postal dois faire plus de 2 caractères de long</system:String>
+    <system:String x:Key="mAfZipCodeMax">Le code postal ne dois pas faire plus de 10 caractères de long</system:String>
+
+    <system:String x:Key="mAfCityNull">La ville dois faire entre 2 et 100 caractères de long</system:String>
+    <system:String x:Key="mAfCityMin">La ville dois faire plus de 2 caractères de long</system:String>
+    <system:String x:Key="mAfCityMax">La ville ne dois pas faire plus de 100 caractères de long</system:String>
 
     <!-- contents Orders tab -->
     <system:String x:Key="cOrders">Les commandes</system:String>

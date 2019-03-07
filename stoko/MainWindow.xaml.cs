@@ -188,25 +188,47 @@ namespace stoko {
         }
 
         private void PFDone_Click(object sender, RoutedEventArgs e) {
-            //TODO: unit test
+            double price;
+            double.TryParse(PFPriceHT.Text, out price);
 
-            Product product = dgProducts.SelectedIndex == -1? new Product() : dgProducts.SelectedItem as Product;
-            product.Title = PFTitle.Text;
-            product.PriceHT = int.Parse(PFPriceHT.Text);
-            product.Quantity = int.Parse(PFQentity.Text);
-            product.Reference = PFRef.Text;
-            product.Category = PFCat.SelectedItem as Category;
-            product.Description = PFDes.Text;
+            int qte;
+            int.TryParse(PFQentity.Text, out qte);
 
-            if (dgProducts.SelectedIndex == -1) {
-                Data.Products.Add(product);
-                product.Id = DbProduct.CreateProduct(product);
-                resetProductForm();
+            if (PFTitle.Text == String.Empty) {
+                MessageBox.Show(Application.Current.Resources["mpfTitleNull"] as String);
+            } else if (PFTitle.Text.Length < 2) {
+                MessageBox.Show(Application.Current.Resources["mpfTitleMin"] as String);
+            } else if (PFTitle.Text.Length > 100) {
+                MessageBox.Show(Application.Current.Resources["mpfTitleMax"] as String);
+            } else if (PFPriceHT.Text == String.Empty || price == 0) {
+                MessageBox.Show(Application.Current.Resources["mpfPriceNull"] as String);
+            } else if (PFRef.Text == String.Empty) {
+                MessageBox.Show(Application.Current.Resources["mpfRefnull"] as String);
+            } else if (PFRef.Text.Length < 6) {
+                MessageBox.Show(Application.Current.Resources["mpfRefMin"] as String);
+            } else if (PFRef.Text.Length > 100) {
+                MessageBox.Show(Application.Current.Resources["mpfRefMax"] as String);
+            } else if (PFDes.Text.Length > 1000) {
+                MessageBox.Show(Application.Current.Resources["mpfDesMax"] as String);
             } else {
-                DbProduct.UpdateProduct(product);
-            }
+                Product product = dgProducts.SelectedIndex == -1? new Product() : dgProducts.SelectedItem as Product;
+                product.Title = PFTitle.Text;
+                product.PriceHT = price;
+                product.Quantity = qte;
+                product.Reference = PFRef.Text;
+                product.Category = PFCat.SelectedItem as Category;
+                product.Description = PFDes.Text;
 
-            dgProducts.Items.Refresh();
+                if (dgProducts.SelectedIndex == -1) {
+                    Data.Products.Add(product);
+                    product.Id = DbProduct.CreateProduct(product);
+                    resetProductForm();
+                } else {
+                    DbProduct.UpdateProduct(product);
+                }
+
+                dgProducts.Items.Refresh();
+            }
         }
 
         private void PFDelete_Click(object sender, RoutedEventArgs e) {
@@ -279,34 +301,53 @@ namespace stoko {
         }
 
         private void CFDone_Click(object sender, RoutedEventArgs e) {
-            //TODO: unit test
-
-            Client client = dgClients.SelectedIndex == -1 ? new Client() : dgClients.SelectedItem as Client;
-            client.Login = CFClientLogin.Text;
-            client.Email = CFClientEmail.Text;
-            client.LastName = CFClientName.Text;
-            client.FirstName = CFClientFirstName.Text;
-            client.PhoneNumber = CFClientPhoneNumber.Text;
-
-            if (dgClients.SelectedIndex == -1) {
-                Data.Clients.Add(client);
-                client.Id = DbClient.CreateClient(client);
-
-                //send confirme email
-                try {
-                    WebRequest req = WebRequest.Create(
-                        Configs.Data.Global["imgSrvUrl"] + "login/new/" + client.Id.ToString() + 
-                        "/" + Configs.Data.Global["accessToken"]
-                    );
-                    req.GetResponse().ToString();
-                } catch { }
-
-                resetClientForm();
+            if (CFClientLogin.Text == String.Empty) {
+                MessageBox.Show(Application.Current.Resources["mcfLoginNull"] as String);
+            } else if (CFClientLogin.Text.Length < 2) {
+                MessageBox.Show(Application.Current.Resources["mcfLoginMin"] as String);
+            } else if (CFClientLogin.Text.Length > 20) {
+                MessageBox.Show(Application.Current.Resources["mcfLoginMax"] as String);
+            } else if (CFClientEmail.Text == String.Empty) {
+                MessageBox.Show(Application.Current.Resources["mcfEmailNull"] as String);
+            } else if (CFClientEmail.Text.Length < 5) {
+                MessageBox.Show(Application.Current.Resources["mcfEmailMin"] as String);
+            } else if (CFClientEmail.Text.Length > 100) {
+                MessageBox.Show(Application.Current.Resources["mcfEmailMax"] as String);
+            } else if (CFClientName.Text.Length > 50) {
+                MessageBox.Show(Application.Current.Resources["mcfLastNameMax"] as String);
+            } else if (CFClientFirstName.Text.Length > 50) {
+                MessageBox.Show(Application.Current.Resources["mcfFirstNameMax"] as String);
+            } else if (CFClientPhoneNumber.Text.Length > 13) {
+                MessageBox.Show(Application.Current.Resources["mcfPhoneNumberMax"] as String);
             } else {
-                DbClient.UpdateClient(client);
-            }
 
-            dgClients.Items.Refresh();
+                Client client = dgClients.SelectedIndex == -1 ? new Client() : dgClients.SelectedItem as Client;
+                client.Login = CFClientLogin.Text;
+                client.Email = CFClientEmail.Text;
+                client.LastName = CFClientName.Text;
+                client.FirstName = CFClientFirstName.Text;
+                client.PhoneNumber = CFClientPhoneNumber.Text;
+
+                if (dgClients.SelectedIndex == -1) {
+                    Data.Clients.Add(client);
+                    client.Id = DbClient.CreateClient(client);
+
+                    //send confirme email
+                    try {
+                        WebRequest req = WebRequest.Create(
+                            Configs.Data.Global["imgSrvUrl"] + "login/new/" + client.Id.ToString() +
+                            "/" + Configs.Data.Global["accessToken"]
+                        );
+                        req.GetResponse().ToString();
+                    } catch { }
+
+                    resetClientForm();
+                } else {
+                    DbClient.UpdateClient(client);
+                }
+
+                dgClients.Items.Refresh();
+            }
         }
 
         private void CFDelete_Click(object sender, RoutedEventArgs e) {
@@ -371,25 +412,46 @@ namespace stoko {
         }
 
         private void AFDone_Click(object sender, RoutedEventArgs e) {
-            //TODO: unit test
 
-            Address address = dgAddresses.SelectedIndex == -1 ? new Address() : dgAddresses.SelectedItem as Address;
-            address.Way = AFWay.Text;
-            address.Complement = AFComplement.Text;
-            address.ZipCode = AFZipCode.Text;
-            address.City = AFCity.Text;
-
-            if (dgAddresses.SelectedIndex == -1) {
-                Client c = dgClients.SelectedItem as Client;
-                c.Addresses.Add(address);
-                address.Client = c;
-                address.Id = DbClient.CreateAddress(address);
-                resetAddressForm();
+            if (AFWay.Text == String.Empty) {
+                MessageBox.Show(Application.Current.Resources["mAfWayNull"] as String);
+            } else if (AFWay.Text.Length < 10) {
+                MessageBox.Show(Application.Current.Resources["mAfWayMin"] as String);
+            } else if (AFWay.Text.Length > 100) {
+                MessageBox.Show(Application.Current.Resources["mAfWayMax"] as String);
+            } else if (AFComplement.Text.Length > 100) {
+                MessageBox.Show(Application.Current.Resources["mAfComplementMax"] as String);
+            } else if(AFZipCode.Text == String.Empty) {
+                MessageBox.Show(Application.Current.Resources["mAfZipCodeNull"] as String);
+            } else if (AFZipCode.Text.Length < 2) {
+                MessageBox.Show(Application.Current.Resources["mAfZipCodeMin"] as String);
+            } else if (AFZipCode.Text.Length > 10) {
+                MessageBox.Show(Application.Current.Resources["mAfZipCodeMax"] as String);
+            } else if (AFCity.Text == String.Empty) {
+                MessageBox.Show(Application.Current.Resources["mAfCityNull"] as String);
+            } else if (AFCity.Text.Length < 2) {
+                MessageBox.Show(Application.Current.Resources["mAfCityMin"] as String);
+            } else if (AFCity.Text.Length > 100) {
+                MessageBox.Show(Application.Current.Resources["mAfCityMax"] as String);
             } else {
-                DbClient.UpdateAddress(address);
-            }
+                Address address = dgAddresses.SelectedIndex == -1 ? new Address() : dgAddresses.SelectedItem as Address;
+                address.Way = AFWay.Text;
+                address.Complement = AFComplement.Text;
+                address.ZipCode = AFZipCode.Text;
+                address.City = AFCity.Text;
 
-            dgAddresses.Items.Refresh();
+                if (dgAddresses.SelectedIndex == -1) {
+                    Client c = dgClients.SelectedItem as Client;
+                    c.Addresses.Add(address);
+                    address.Client = c;
+                    address.Id = DbClient.CreateAddress(address);
+                    resetAddressForm();
+                } else {
+                    DbClient.UpdateAddress(address);
+                }
+
+                dgAddresses.Items.Refresh();
+            }
         }
 
         private void AFDelete_Click(object sender, RoutedEventArgs e) {
