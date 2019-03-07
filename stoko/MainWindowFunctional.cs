@@ -139,7 +139,9 @@ namespace stoko {
             PFDes.Text = product.Description;
 
             PFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
+            PFDone.SetResourceReference(ContentControl.ToolTipProperty, "bDone");
             PFDelete.SetResourceReference(ContentControl.ContentProperty, "bDelete");
+            PFDelete.SetResourceReference(ContentControl.ToolTipProperty, "bDelete");
             PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
 
             setProductForm();
@@ -149,7 +151,9 @@ namespace stoko {
             dgProducts.SelectedIndex = -1;
             resetProductForm(true);
             PFDone.SetResourceReference(ContentControl.ContentProperty, "bAdd");
+            PFDone.SetResourceReference(ContentControl.ToolTipProperty, "bAdd");
             PFDelete.SetResourceReference(ContentControl.ContentProperty, "bCancel");
+            PFDelete.SetResourceReference(ContentControl.ToolTipProperty, "bCancel");
             PFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedButton");
         }
         #endregion
@@ -203,7 +207,9 @@ namespace stoko {
             CFClientPhoneNumber.Text = client.PhoneNumber;
 
             CFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
+            CFDone.SetResourceReference(ContentControl.ToolTipProperty, "bDone");
             CFDelete.SetResourceReference(ContentControl.ContentProperty, "bDelete");
+            CFDelete.SetResourceReference(ContentControl.ToolTipProperty, "bDelete");
             CFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
 
             setClientForm();
@@ -222,7 +228,9 @@ namespace stoko {
             bAddClient.IsEnabled = true;
 
             CFDone.SetResourceReference(ContentControl.ContentProperty, "bAdd");
+            CFDone.SetResourceReference(ContentControl.ToolTipProperty, "bAdd");
             CFDelete.SetResourceReference(ContentControl.ContentProperty, "bCancel");
+            CFDelete.SetResourceReference(ContentControl.ToolTipProperty, "bCancel");
             CFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedButton");
         }
 
@@ -262,7 +270,9 @@ namespace stoko {
             AFCity.Text = address.City;
 
             AFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
+            AFDone.SetResourceReference(ContentControl.ToolTipProperty, "bDone");
             AFDelete.SetResourceReference(ContentControl.ContentProperty, "bDelete");
+            AFDelete.SetResourceReference(ContentControl.ToolTipProperty, "bDelete");
             AFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedAccentButton");
 
             setAddressForm();
@@ -272,7 +282,9 @@ namespace stoko {
             dgAddresses.SelectedIndex = -1;
             resetAddressForm(true);
             AFDone.SetResourceReference(ContentControl.ContentProperty, "bAdd");
+            AFDone.SetResourceReference(ContentControl.ToolTipProperty, "bAdd");
             AFDelete.SetResourceReference(ContentControl.ContentProperty, "bCancel");
+            AFDelete.SetResourceReference(ContentControl.ToolTipProperty, "bCancel");
             AFDelete.SetResourceReference(ContentControl.StyleProperty, "MaterialDesignRaisedButton");
         }
         #endregion
@@ -338,7 +350,9 @@ namespace stoko {
             }
 
             DAFDone.SetResourceReference(ContentControl.ContentProperty, "bDone");
+            DAFDone.SetResourceReference(ContentControl.ToolTipProperty, "bDone");
             DAFCancel.SetResourceReference(ContentControl.ContentProperty, "bCancel");
+            DAFCancel.SetResourceReference(ContentControl.ToolTipProperty, "bCancel");
 
             setChangeOrderAddressForm();
         }

@@ -314,15 +314,30 @@ namespace stoko {
             bAddClient.IsEnabled = true;
         }
 
+        private void CFResetPassword_Click(object sender, RoutedEventArgs e) {
+            if (dgClients.SelectedIndex != -1) {
+                Client c = dgClients.SelectedItem as Client;
+                try {
+                    WebRequest req = WebRequest.Create(
+                        Configs.Data.Global["imgSrvUrl"] + "password/reset/" + 
+                        c.Id.ToString() + "/" + Configs.Data.Global["accessToken"]
+                    );
+                    req.GetResponse();
+                } catch { }
+            }
+        }
+
         private void DgClients_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             resetAddressForm();
             dgAddresses.ItemsSource = null;
             bAddAddress.IsEnabled = false;
             if (dgClients.SelectedItem as Client != null) {
                 editClientForm(dgClients.SelectedItem as Client);
+                CFResetPassword.IsEnabled = true;
             } else {
                 resetClientForm();
                 bAddClient.IsEnabled = false;
+                CFResetPassword.IsEnabled = false;
             }
         }
 

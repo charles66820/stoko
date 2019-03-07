@@ -53,8 +53,8 @@
                                 <TextBox x:Name="PFRef" ToolTip="{DynamicResource cProductReference}" materialDesign:HintAssist.Hint="{DynamicResource cProductReference}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,79,0,0" Height="70" TextWrapping="Wrap" VerticalAlignment="Top" Width="105"/>
                                 <TextBox x:Name="PFDes" ToolTip="{DynamicResource cDescription}" materialDesign:HintAssist.Hint="{DynamicResource cDescription}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,154,0,0" Height="88" TextWrapping="Wrap" VerticalAlignment="Top" Width="259"/>
                                 <ComboBox x:Name="PFCat" ToolTip="{DynamicResource cCategory}" materialDesign:HintAssist.Hint="{DynamicResource cCategory}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="110,79,-0.8,0" Height="70" VerticalAlignment="Top" Width="150" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="12,0"/>
-                                <Button x:Name="PFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,0,0,8" VerticalAlignment="Bottom" Width="125" Click="PFDone_Click"/>
-                                <Button x:Name="PFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,0,4,8" VerticalAlignment="Bottom" Width="125" Click="PFDelete_Click"/>
+                                <Button x:Name="PFDone" ToolTip="{DynamicResource bAdd}" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,0,0,8" VerticalAlignment="Bottom" Width="125" Click="PFDone_Click"/>
+                                <Button x:Name="PFDelete" ToolTip="{DynamicResource bCancel}" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,0,4,8" VerticalAlignment="Bottom" Width="125" Click="PFDelete_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cProducts}" Padding="8, 2, 8, 2" Margin="290,10,10,153.2">
@@ -88,9 +88,9 @@
                         </ListBox>
                         <GroupBox Header="{DynamicResource cActions}" Padding="8, 2, 8, 2" Margin="0,0,10,10.2" Height="135" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="211">
                             <Grid Margin="0,0,0,1.2">
-                                <Button x:Name="bAddProduct" IsEnabled="False" Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="bAddProduct_Click"/>
-                                <Button x:Name="bAddImage" IsEnabled="False" Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32" Click="BAddImage_Click"/>
-                                <Button x:Name="bDeleteImages" IsEnabled="False" Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32" Click="BDeleteImages_Click"/>
+                                <Button x:Name="bAddProduct" IsEnabled="False" ToolTip="{DynamicResource bAddProduct}" Content="{DynamicResource bAddProduct}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="bAddProduct_Click"/>
+                                <Button x:Name="bAddImage" IsEnabled="False" ToolTip="{DynamicResource bAddImage}" Content="{DynamicResource bAddImage}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32" Click="BAddImage_Click"/>
+                                <Button x:Name="bDeleteImages" IsEnabled="False" ToolTip="{DynamicResource bDeleteImages}" Content="{DynamicResource bDeleteImages}" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Margin="0,77,0.2,0" VerticalAlignment="Top" Height="32" Click="BDeleteImages_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -104,9 +104,9 @@
                                 <TextBox x:Name="CFClientEmail" ToolTip="{DynamicResource cClientEmail}" materialDesign:HintAssist.Hint="{DynamicResource cClientEmail}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="88" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
                                 <TextBox x:Name="CFClientName" ToolTip="{DynamicResource cClientLastName}" materialDesign:HintAssist.Hint="{DynamicResource cClientLastName}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <TextBox x:Name="CFClientPhoneNumber" ToolTip="{DynamicResource cClientPhoneNumber}" materialDesign:HintAssist.Hint="{DynamicResource cClientPhoneNumber}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,134,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
-                                <Button IsEnabled="False" Content="{DynamicResource bResetPassword}" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.215,2.439"/>
-                                <Button x:Name="CFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125" Click="CFDone_Click"/>
-                                <Button x:Name="CFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125" Click="CFDelete_Click"/>
+                                <Button x:Name="CFResetPassword" IsEnabled="False" ToolTip="{DynamicResource bResetPassword}" Content="{DynamicResource bResetPassword}" HorizontalAlignment="Left" Margin="0,162,0,0" VerticalAlignment="Top" Width="125" RenderTransformOrigin="0.215,2.439" Click="CFResetPassword_Click"/>
+                                <Button x:Name="CFDone" ToolTip="{DynamicResource bAdd}" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,199,0,0" VerticalAlignment="Top" Width="125" Click="CFDone_Click"/>
+                                <Button x:Name="CFDelete" ToolTip="{DynamicResource bCancel}" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="130,199,0,0" VerticalAlignment="Top" Width="125" Click="CFDelete_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cClients}" Padding="8, 2, 8, 2" Margin="290,10,10,207.4">
@@ -137,8 +137,8 @@
                                 <TextBox x:Name="AFComplement" ToolTip="{DynamicResource cAddressComplement}" materialDesign:HintAssist.Hint="{DynamicResource cAddressComplement}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,4,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <TextBox x:Name="AFCity" ToolTip="{DynamicResource cAddressCity}" materialDesign:HintAssist.Hint="{DynamicResource cAddressCity}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="134,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
                                 <TextBox x:Name="AFZipCode" ToolTip="{DynamicResource cAddressZipCode}" materialDesign:HintAssist.Hint="{DynamicResource cAddressZipCode}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" HorizontalAlignment="Left" Margin="0,69,0,0" Height="60" TextWrapping="Wrap" VerticalAlignment="Top" Width="129"/>
-                                <Button x:Name="AFDone" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,0,0,4" VerticalAlignment="Bottom" Width="125" Click="AFDone_Click"/>
-                                <Button x:Name="AFDelete" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,0,0,4" VerticalAlignment="Bottom" Width="125" Click="AFDelete_Click"/>
+                                <Button x:Name="AFDone" ToolTip="{DynamicResource bAdd}" Content="{DynamicResource bAdd}" HorizontalAlignment="Left" Margin="0,0,0,4" VerticalAlignment="Bottom" Width="125" Click="AFDone_Click"/>
+                                <Button x:Name="AFDelete" ToolTip="{DynamicResource bCancel}" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,0,0,4" VerticalAlignment="Bottom" Width="125" Click="AFDelete_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cClientAddress}" Padding="8,2,8,2" Margin="290,0,189,4.4" VerticalAlignment="Bottom" Height="198">
@@ -155,8 +155,8 @@
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cActions}" Padding="8,2,8,2" Margin="0,0,10,4.4" Height="198" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="174">
                             <Grid Margin="0,0,0,1.2">
-                                <Button x:Name="bAddClient" IsEnabled="False" Content="{DynamicResource bAddClient}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="BAddClient_Click"/>
-                                <Button x:Name="bAddAddress" IsEnabled="False" Content="{DynamicResource bAddAddress}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32" Click="BAddAddress_Click"/>
+                                <Button x:Name="bAddClient" ToolTip="{DynamicResource bAddClient}" IsEnabled="False" Content="{DynamicResource bAddClient}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="BAddClient_Click"/>
+                                <Button x:Name="bAddAddress" ToolTip="{DynamicResource bAddAddress}" IsEnabled="False" Content="{DynamicResource bAddAddress}" Margin="0,42,0.2,0" VerticalAlignment="Top" Height="32" Click="BAddAddress_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
@@ -196,19 +196,19 @@
                         <GroupBox Header="{DynamicResource bSearch}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="200" Padding="8,2,8,2" Margin="0,10,10,0" Height="135">
                             <Grid Margin="0,0,0,0" x:Name="ChangeOrderAddressForm1">
                                 <TextBox x:Name="OrderSearch" ToolTip="{DynamicResource cOrderSearch}" materialDesign:HintAssist.Hint="{DynamicResource cOrderSearch}" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  Margin="0" Height="60" VerticalAlignment="Top"/>
-                                <Button Content="{DynamicResource bSearch}" HorizontalAlignment="Center" Margin="0,71,0.2,0" VerticalAlignment="Top" Width="125" Click="OrderSearch_Click"/>
+                                <Button ToolTip="{DynamicResource bSearch}" Content="{DynamicResource bSearch}" HorizontalAlignment="Center" Margin="0,71,0.2,0" VerticalAlignment="Top" Width="125" Click="OrderSearch_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cChangeDeliveryAddress}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="275" Padding="8,2,8,2" Margin="0,0,10,70.4" Height="135">
                             <Grid Margin="0,0,0,0" x:Name="ChangeOrderAddressForm" Visibility="Collapsed">
                                 <ComboBox x:Name="DAFAddress" ToolTip="{DynamicResource cAddresses}" materialDesign:HintAssist.Hint="{DynamicResource cAddresses}" Style="{StaticResource MaterialDesignComboBox}" HorizontalAlignment="Left" Margin="9,6,0,0" Height="60" VerticalAlignment="Top" Width="239" SelectionChanged="DAFAddress_SelectionChanged"/>
-                                <Button x:Name="DAFDone" IsEnabled="False" Content="{DynamicResource bDone}" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="125" Click="DAFDone_Click"/>
-                                <Button x:Name="DAFCancel" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,71,0.2,0" VerticalAlignment="Top" Width="125" Click="DAFCancel_Click"/>
+                                <Button x:Name="DAFDone" IsEnabled="False" ToolTip="{DynamicResource bDone}" Content="{DynamicResource bDone}" HorizontalAlignment="Left" Margin="0,71,0,0" VerticalAlignment="Top" Width="125" Click="DAFDone_Click"/>
+                                <Button x:Name="DAFCancel" ToolTip="{DynamicResource bCancel}" Content="{DynamicResource bCancel}" HorizontalAlignment="Right" Margin="0,71,0.2,0" VerticalAlignment="Top" Width="125" Click="DAFCancel_Click"/>
                             </Grid>
                         </GroupBox>
                         <GroupBox Header="{DynamicResource cActions}" Padding="8,2,8,2" Margin="0,0,10,5.4" Height="60" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="275">
                             <Grid Margin="0,0,0,1.2">
-                                <Button x:Name="bShipTheOrder" IsEnabled="False" Content="{DynamicResource bShipTheOrder}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="BShipTheOrder_Click"/>
+                                <Button x:Name="bShipTheOrder" IsEnabled="False" ToolTip="{DynamicResource bShipTheOrder}" Content="{DynamicResource bShipTheOrder}" Margin="0,4,0,0" VerticalAlignment="Top" Height="32" Click="BShipTheOrder_Click"/>
                             </Grid>
                         </GroupBox>
                     </Grid>
