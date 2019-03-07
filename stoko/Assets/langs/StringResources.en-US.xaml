@@ -46,6 +46,19 @@
     <system:String x:Key="cDescription">Description</system:String>
     <system:String x:Key="cCategory">Category</system:String>
 
+    <!-- form product -->
+    <system:String x:Key="mpfTitleNull">The product title must be between 2 and 100 characters long</system:String>
+    <system:String x:Key="mpfTitleMin">The product title must be more than 2 characters long</system:String>
+    <system:String x:Key="mpfTitleMax">The product title should not be more than 100 characters long</system:String>
+
+    <system:String x:Key="mpfPriceNull">The product price must be informed by a number</system:String>
+
+    <system:String x:Key="mpfRefnull">The product reference must be between 6 and 100 characters long</system:String>
+    <system:String x:Key="mpfRefMin">The product reference must be more than 6 characters long</system:String>
+    <system:String x:Key="mpfRefMax">The product reference should not be more than 100 characters long</system:String>
+
+    <system:String x:Key="mpfDesNull">The product description should not be more than 1000 characters long</system:String>
+    
     <!-- contents Clients tab -->
     <system:String x:Key="cClientInfos">Client infos</system:String>
     <system:String x:Key="cClients">Clients</system:String>
@@ -63,6 +76,36 @@
     <system:String x:Key="cAddressZipCode">Zip code</system:String>
     <system:String x:Key="cAddressCity">City</system:String>
 
+    <!-- form product -->
+    <system:String x:Key="mcfLoginNull">The client login must be between 2 and 20 characters long</system:String>
+    <system:String x:Key="mcfLoginMin">The client login must be more than 2 characters long</system:String>
+    <system:String x:Key="mcfLoginMax">The client login should not be more than 20 characters long</system:String>
+
+    <system:String x:Key="mcfEmailNull">The client login email must be between 5 and 100 characters long</system:String>
+    <system:String x:Key="mcfEmailMin">The client login email must be more than 5 characters long</system:String>
+    <system:String x:Key="mcfEmailMax">The client login email should not be more than 100 characters long</system:String>
+
+    <system:String x:Key="mcfLastNameMax">The client last name should not be more than 50 characters long</system:String>
+
+    <system:String x:Key="mcfFirstNameMax">The client first name should not be more than 50 characters long</system:String>
+
+    <system:String x:Key="mcfPhoneNumberMax">The client phone number should not be more than 13 characters long</system:String>
+
+    <!-- form address -->
+    <system:String x:Key="mAfWayNull">The address must be between 10 and 100 characters long</system:String>
+    <system:String x:Key="mAfWayMin">The address must be more than 10 characters long</system:String>
+    <system:String x:Key="mAfWayMax">The address should not be more than 100 characters long</system:String>
+
+    <system:String x:Key="mAfComplementMax">The additional address should not be more than 100 characters long</system:String>
+
+    <system:String x:Key="mAfZipCodeNull">Postal code must be between 2 and 10 characters long</system:String>
+    <system:String x:Key="mAfZipCodeMin">Postal code must be more than 2 characters long</system:String>
+    <system:String x:Key="mAfZipCodeMax">Postal code should not be more than 10 characters long</system:String>
+
+    <system:String x:Key="mAfCityNull">The city must be between 2 and 100 characters long</system:String>
+    <system:String x:Key="mAfCityMin">The city must be mode than 2 characters long</system:String>
+    <system:String x:Key="mAfCityMax">The city should not be more than 100 characters long</system:String>
+    
     <!-- contents Orders tab -->
     <system:String x:Key="cOrders">Orders</system:String>
     <system:String x:Key="cOrdersClientName">Client name</system:String>
