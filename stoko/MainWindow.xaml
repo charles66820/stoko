@@ -315,8 +315,8 @@
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="200"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBox x:Name="accessToken" materialDesign:HintAssist.Hint="{DynamicResource sImgServerUrl}" Grid.Column="0" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Height="60" Margin="8" TextWrapping="Wrap" Width="auto"/>
-                                        <Button Grid.Column="1" Content="{DynamicResource bDone}" Margin="8" Click="Button_Click"/>
+                                        <TextBox x:Name="accessToken" materialDesign:HintAssist.Hint="{DynamicResource sAccessToken}" Grid.Column="0" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Height="60" Margin="8" TextWrapping="Wrap" Width="auto"/>
+                                        <Button Grid.Column="1" Content="{DynamicResource bDone}" Margin="8" Click="ATButton_Click"/>
                                     </Grid>
                                     <!--<TextBox materialDesign:HintAssist.Hint="test 3" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}" HorizontalAlignment="Left" Margin="10,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>-->
                                 </StackPanel>

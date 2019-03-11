@@ -91,8 +91,8 @@ namespace stoko {
             Configs.EditConfigData("imgSrvUrl", imgSrvUrl.Text);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            Configs.EditConfigData("imgSrvUrl", accessToken.Text);
+        private void ATButton_Click(object sender, RoutedEventArgs e) {
+            Configs.EditConfigData("accessToken", accessToken.Text);
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e) {
@@ -157,9 +157,12 @@ namespace stoko {
 
         private void LbPictures_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             if (lbPictures.SelectedItem as Picture != null) {
-                imgViewPicture.Source = new BitmapImage(
-                    new Uri(Configs.Data.Global["imgSrvUrl"] + "img/products/" + (lbPictures.SelectedItem as Picture).PictureName, UriKind.Absolute)
-                );
+                try
+                {
+                    imgViewPicture.Source = new BitmapImage(
+                        new Uri(Configs.Data.Global["imgSrvUrl"] + "img/products/" + (lbPictures.SelectedItem as Picture).PictureName, UriKind.Absolute)
+                    );
+                } catch { }
                 bDeleteImages.IsEnabled = true;
             } else {
                 imgViewPicture.Source = null;
