@@ -61,14 +61,46 @@
                             <Grid Margin="0,0,0,0">
                                 <DataGrid x:Name="dgProducts" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" SelectionChanged="DgProducts_SelectionChanged">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{DynamicResource cNum}"  Binding="{Binding Id}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cProductTitle}" Binding="{Binding Title}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cPriceHT}" Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cProductReference}" Binding="{Binding Reference}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cQuantityNotOrdered}" Binding="{Binding Quantity}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cQuantityInStock}" Binding="{Binding QuantityStock}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cDescription}" Binding="{Binding Description}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cCategory}" Binding="{Binding Category.Title }"/>
+                                        <DataGridTextColumn Binding="{Binding Id}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cNum}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Title}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cProductTitle}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cPriceHT}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Reference}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cProductReference}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Quantity}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cQuantityNotOrdered}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding QuantityStock}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cQuantityInStock}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Description}">
+                                            <DataGridTextColumn.Header>
+                                            <TextBlock Text="{DynamicResource ResourceKey=cDescription}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Category.Title }">
+                                            <DataGridTextColumn.Header>
+                                            <TextBlock Text="{DynamicResource ResourceKey=cCategory}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>
@@ -113,20 +145,51 @@
                             <Grid Margin="0,0,0,0">
                                 <DataGrid x:Name="dgClients" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" SelectionChanged="DgClients_SelectionChanged">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{DynamicResource cNum}" Binding="{Binding Id}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cClientLogin}" Binding="{Binding Login}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cClientLastName}" Binding="{Binding LastName}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cClientFirstName}" Binding="{Binding FirstName}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cClientEmail}" Binding="{Binding Email}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cClientPhoneNumber}" Binding="{Binding PhoneNumber}"/>
-                                        <DataGridTemplateColumn  Header="{DynamicResource cClientAvatar}" MaxWidth="80">
+                                        <DataGridTextColumn Binding="{Binding Id}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cNum}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Login}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cClientLogin}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding LastName}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cClientLastName}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding FirstName}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cClientFirstName}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Email}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cClientEmail}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding PhoneNumber}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cClientPhoneNumber}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTemplateColumn MaxWidth="80">
+                                            <DataGridTemplateColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cClientAvatar}" />
+                                            </DataGridTemplateColumn.Header>
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <Image Source="{Binding Avatar, Converter={StaticResource AvatarConverter}}" />
                                                 </DataTemplate>
                                             </DataGridTemplateColumn.CellTemplate>
                                         </DataGridTemplateColumn>
-                                        <DataGridTextColumn Header="{DynamicResource cClientCreationDate}" Binding="{Binding CreatedDate, StringFormat={}{0:dd/MM/yyyy HH:mm:ss} }"/>
+                                        <DataGridTextColumn Binding="{Binding CreatedDate, StringFormat={}{0:dd/MM/yyyy HH:mm:ss} }">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cClientCreationDate}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>
@@ -145,10 +208,26 @@
                             <Grid Margin="0,0,0,0">
                                 <DataGrid x:Name="dgAddresses" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" SelectionChanged="DgAddresses_SelectionChanged">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{DynamicResource cAddressWay}"  Binding="{Binding Way}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cAddressComplement}" Binding="{Binding Complement}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cAddressZipCode}" Binding="{Binding ZipCode}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cAddressCity}" Binding="{Binding City}"/>
+                                        <DataGridTextColumn Binding="{Binding Way}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cAddressWay}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Complement}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cAddressComplement}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding ZipCode}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cAddressZipCode}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding City}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cAddressCity}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>
@@ -167,15 +246,51 @@
                             <Grid Margin="0,0,0,0">
                                 <DataGrid x:Name="dgOrder" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False" SelectionChanged="DgOrder_SelectionChanged">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{DynamicResource cNum}" Binding="{Binding Id}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersClientName}" Binding="{Binding ClientName}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersClientNum}" Binding="{Binding ClientId, Converter={StaticResource NoneConverter}}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersShipping}" Binding="{Binding Shipping, Converter={StaticResource PriceConverter}}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersPriceHT}" Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersPriceTTC}" Binding="{Binding PriceTTC, Converter={StaticResource PriceConverter}}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersShippingAddress}" Binding="{Binding ShippingAddress}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersDate}" Binding="{Binding OrderedDate, StringFormat={}{0:dd/MM/yyyy HH:mm:ss}}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cOrdersShipped}" Binding="{Binding Shipped, Converter={StaticResource ShippedConverter}}"/>
+                                        <DataGridTextColumn Binding="{Binding Id}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cNum}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding ClientName}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cOrdersClientName}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding ClientId, Converter={StaticResource NoneConverter}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cOrdersClientNum}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Shipping, Converter={StaticResource PriceConverter}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cOrdersShipping}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cOrdersPriceHT}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding PriceTTC, Converter={StaticResource PriceConverter}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cOrdersPriceTTC}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding ShippingAddress}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cOrdersShippingAddress}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding OrderedDate, StringFormat={}{0:dd/MM/yyyy HH:mm:ss}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cOrdersDate}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Shipped, Converter={StaticResource ShippedConverter}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cOrdersShipped}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>
@@ -184,11 +299,31 @@
                             <Grid Margin="0,0,0,0">
                                 <DataGrid x:Name="dgOrderContent" Margin="0,4,0,6" AutoGenerateColumns="False" EnableColumnVirtualization="True" IsReadOnly="True" CanUserReorderColumns="False" CanUserResizeColumns="False" SelectionMode="Single" CanUserResizeRows="False">
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Header="{DynamicResource cNumProducts}" Binding="{Binding ProductId, Converter={StaticResource NoneConverter}}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cProductReference}" Binding="{Binding ProductReference}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cProductTitle}" Binding="{Binding ProductName}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cPriceHT}" Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}"/>
-                                        <DataGridTextColumn Header="{DynamicResource cQuantityOrdered}" Binding="{Binding Qantity}"/>
+                                        <DataGridTextColumn Binding="{Binding ProductId, Converter={StaticResource NoneConverter}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cNumProducts}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding ProductReference}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cProductReference}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding ProductName}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cProductTitle}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding PriceHT, Converter={StaticResource PriceConverter}}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cPriceHT}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Binding="{Binding Qantity}">
+                                            <DataGridTextColumn.Header>
+                                                <TextBlock Text="{DynamicResource ResourceKey=cQuantityOrdered}" />
+                                            </DataGridTextColumn.Header>
+                                        </DataGridTextColumn>
                                     </DataGrid.Columns>
                                 </DataGrid>
                             </Grid>

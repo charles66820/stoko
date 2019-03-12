@@ -70,6 +70,11 @@ namespace stoko {
                     Configs.SetLanguageDictionary("en-US");
                     Configs.EditConfigData("lang", "en-US");
                 }
+                dgProducts.UpdateLayout();
+                dgAddresses.UpdateLayout();
+                dgClients.UpdateLayout();
+                dgOrder.UpdateLayout();
+                dgOrderContent.UpdateLayout();
             }
         }
 
