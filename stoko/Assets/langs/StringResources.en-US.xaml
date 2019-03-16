@@ -20,7 +20,7 @@
     <system:String x:Key="bAddImage">Add images</system:String>
     <system:String x:Key="bDeleteImages">Delete image</system:String>
     <system:String x:Key="bResetPassword">Reset password</system:String>
-    <system:String x:Key="bAddClient">Add client</system:String>
+    <system:String x:Key="bAddClient">Add customer</system:String>
     <system:String x:Key="bAddAddress">Add address</system:String>
     <system:String x:Key="bShipTheOrder">Ship the order</system:String>
     <system:String x:Key="bDbConnect">Connect to db</system:String>
@@ -28,7 +28,7 @@
 
     <!-- tabs -->
     <system:String x:Key="tProduct">Products</system:String>
-    <system:String x:Key="tClient">Clients</system:String>
+    <system:String x:Key="tClient">Customers</system:String>
     <system:String x:Key="tOrder">Orders</system:String>
 
     <!-- contents tabs -->
@@ -58,10 +58,10 @@
     <system:String x:Key="mpfRefMax">The product reference should not be more than 100 characters long</system:String>
 
     <system:String x:Key="mpfDesNull">The product description should not be more than 1000 characters long</system:String>
-    
-    <!-- contents Clients tab -->
-    <system:String x:Key="cClientInfos">Client infos</system:String>
-    <system:String x:Key="cClients">Clients</system:String>
+
+    <!-- contents customers tab -->
+    <system:String x:Key="cClientInfos">Customer info</system:String>
+    <system:String x:Key="cClients">Customers</system:String>
     <system:String x:Key="cClientLogin">Login</system:String>
     <system:String x:Key="cClientLastName">Last name</system:String>
     <system:String x:Key="cClientFirstName">First name</system:String>
@@ -70,26 +70,26 @@
     <system:String x:Key="cClientAvatar">Avatar</system:String>
     <system:String x:Key="cClientCreationDate">Creation date</system:String>
     <system:String x:Key="cAddressInfos">Address infos</system:String>
-    <system:String x:Key="cClientAddress">Client addresses</system:String>
+    <system:String x:Key="cClientAddress">Customers addresses</system:String>
     <system:String x:Key="cAddressWay">Way</system:String>
     <system:String x:Key="cAddressComplement">Complement</system:String>
     <system:String x:Key="cAddressZipCode">Zip code</system:String>
     <system:String x:Key="cAddressCity">City</system:String>
 
     <!-- form product -->
-    <system:String x:Key="mcfLoginNull">The client login must be between 2 and 20 characters long</system:String>
-    <system:String x:Key="mcfLoginMin">The client login must be more than 2 characters long</system:String>
-    <system:String x:Key="mcfLoginMax">The client login should not be more than 20 characters long</system:String>
+    <system:String x:Key="mcfLoginNull">The customer login must be between 2 and 20 characters long</system:String>
+    <system:String x:Key="mcfLoginMin">The customer login must be more than 2 characters long</system:String>
+    <system:String x:Key="mcfLoginMax">The customer login should not be more than 20 characters long</system:String>
 
-    <system:String x:Key="mcfEmailNull">The client login email must be between 5 and 100 characters long</system:String>
-    <system:String x:Key="mcfEmailMin">The client login email must be more than 5 characters long</system:String>
-    <system:String x:Key="mcfEmailMax">The client login email should not be more than 100 characters long</system:String>
+    <system:String x:Key="mcfEmailNull">The customer login email must be between 5 and 100 characters long</system:String>
+    <system:String x:Key="mcfEmailMin">The customer login email must be more than 5 characters long</system:String>
+    <system:String x:Key="mcfEmailMax">The customer login email should not be more than 100 characters long</system:String>
 
-    <system:String x:Key="mcfLastNameMax">The client last name should not be more than 50 characters long</system:String>
+    <system:String x:Key="mcfLastNameMax">The customer last name should not be more than 50 characters long</system:String>
 
-    <system:String x:Key="mcfFirstNameMax">The client first name should not be more than 50 characters long</system:String>
+    <system:String x:Key="mcfFirstNameMax">The customer first name should not be more than 50 characters long</system:String>
 
-    <system:String x:Key="mcfPhoneNumberMax">The client phone number should not be more than 13 characters long</system:String>
+    <system:String x:Key="mcfPhoneNumberMax">The customer phone number should not be more than 13 characters long</system:String>
 
     <!-- form address -->
     <system:String x:Key="mAfWayNull">The address must be between 10 and 100 characters long</system:String>
@@ -108,8 +108,8 @@
     
     <!-- contents Orders tab -->
     <system:String x:Key="cOrders">Orders</system:String>
-    <system:String x:Key="cOrdersClientName">Client name</system:String>
-    <system:String x:Key="cOrdersClientNum">N° client</system:String>
+    <system:String x:Key="cOrdersClientName">Customer name</system:String>
+    <system:String x:Key="cOrdersClientNum">N° customer</system:String>
     <system:String x:Key="cOrdersShipping">Shipping</system:String>
     <system:String x:Key="cOrdersPriceHT">Price without tax</system:String>
     <system:String x:Key="cOrdersPriceTTC">Price with tax</system:String>
@@ -121,7 +121,7 @@
     <system:String x:Key="cNumProducts">N° product</system:String>
     <system:String x:Key="cChangeDeliveryAddress">Change delivery address</system:String>
     <system:String x:Key="cAddresses">Addresses</system:String>
-    <system:String x:Key="cOrderSearch">Search order by client name</system:String>
+    <system:String x:Key="cOrderSearch">Search order by customer name</system:String>
     <system:String x:Key="bSearch">Search</system:String>
 
     <!-- settings -->
